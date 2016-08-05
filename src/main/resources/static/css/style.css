@@ -1,14 +1,19 @@
-.menuLateral{
-    background-color: #ef3c3c !important;
+.corDeFundoPadraoVermelho{
+    background-color: #ee0000 !important;
 }
 .btnRedimensionar{
     margin-top: 18px;
     margin-left:100px;
+    background-color: #ffffff !important;
 }
-.barraAcima{
-    background-color: #dddddd !important;
+.corDeFundoPadraoBranco{
+    background-color: #ffffff !important;
 }
-.formatarCamposMenuLateral{
-    color: #2e6da4;
+.formatarCamposMenuLateralPrincipal{
+    color: #ffffff;
+    font-family: sans-serif;
+}
+.tituloSuperior{
+    color: #ffffff;
     font-family: sans-serif;
 }

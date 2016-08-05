@@ -1,0 +1,14 @@
+.menuLateral{
+    background-color: #ef3c3c !important;
+}
+.btnRedimensionar{
+    margin-top: 18px;
+    margin-left:100px;
+}
+.barraAcima{
+    background-color: #dddddd !important;
+}
+.formatarCamposMenuLateral{
+    color: #2e6da4;
+    font-family: sans-serif;
+}

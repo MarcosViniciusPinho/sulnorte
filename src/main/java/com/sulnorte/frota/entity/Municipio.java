@@ -23,6 +23,9 @@ public class Municipio implements Serializable {
     @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;
 
+    @OneToOne(mappedBy = "municipio")
+    private Endereco endereco;
+
     public Long getId() {
         return id;
     }
@@ -45,5 +48,18 @@ public class Municipio implements Serializable {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return id + ", " + nome;
     }
 }

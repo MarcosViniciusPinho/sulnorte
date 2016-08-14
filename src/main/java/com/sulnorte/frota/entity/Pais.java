@@ -23,6 +23,9 @@ public class Pais implements Serializable {
     @OneToMany(mappedBy = "pais")
     private Set<Estado> estadoSet;
 
+    @OneToOne(mappedBy = "pais")
+    private Endereco endereco;
+
     public Long getId() {
         return id;
     }
@@ -45,5 +48,18 @@ public class Pais implements Serializable {
 
     public void setEstadoSet(Set<Estado> estadoSet) {
         this.estadoSet = estadoSet;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return id + " , " + nome;
     }
 }

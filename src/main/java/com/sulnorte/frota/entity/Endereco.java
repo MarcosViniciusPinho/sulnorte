@@ -37,6 +37,9 @@ public class Endereco implements Serializable {
     @JoinColumn(name = "id_municipio", nullable = false)
     private Municipio municipio;
 
+    @OneToOne(mappedBy = "endereco")
+    private Porto porto;
+
     public Long getId() {
         return id;
     }
@@ -91,6 +94,14 @@ public class Endereco implements Serializable {
 
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
+    }
+
+    public Porto getPorto() {
+        return porto;
+    }
+
+    public void setPorto(Porto porto) {
+        this.porto = porto;
     }
 
     @Override

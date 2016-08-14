@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "estado")
+@Table(name = "municipio")
 public class Municipio implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -1,0 +1,13 @@
+CREATE SEQUENCE sq_porto INCREMENT BY 1 START WITH 1000;
+
+CREATE TABLE porto(
+  id NUMBER(11) NOT NULL,
+  nome VARCHAR(100) NOT NULL,
+  cnpj NUMBER(15),
+  filial VARCHAR(50) NOT NULL,
+  id_endereco NUMBER(11) NOT NULL
+);
+
+ALTER TABLE porto ADD CONSTRAINT pk_id_porto PRIMARY KEY (id);
+
+ALTER TABLE porto ADD CONSTRAINT fk_port_id_endereco FOREIGN KEY (id_endereco) REFERENCES endereco (id);

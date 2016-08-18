@@ -4,11 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
 public class LoginController {
 
     private static final String VIEW_HOME = "Menu";
-    private static final String ACTION_HOME = "home";
+    private static final String ACTION_HOME = "/home";
 
     @RequestMapping(value = ACTION_HOME)
     public String home(){

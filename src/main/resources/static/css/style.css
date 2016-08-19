@@ -17,6 +17,9 @@
     color: #ffffff;
     font-family: sans-serif;
 }
-.centralizarCampos{
+.centralizarTexto{
     text-align: center;
+}
+a{
+    color: #ee0000;
 }

@@ -1,28 +1,32 @@
 $(document).ready(function() {
+    $("#estado").html('<option value="" selected="selected">Selecione um estado</option>');
+    $("#pais option:first").attr('selected','selected');
     $("#pais").change(function() {
         var pais = $("#pais").val();
-        executarJson("#pais", '/porto/listarEstadoPorPais', pais);
+        if(pais === ""){
+            $("#estado").html("");
+            $("#estado").html('<option value="" selected="selected">Selecione um estado</option>');
+        } else{
+            executarJson("#estado", '/porto/listarEstadoPorPais', pais);
+        }
     });
 });
 
-function executarJson(element,urlMetodo,pais) {
+function executarJson(element, urlMetodo, parametro) {
+    $(element).html('<option value="" selected="selected">Selecione um estado</option>');
     $.ajax({
         url : urlMetodo,
         type: 'POST',
         dataType: 'json',
-        data: "{\"id\": \"" + pais + "\"}",
+        data: parametro,
         contentType: 'application/json',
         mimeType: 'application/json',
         success : function(data) {
-            var transform = {'tag':'option id=\"\${pais}\"','html':'\${pais}'};
-            if(data !== null && data.length === 1){
-                $(element).html("");
-            }
+            var transform = {'tag':'option id=\"\${id}\"','html':'\${nome}'};
             $(element).append(json2html.transform(data,transform));
         },
         error:function(data,status,er) {
-            var msg = 'Erro ao enviar<br>' + data +'<br>'+status+'<br>'+er;
-            errorAlert(msg);
+            console.log('Erro ao enviar<br>' + data +'<br>'+status+'<br>'+er);
         }
     });
 }

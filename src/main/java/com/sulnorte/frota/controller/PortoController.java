@@ -4,6 +4,7 @@ import com.sulnorte.frota.business.IEstadoService;
 import com.sulnorte.frota.business.IMunicipioService;
 import com.sulnorte.frota.business.IPaisService;
 import com.sulnorte.frota.business.IPortoService;
+import com.sulnorte.frota.dto.EstadoDTO;
 import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.entity.Pais;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -41,7 +41,7 @@ public class PortoController {
     public IMunicipioService municipioService;
 
     @RequestMapping(value = ACTION_LIST)
-    public String home(){
+    public String list(){
         return VIEW_LIST;
     }
 
@@ -66,18 +66,10 @@ public class PortoController {
 
     @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<List<PortoDTO>> listEdicoes(@RequestBody String idPais) {
-        HttpStatus status = HttpStatus.OK;
-        List<String> lista = new ArrayList<String>(1);
-        return null;
-//        List<EdicaoDTO> edicaoList = new ArrayList<EdicaoDTO>();
-//        try {
-//            edicaoList = edicaoFacade.findAllEdicoesByPerfil(perfil);
-//            status = HttpStatus.OK;
-//        } catch (RuntimeException e) {
-//            status = trataErroRest(lista, e);
-//        }
-//        return new ResponseEntity<List<EdicaoDTO>>(edicaoList, status);
+    public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody String idPais) {
+        Pais pais = this.paisService.getOne(Long.parseLong(idPais));
+        List<EstadoDTO> listarEstados = EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais((pais)));
+        return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
     }
 
 }

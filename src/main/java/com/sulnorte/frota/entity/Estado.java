@@ -1,6 +1,8 @@
 package com.sulnorte.frota.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -23,10 +25,12 @@ public class Estado implements Serializable {
     @Column(name = "sigla", length = 5, nullable = false)
     private String sigla;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_pais", nullable = false)
     private Pais pais;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "estado")
     private Set<Municipio> municipioSet;
 

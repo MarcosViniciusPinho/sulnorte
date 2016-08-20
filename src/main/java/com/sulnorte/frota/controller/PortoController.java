@@ -7,11 +7,13 @@ import com.sulnorte.frota.business.IPortoService;
 import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.entity.Pais;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,6 +26,7 @@ public class PortoController {
     private static final String ACTION_CREATE = "/create";
     private static final String ACTION_SAVE = "/save";
     private static final String LISTAR_PAISES="listarPaises";
+    private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
 
     @Autowired
     private IPortoService portoService;
@@ -61,5 +64,20 @@ public class PortoController {
         return this.paisService.findAll();
     }
 
+    @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<List<PortoDTO>> listEdicoes(@RequestBody String idPais) {
+        HttpStatus status = HttpStatus.OK;
+        List<String> lista = new ArrayList<String>(1);
+        return null;
+//        List<EdicaoDTO> edicaoList = new ArrayList<EdicaoDTO>();
+//        try {
+//            edicaoList = edicaoFacade.findAllEdicoesByPerfil(perfil);
+//            status = HttpStatus.OK;
+//        } catch (RuntimeException e) {
+//            status = trataErroRest(lista, e);
+//        }
+//        return new ResponseEntity<List<EdicaoDTO>>(edicaoList, status);
+    }
 
 }

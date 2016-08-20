@@ -6,6 +6,7 @@
 
 <head>
     <title>PORTO</title>
+    <script src="/js/porto/form.js"/>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                                         <label for="pais">País:</label>
                                         <select id="pais" class="form-control">
                                             <option>Selecione um país</option>
-                                            <option th:each="pais : ${listarPaises}" th:value="${pais}" th:text="${pais.nome}"></option>
+                                            <option th:each="pais : ${listarPaises}" th:value="${pais.id}" th:text="${pais.nome}"></option>
                                         </select>
                                     </div>
 
@@ -60,7 +61,7 @@
                                         <label for="estado">Estado:</label>
                                         <select id="estado" class="form-control">
                                             <option>Selecione um estado</option>
-                                            <option th:each="pais : ${listarPaises}" th:value="${pais}" th:text="${pais.nome}"></option>
+                                            <option th:each="estado : ${listarEstados}" th:value="${estado.id}" th:text="${estado.nome}"></option>
                                         </select>
                                     </div>
 

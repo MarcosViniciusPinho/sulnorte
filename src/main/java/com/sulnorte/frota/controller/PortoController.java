@@ -8,6 +8,7 @@ import com.sulnorte.frota.dto.EstadoDTO;
 import com.sulnorte.frota.dto.MunicipioDTO;
 import com.sulnorte.frota.dto.PaisDTO;
 import com.sulnorte.frota.dto.PortoDTO;
+import com.sulnorte.frota.util.ApplicationConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,8 @@ public class PortoController {
     private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
     private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
     private static final String LISTAR_PORTOS="listarPortos";
+    private static final String MENSAGEM_INCLUSAO="Porto salvo com sucesso.";
+
 
     @Autowired
     private IPortoService portoService;
@@ -66,6 +69,7 @@ public class PortoController {
         ModelAndView mv = new ModelAndView(VIEW_LIST);
         this.portoService.save(portoDTO.toEntity());
         mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
+        mv.addObject(ApplicationConstant.SUCESS, MENSAGEM_INCLUSAO);
         return mv;
     }
 

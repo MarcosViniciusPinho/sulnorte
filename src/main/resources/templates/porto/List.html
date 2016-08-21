@@ -20,6 +20,10 @@
                             <li class="active">Listagem de Portos</li>
                         </ol>
 
+                        <div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(sucess)}">
+                            <span th:text="${sucess}"></span>
+                        </div>
+
                         <h1>Porto</h1>
                         <hr />
 

@@ -48,13 +48,13 @@
                                     <td class="centralizarTexto" th:text="${porto.endereco.estado.sigla}"></td>
                                     <td class="centralizarTexto" th:text="${porto.endereco.pais.nome}"></td>
                                 </tr>
-                                <!--<tr>-->
-                                    <!--<td class="centralizarTexto" colspan="6">Nenhum porto foi encontrado.</td>-->
-                                <!--</tr>-->
+                                <tr>
+                                    <td class="centralizarTexto" colspan="6" th:if="${#lists.isEmpty(listarPortos)}">Nenhum registro foi encontrado.</td>
+                                </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td class="centralizarTexto" colspan="6">Existe(m) 1 registro(s).</td>
+                                    <td class="centralizarTexto" colspan="6" th:text="${'Existe(m) ' + #lists.size(listarPortos) + ' registro(s).'}"></td>
                                 </tr>
                             </tfoot>
                         </table>

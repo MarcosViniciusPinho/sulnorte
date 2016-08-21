@@ -8,7 +8,6 @@ import com.sulnorte.frota.dto.EstadoDTO;
 import com.sulnorte.frota.dto.MunicipioDTO;
 import com.sulnorte.frota.dto.PaisDTO;
 import com.sulnorte.frota.dto.PortoDTO;
-import com.sulnorte.frota.entity.Pais;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +29,7 @@ public class PortoController {
     private static final String LISTAR_PAISES="listarPaises";
     private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
     private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
+    private static final String LISTAR_PORTOS="listarPortos";
 
     @Autowired
     private IPortoService portoService;
@@ -62,23 +62,30 @@ public class PortoController {
         return mv;
     }
 
+
+    @ModelAttribute(LISTAR_PORTOS)
+    public List<PortoDTO> getListarPortos(){
+        return PortoDTO.convertListEntityToListDto(this.portoService.findAll());
+    }
+
+
     @ModelAttribute(LISTAR_PAISES)
-    public List<Pais> getListarPaises(){
-        return this.paisService.findAll();
+    public List<PaisDTO> getListarPaises(){
+        return PaisDTO.convertListEntityToListDto(this.paisService.findAll());
     }
 
     @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody String idPais) {
-        PaisDTO pais = PaisDTO.toDto(this.paisService.getOne(Long.parseLong(idPais)));
+    public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody Long idPais) {
+        PaisDTO pais = PaisDTO.toDto(this.paisService.getOne(idPais));
         List<EstadoDTO> listarEstados = EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais((pais.toEntity())));
         return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
     }
 
     @RequestMapping(value = ACTION_LISTAR_MUNICIPIO, method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody String idEstado) {
-        EstadoDTO estado = EstadoDTO.toDto(this.estadoService.getOne(Long.parseLong(idEstado)));
+    public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody Long idEstado) {
+        EstadoDTO estado = EstadoDTO.toDto(this.estadoService.getOne(idEstado));
         List<MunicipioDTO> listarMunicipios = MunicipioDTO.convertListEntityToListDto(this.municipioService.findByEstado(estado.toEntity()));
         return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
     }

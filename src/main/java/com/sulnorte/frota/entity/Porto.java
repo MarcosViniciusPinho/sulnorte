@@ -1,6 +1,8 @@
 package com.sulnorte.frota.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -25,7 +27,8 @@ public class Porto implements Serializable {
     @Column(name = "filial", length = 50, nullable = false)
     private String filial;
 
-    @OneToOne
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco", nullable = false)
     private Endereco endereco;
 

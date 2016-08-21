@@ -26,6 +26,7 @@ public class Municipio implements Serializable {
     @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "municipio")
     private Endereco endereco;
 

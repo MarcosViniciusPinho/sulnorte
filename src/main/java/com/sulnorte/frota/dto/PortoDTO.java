@@ -3,8 +3,11 @@ package com.sulnorte.frota.dto;
 
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Porto;
+import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PortoDTO implements Serializable {
 
@@ -30,7 +33,7 @@ public class PortoDTO implements Serializable {
         return porto;
     }
 
-    public PortoDTO toDto(Porto porto){
+    public static PortoDTO toDto(Porto porto){
         PortoDTO portoDTO = new PortoDTO();
         portoDTO.setId(porto.getId());
         portoDTO.setNome(porto.getNome());
@@ -38,6 +41,16 @@ public class PortoDTO implements Serializable {
         portoDTO.setFilial(porto.getFilial());
         portoDTO.setEndereco(porto.getEndereco());
         return portoDTO;
+    }
+
+    public static List<PortoDTO> convertListEntityToListDto(List<Porto> entities){
+        List<PortoDTO> lista = new ArrayList<PortoDTO>();
+        if(CollectionUtils.isNotEmpty(entities)){
+            for(Porto porto : entities){
+                lista.add(toDto(porto));
+            }
+        }
+        return lista;
     }
 
     public Long getId() {

@@ -8,31 +8,30 @@ function carregarEstados(){
     $("#pais option:first").attr('selected','selected');
     $("#pais").change(function() {
         var pais = $("#pais").val();
-        if(pais === ""){
-            $("#estado").html("");
-            $("#estado").html('<option value="" selected="selected">Selecione um estado</option>');
-        } else{
+        $("#estado").html("");
+        $("#estado").html('<option value="" selected="selected">Selecione um estado</option>');
+        $("#municipio").html("");
+        $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
+        if(pais !== ""){
             executarJson("#estado", '/porto/listarEstadoPorPais', pais);
         }
     });
 }
 
 function carregarMunicipios(){
-    $("#municipio").html('<option value="" selected="selected">Selecione um estado</option>');
+    $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
     $("#estado option:first").attr('selected','selected');
     $("#estado").change(function() {
         var estado = $("#estado").val();
-        if(estado === ""){
-            $("#municipio").html("");
-            $("#municipio").html('<option value="" selected="selected">Selecione um estado</option>');
-        } else{
+        $("#municipio").html("");
+        $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
+        if(estado !== ""){
             executarJson("#municipio", '/porto/listarMunicipioPorEstado', estado);
         }
     });
 }
 
 function executarJson(element, urlMetodo, parametro) {
-    $(element).html('<option value="" selected="selected">Selecione um estado</option>');
     $.ajax({
         url : urlMetodo,
         type: 'POST',
@@ -41,7 +40,7 @@ function executarJson(element, urlMetodo, parametro) {
         contentType: 'application/json',
         mimeType: 'application/json',
         success : function(data) {
-            var transform = {'tag':'option id=\"\${id}\"','html':'\${nome}'};
+            var transform = {'tag':'option id=\"\${id}\"','html':'\${nome}', 'value':'\${id}'};
             $(element).append(json2html.transform(data,transform));
         },
         error:function(data,status,er) {

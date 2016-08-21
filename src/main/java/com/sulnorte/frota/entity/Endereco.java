@@ -1,6 +1,8 @@
 package com.sulnorte.frota.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -25,6 +27,7 @@ public class Endereco implements Serializable {
     @Column(name = "numero", length = 10)
     private String numero;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "id_pais", nullable = false)
     private Pais pais;
@@ -33,10 +36,12 @@ public class Endereco implements Serializable {
     @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "id_municipio", nullable = false)
     private Municipio municipio;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "endereco")
     private Porto porto;
 

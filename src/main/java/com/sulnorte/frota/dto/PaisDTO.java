@@ -4,8 +4,11 @@ package com.sulnorte.frota.dto;
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Estado;
 import com.sulnorte.frota.entity.Pais;
+import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class PaisDTO implements Serializable {
@@ -36,6 +39,16 @@ public class PaisDTO implements Serializable {
         paisDTO.setEstadoSet(pais.getEstadoSet());
         paisDTO.setEndereco(pais.getEndereco());
         return paisDTO;
+    }
+
+    public static List<PaisDTO> convertListEntityToListDto(List<Pais> entities){
+        List<PaisDTO> lista = new ArrayList<PaisDTO>();
+        if(CollectionUtils.isNotEmpty(entities)){
+            for(Pais pais : entities){
+                lista.add(toDto(pais));
+            }
+        }
+        return lista;
     }
 
     public Long getId() {

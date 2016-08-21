@@ -13,11 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -35,6 +37,7 @@ public class PortoController {
     private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
     private static final String LISTAR_PORTOS="listarPortos";
     private static final String MENSAGEM_INCLUSAO="Porto salvo com sucesso.";
+    private static final String REDIRECT_LIST="redirect:/porto/list";
 
 
     @Autowired
@@ -65,12 +68,11 @@ public class PortoController {
     }
 
     @RequestMapping(value = ACTION_SAVE)
-    public ModelAndView save(PortoDTO portoDTO){
-        ModelAndView mv = new ModelAndView(VIEW_LIST);
+    public String save(PortoDTO portoDTO, RedirectAttributes redirectAttributes, Model model){
         this.portoService.save(portoDTO.toEntity());
-        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
-        mv.addObject(ApplicationConstant.SUCESS, MENSAGEM_INCLUSAO);
-        return mv;
+        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_INCLUSAO);
+        model.addAttribute(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
+        return REDIRECT_LIST;
     }
 
 

@@ -5,6 +5,8 @@ import com.sulnorte.frota.business.IMunicipioService;
 import com.sulnorte.frota.business.IPaisService;
 import com.sulnorte.frota.business.IPortoService;
 import com.sulnorte.frota.dto.EstadoDTO;
+import com.sulnorte.frota.dto.MunicipioDTO;
+import com.sulnorte.frota.dto.PaisDTO;
 import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.entity.Pais;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,7 @@ public class PortoController {
     private static final String ACTION_SAVE = "/save";
     private static final String LISTAR_PAISES="listarPaises";
     private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
+    private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
 
     @Autowired
     private IPortoService portoService;
@@ -67,9 +70,17 @@ public class PortoController {
     @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody String idPais) {
-        Pais pais = this.paisService.getOne(Long.parseLong(idPais));
-        List<EstadoDTO> listarEstados = EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais((pais)));
+        PaisDTO pais = PaisDTO.toDto(this.paisService.getOne(Long.parseLong(idPais)));
+        List<EstadoDTO> listarEstados = EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais((pais.toEntity())));
         return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = ACTION_LISTAR_MUNICIPIO, method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody String idEstado) {
+        EstadoDTO estado = EstadoDTO.toDto(this.estadoService.getOne(Long.parseLong(idEstado)));
+        List<MunicipioDTO> listarMunicipios = MunicipioDTO.convertListEntityToListDto(this.municipioService.findByEstado(estado.toEntity()));
+        return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.sulnorte.frota.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,6 +21,7 @@ public class Municipio implements Serializable {
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;

@@ -65,9 +65,7 @@
 
                                     <div class="col-sm-4">
                                         <label for="municipio">Município:</label>
-                                        <select id="municipio" class="form-control">
-                                            <option>Selecione um município</option>
-                                        </select>
+                                        <select id="municipio" class="form-control" th:field="*{endereco.municipio}"></select>
                                     </div>
                                     <div class="col-md-12"> &nbsp; </div>
                                     <div class="col-sm-5">

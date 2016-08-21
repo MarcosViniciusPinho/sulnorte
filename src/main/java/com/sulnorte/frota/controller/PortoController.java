@@ -14,10 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -31,6 +28,7 @@ public class PortoController {
     private static final String ACTION_LIST = "/list";
     private static final String VIEW_FORM = "porto/Form";
     private static final String ACTION_CREATE = "/create";
+    private static final String ACTION_EDIT = "/edit/{id}";
     private static final String ACTION_SAVE = "/save";
     private static final String LISTAR_PAISES="listarPaises";
     private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
@@ -62,8 +60,16 @@ public class PortoController {
     @RequestMapping(value = ACTION_CREATE)
     public ModelAndView prepareCreate(){
         ModelAndView mv = new ModelAndView(VIEW_FORM);
-        mv.addObject(new PortoDTO());
         mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
+        mv.addObject(new PortoDTO());
+        return mv;
+    }
+
+    @RequestMapping(value = ACTION_EDIT)
+    public ModelAndView prepareUpdate(@PathVariable Long id){
+        ModelAndView mv = new ModelAndView(VIEW_FORM);
+        mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
+        mv.addObject(PortoDTO.toDto(this.portoService.getOne(id)));
         return mv;
     }
 

@@ -1,16 +1,14 @@
 package com.sulnorte.frota.dto;
 
 
-import com.sulnorte.frota.entity.Endereco;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sulnorte.frota.entity.Estado;
-import com.sulnorte.frota.entity.Municipio;
 import com.sulnorte.frota.entity.Pais;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class EstadoDTO implements Serializable {
 
@@ -22,11 +20,8 @@ public class EstadoDTO implements Serializable {
 
     private String sigla;
 
+    @JsonIgnore
     private Pais pais;
-
-    private Set<Municipio> municipioSet;
-
-    private Endereco endereco;
 
     public Estado toEntity(){
         Estado estado = new Estado();
@@ -34,8 +29,6 @@ public class EstadoDTO implements Serializable {
         estado.setNome(this.nome);
         estado.setSigla(this.sigla);
         estado.setPais(this.pais);
-        estado.setMunicipioSet(this.municipioSet);
-        estado.setEndereco(this.endereco);
         return estado;
     }
 
@@ -45,8 +38,6 @@ public class EstadoDTO implements Serializable {
         estadoDTO.setNome(estado.getNome());
         estadoDTO.setSigla(estado.getSigla());
         estadoDTO.setPais(estado.getPais());
-        estadoDTO.setMunicipioSet(estado.getMunicipioSet());
-        estadoDTO.setEndereco(estado.getEndereco());
         return estadoDTO;
     }
 
@@ -90,22 +81,6 @@ public class EstadoDTO implements Serializable {
 
     public void setPais(Pais pais) {
         this.pais = pais;
-    }
-
-    public Set<Municipio> getMunicipioSet() {
-        return municipioSet;
-    }
-
-    public void setMunicipioSet(Set<Municipio> municipioSet) {
-        this.municipioSet = municipioSet;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     @Override

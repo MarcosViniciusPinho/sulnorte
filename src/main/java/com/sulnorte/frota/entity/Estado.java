@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "estado")
@@ -29,14 +28,6 @@ public class Estado implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_pais", nullable = false)
     private Pais pais;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "estado")
-    private Set<Municipio> municipioSet;
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "estado")
-    private Endereco endereco;
 
     public Long getId() {
         return id;
@@ -68,22 +59,6 @@ public class Estado implements Serializable {
 
     public void setPais(Pais pais) {
         this.pais = pais;
-    }
-
-    public Set<Municipio> getMunicipioSet() {
-        return municipioSet;
-    }
-
-    public void setMunicipioSet(Set<Municipio> municipioSet) {
-        this.municipioSet = municipioSet;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     @Override

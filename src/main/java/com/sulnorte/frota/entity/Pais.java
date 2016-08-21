@@ -3,7 +3,6 @@ package com.sulnorte.frota.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "pais")
@@ -20,12 +19,6 @@ public class Pais implements Serializable {
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
 
-    @OneToMany(mappedBy = "pais")
-    private Set<Estado> estadoSet;
-
-    @OneToOne(mappedBy = "pais")
-    private Endereco endereco;
-
     public Long getId() {
         return id;
     }
@@ -40,22 +33,6 @@ public class Pais implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Set<Estado> getEstadoSet() {
-        return estadoSet;
-    }
-
-    public void setEstadoSet(Set<Estado> estadoSet) {
-        this.estadoSet = estadoSet;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     @Override

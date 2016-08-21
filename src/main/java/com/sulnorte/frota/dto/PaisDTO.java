@@ -1,15 +1,12 @@
 package com.sulnorte.frota.dto;
 
 
-import com.sulnorte.frota.entity.Endereco;
-import com.sulnorte.frota.entity.Estado;
 import com.sulnorte.frota.entity.Pais;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class PaisDTO implements Serializable {
 
@@ -19,16 +16,10 @@ public class PaisDTO implements Serializable {
 
     private String nome;
 
-    private Set<Estado> estadoSet;
-
-    private Endereco endereco;
-
     public Pais toEntity(){
         Pais pais = new Pais();
         pais.setId(this.id);
         pais.setNome(this.nome);
-        pais.setEstadoSet(this.estadoSet);
-        pais.setEndereco(this.endereco);
         return pais;
     }
 
@@ -36,8 +27,6 @@ public class PaisDTO implements Serializable {
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(pais.getId());
         paisDTO.setNome(pais.getNome());
-        paisDTO.setEstadoSet(pais.getEstadoSet());
-        paisDTO.setEndereco(pais.getEndereco());
         return paisDTO;
     }
 
@@ -65,22 +54,6 @@ public class PaisDTO implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Set<Estado> getEstadoSet() {
-        return estadoSet;
-    }
-
-    public void setEstadoSet(Set<Estado> estadoSet) {
-        this.estadoSet = estadoSet;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     @Override

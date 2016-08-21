@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -44,14 +47,17 @@ public class PortoController {
     public IMunicipioService municipioService;
 
     @RequestMapping(value = ACTION_LIST)
-    public String list(){
-        return VIEW_LIST;
+    public ModelAndView list(){
+        ModelAndView mv = new ModelAndView(VIEW_LIST);
+        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
+        return mv;
     }
 
     @RequestMapping(value = ACTION_CREATE)
     public ModelAndView prepareCreate(){
         ModelAndView mv = new ModelAndView(VIEW_FORM);
         mv.addObject(new PortoDTO());
+        mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
         return mv;
     }
 
@@ -59,20 +65,10 @@ public class PortoController {
     public ModelAndView save(PortoDTO portoDTO){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
         this.portoService.save(portoDTO.toEntity());
+        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
         return mv;
     }
 
-
-    @ModelAttribute(LISTAR_PORTOS)
-    public List<PortoDTO> getListarPortos(){
-        return PortoDTO.convertListEntityToListDto(this.portoService.findAll());
-    }
-
-
-    @ModelAttribute(LISTAR_PAISES)
-    public List<PaisDTO> getListarPaises(){
-        return PaisDTO.convertListEntityToListDto(this.paisService.findAll());
-    }
 
     @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
     @ResponseBody

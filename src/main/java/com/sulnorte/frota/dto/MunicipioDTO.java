@@ -2,7 +2,6 @@ package com.sulnorte.frota.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Estado;
 import com.sulnorte.frota.entity.Municipio;
 import org.apache.commons.collections.CollectionUtils;
@@ -22,14 +21,11 @@ public class MunicipioDTO implements Serializable {
     @JsonIgnore
     private Estado estado;
 
-    private Endereco endereco;
-
     public Municipio toEntity(){
         Municipio estado = new Municipio();
         estado.setId(this.id);
         estado.setNome(this.nome);
         estado.setEstado(this.estado);
-        estado.setEndereco(this.endereco);
         return estado;
     }
 
@@ -38,7 +34,6 @@ public class MunicipioDTO implements Serializable {
         municipioDTO.setId(municipio.getId());
         municipioDTO.setNome(municipio.getNome());
         municipioDTO.setEstado(municipio.getEstado());
-        municipioDTO.setEndereco(municipio.getEndereco());
         return municipioDTO;
     }
 
@@ -74,14 +69,6 @@ public class MunicipioDTO implements Serializable {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     @Override

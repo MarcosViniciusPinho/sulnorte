@@ -34,7 +34,7 @@ public class PortoController {
     private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
     private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
     private static final String LISTAR_PORTOS="listarPortos";
-    private static final String MENSAGEM_INCLUSAO="Porto salvo com sucesso.";
+    private static final String MENSAGEM_SUCESSO="Operação realizada com sucesso.";
     private static final String REDIRECT_LIST="redirect:/porto/list";
 
 
@@ -76,7 +76,7 @@ public class PortoController {
     @RequestMapping(value = ACTION_SAVE)
     public String save(PortoDTO portoDTO, RedirectAttributes redirectAttributes, Model model){
         this.portoService.save(portoDTO.toEntity());
-        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_INCLUSAO);
+        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
         model.addAttribute(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
         return REDIRECT_LIST;
     }

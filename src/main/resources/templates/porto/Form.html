@@ -19,7 +19,7 @@
 
                         <ol class="breadcrumb">
                             <li><a href="/home">Home</a></li>
-                            <li><a href="/porto/list">Listagem de Portos</a></li>
+                            <li><a href="/porto/list">Porto</a></li>
                             <li class="active">Cadastrar Porto</li>
                         </ol>
 
@@ -28,7 +28,7 @@
                         <form method="post" action="/porto/save" th:object="${portoDTO}">
                             <div class="form-group">
                                 <h3>Porto</h3>
-                                <input type="hidden" th:field="*{id}"/>
+                                <input type="hidden" th:field="*{id}" id="id"/>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-5">
                                         <label for="nome">Nome:</label>
@@ -58,10 +58,14 @@
                                         </select>
                                     </div>
 
+                                    <input type="hidden" th:field="*{endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
+
                                     <div class="col-sm-4">
                                         <label for="estado">Estado:</label>
                                         <select id="estado" class="form-control" th:field="*{endereco.estado}"></select>
                                     </div>
+
+                                    <input type="hidden" th:field="*{endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
 
                                     <div class="col-sm-4">
                                         <label for="municipio">Município:</label>

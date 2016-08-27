@@ -9,34 +9,16 @@ $(document).ready(function() {
     }
 });
 
-function executarListagemEstados(){
-    var pais = $("#pais").val();
-    if(pais !== ""){
-        executarJson("#estado", '/porto/listarEstadoPorPais', pais);
-    }
+function carregarEstadosAoSalvar(){
+    $("#estado").html('<option value="" selected="selected">Selecione um estado</option>');
+    $("#pais option:first").attr('selected','selected');
+    trocarEstadoComDeterminadoPais();
 }
 
-function executarListagemMunicipios(elemento){
-    var estado = $(elemento).val();
-    executarJson("#municipio", '/porto/listarMunicipioPorEstado', estado);
-}
-
-function selecionarEstadoAoEditar(){
-    var id = $("#id").val();
-    if(id !== ""){
-        var idEstado = $("#estadoId").val();
-        $("#estado").val(idEstado);
-        // $("select#estado option:eq("+idEstado+")").attr('selected','selected');
-    }
-}
-
-function selecionarMunicipioAoEditar(){
-    var id = $("#id").val();
-    if(id !== ""){
-        var idMunicipio = $("#municipioId").val();
-        $("#municipio").val(idMunicipio);
-        // $("select#municipio option:eq("+idMunicipio+")").attr('selected','selected');
-    }
+function carregarMunicipiosAoSalvar(){
+    $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
+    $("#estado option:first").attr('selected','selected');
+    trocarMunicipioComDeterminadoEstado();
 }
 
 function carregarEstadosAoAlterar(){
@@ -51,16 +33,38 @@ function carregarMunicipiosAoAlterar(){
     trocarMunicipioComDeterminadoEstado();
 }
 
-function carregarEstadosAoSalvar(){
-    $("#estado").html('<option value="" selected="selected">Selecione um estado</option>');
-    $("#pais option:first").attr('selected','selected');
-    trocarEstadoComDeterminadoPais();
+function executarListagemEstados(){
+    var pais = $("#pais").val();
+    if(pais !== ""){
+        executarJson("#estado", '/porto/listarEstadoPorPais', pais);
+    }
 }
 
-function carregarMunicipiosAoSalvar(){
-    $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
-    $("#estado option:first").attr('selected','selected');
-    trocarMunicipioComDeterminadoEstado();
+function executarListagemMunicipios(elemento){
+    var estado = $(elemento).val();
+    if(estado !==  ""){
+        executarJson("#municipio", '/porto/listarMunicipioPorEstado', estado);
+    }
+}
+
+function selecionarEstadoAoEditar(){
+    var id = $("#id").val();
+    if(id !== ""){
+        var idEstado = $("#estadoId").val();
+        $("#estado").val(idEstado);
+    }
+}
+
+function selecionarMunicipioAoEditar(){
+    var id = $("#id").val();
+    var idEstado = $("#estadoId").val();
+    var estado = $("#estado").val();
+    if(id !== "" && idEstado === estado){
+        var idMunicipio = $("#municipioId").val();
+        $("#municipio").val(idMunicipio);
+    } else if(id !== "" && idEstado !== estado){
+        $("#municipio").val("");
+    }
 }
 
 function trocarEstadoComDeterminadoPais(){
@@ -80,8 +84,6 @@ function trocarMunicipioComDeterminadoEstado() {
         executarListagemMunicipios("#estado");
     });
 }
-
-
 
 function executarJson(element, urlMetodo, parametro) {
     $.ajax({

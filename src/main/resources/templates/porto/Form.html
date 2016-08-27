@@ -25,6 +25,8 @@
 
                         <h1>Cadastrar Porto</h1>
                         <hr />
+                        <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
+                        <input type="hidden" th:field="*{portoDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
                         <form method="post" action="/porto/save" th:object="${portoDTO}">
                             <div class="form-group">
                                 <h3>Porto</h3>
@@ -59,14 +61,10 @@
                                         </select>
                                     </div>
 
-                                    <input type="hidden" th:field="*{endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
-
                                     <div class="col-sm-4">
                                         <label for="estado">Estado:</label>
                                         <select id="estado" class="form-control" th:field="*{endereco.estado}"></select>
                                     </div>
-
-                                    <input type="hidden" th:field="*{endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
 
                                     <div class="col-sm-4">
                                         <label for="municipio">Município:</label>

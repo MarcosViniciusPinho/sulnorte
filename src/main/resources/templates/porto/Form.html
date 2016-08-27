@@ -20,10 +20,12 @@
                         <ol class="breadcrumb">
                             <li><a href="/home">Home</a></li>
                             <li><a href="/porto/list">Porto</a></li>
-                            <li class="active">Cadastrar Porto</li>
+                            <li class="active" th:if="${id eq null}">Cadastrar Porto</li>
+                            <li class="active" th:if="${id ne null}">Alterar Porto</li>
                         </ol>
 
-                        <h1>Cadastrar Porto</h1>
+                        <h1 th:if="${id eq null}">>Cadastrar Porto</h1>
+                        <h1 th:if="${id ne null}">>Alterar Porto</h1>
                         <hr />
                         <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
                         <input type="hidden" th:field="*{portoDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>

@@ -38,6 +38,12 @@ function executarListagemEstados(){
     if(pais !== ""){
         executarJson("#estado", '/porto/listarEstadoPorPais', pais);
     }
+    var estado = $("#estado").val();
+    var id = $("#id").val();
+    if(id !== "" && estado === ""){
+        executarListagemMunicipios("#estadoId");
+    }
+
 }
 
 function executarListagemMunicipios(elemento){

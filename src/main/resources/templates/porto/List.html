@@ -53,8 +53,14 @@
                             <td class="centralizarTexto" th:text="${porto.endereco.estado.sigla}"></td>
                             <td class="centralizarTexto" th:text="${porto.endereco.pais.nome}"></td>
                             <td class="centralizarTexto">
-                                <a class="btn btn-link btn-xs" th:href="@{/porto/edit/{id}(id=${porto.id})}">
-                                    <span class="glyphicon glyphicon-pencil"></span>
+                                <a title="Detalhar" class="btn btn-link btn-xs" href="#">
+                                    <span class="glyphicon glyphicon-th-list corPadraoVermelho"></span>
+                                </a>
+                                <a title="Editar" class="btn btn-link btn-xs" th:href="@{/porto/edit/{id}(id=${porto.id})}">
+                                    <span class="glyphicon glyphicon-pencil corPadraoVermelho"></span>
+                                </a>
+                                <a title="Excluir" class="btn btn-link btn-xs" href="#">
+                                    <span class="glyphicon glyphicon-trash corPadraoVermelho"></span>
                                 </a>
                             </td>
                         </tr>

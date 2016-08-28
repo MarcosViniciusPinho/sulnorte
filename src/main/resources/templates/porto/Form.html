@@ -38,12 +38,12 @@
                                 <input type="hidden" th:field="*{endereco.id}"/>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-5">
-                                        <label for="nome"><span class="informativoDeObrigatoriedade">*</span> Nome:</label>
+                                        <label for="nome"><span class="corPadraoVermelho">*</span> Nome:</label>
                                         <input type="text" class="form-control" id="nome" th:field="*{nome}" name="nome" maxlength="100"/>
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label for="filial"><span class="informativoDeObrigatoriedade">*</span> Filial:</label>
+                                        <label for="filial"><span class="corPadraoVermelho">*</span> Filial:</label>
                                         <input type="text" class="form-control" id="filial" th:field="*{filial}" name="filial" maxlength="50"/>
                                     </div>
 
@@ -58,7 +58,7 @@
                                 <h3>Endereço</h3>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-4">
-                                        <label for="pais"><span class="informativoDeObrigatoriedade">*</span> País:</label>
+                                        <label for="pais"><span class="corPadraoVermelho">*</span> País:</label>
                                         <select id="pais" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.pais}" name="endereco.pais">
                                             <option value="">Selecione um país</option>
                                             <option th:each="pais : ${listarPaises}" th:value="${pais.id}" th:text="${pais.nome}"></option>
@@ -66,29 +66,29 @@
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label for="estado"><span class="informativoDeObrigatoriedade">*</span> Estado:</label>
+                                        <label for="estado"><span class="corPadraoVermelho">*</span> Estado:</label>
                                         <select id="estado" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.estado}" name="endereco.estado"></select>
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label for="municipio"><span class="informativoDeObrigatoriedade">*</span> Município:</label>
+                                        <label for="municipio"><span class="corPadraoVermelho">*</span> Município:</label>
                                         <select id="municipio" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.municipio}" name="endereco.municipio"></select>
                                     </div>
                                     <div class="col-md-12"> &nbsp; </div>
                                     <div class="col-sm-5">
-                                        <label for="logradouro"><span class="informativoDeObrigatoriedade">*</span> Logradouro:</label>
+                                        <label for="logradouro"><span class="corPadraoVermelho">*</span> Logradouro:</label>
                                         <input type="text" class="form-control" id="logradouro" th:field="*{endereco.logradouro}"
                                                name="endereco.logradouro" maxlength="150"/>
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label for="bairro"><span class="informativoDeObrigatoriedade">*</span> Bairro:</label>
+                                        <label for="bairro"><span class="corPadraoVermelho">*</span> Bairro:</label>
                                         <input type="text" class="form-control" id="bairro" th:field="*{endereco.bairro}"
                                                name="endereco.bairro" maxlength="100"/>
                                     </div>
 
                                     <div class="col-sm-3">
-                                        <label for="numero"><span class="informativoDeObrigatoriedade">*</span> Número:</label>
+                                        <label for="numero"><span class="corPadraoVermelho">*</span> Número:</label>
                                         <input type="text" class="form-control" id="numero" th:field="*{endereco.numero}"
                                                name="endereco.numero" maxlength="10"/>
                                     </div>

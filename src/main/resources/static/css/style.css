@@ -26,7 +26,9 @@ a{
 .error{
     color: #ee0000;
 }
-
 .informativoDeObrigatoriedade{
     color: #ee0000;
+}
+.manterCorDoTextoPosMensagemDeErro{
+    color: #555;
 }

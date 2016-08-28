@@ -1,10 +1,10 @@
 $(document).ready( function() {
     $("#form").validate({
         rules:{
-            nome:{
+            'nome':{
                 required: true, maxlength: 100
             },
-            filial:{
+            'filial':{
                 required: true, maxlength: 50
             },
             'endereco.pais': {
@@ -27,10 +27,10 @@ $(document).ready( function() {
             }
         },
         messages:{
-            nome:{
+            'nome':{
                 required: "O campo Nome é obrigatório"
             },
-            filial:{
+            'filial':{
                 required: "O campo Filial é obrigatório"
             },
             'endereco.pais': {

@@ -59,7 +59,7 @@
                                 <div class="well col-sm-12">
                                     <div class="col-sm-4">
                                         <label for="pais"><span class="informativoDeObrigatoriedade">*</span> País:</label>
-                                        <select id="pais" class="form-control" th:field="*{endereco.pais}" name="endereco.pais">
+                                        <select id="pais" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.pais}" name="endereco.pais">
                                             <option value="">Selecione um país</option>
                                             <option th:each="pais : ${listarPaises}" th:value="${pais.id}" th:text="${pais.nome}"></option>
                                         </select>
@@ -67,12 +67,12 @@
 
                                     <div class="col-sm-4">
                                         <label for="estado"><span class="informativoDeObrigatoriedade">*</span> Estado:</label>
-                                        <select id="estado" class="form-control" th:field="*{endereco.estado}" name="endereco.estado"></select>
+                                        <select id="estado" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.estado}" name="endereco.estado"></select>
                                     </div>
 
                                     <div class="col-sm-4">
                                         <label for="municipio"><span class="informativoDeObrigatoriedade">*</span> Município:</label>
-                                        <select id="municipio" class="form-control" th:field="*{endereco.municipio}" name="endereco.municipio"></select>
+                                        <select id="municipio" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.municipio}" name="endereco.municipio"></select>
                                     </div>
                                     <div class="col-md-12"> &nbsp; </div>
                                     <div class="col-sm-5">

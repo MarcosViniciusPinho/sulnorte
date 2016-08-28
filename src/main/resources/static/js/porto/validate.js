@@ -53,4 +53,22 @@ $(document).ready( function() {
             }
         }
     });
+    validarCamposAoSalvar();
+
 });
+
+function validarCamposAoSalvar(){
+    $("#salvar").click(function() {
+        retiraEspacosEmBranco();
+    });
+}
+
+function retiraEspacosEmBranco(){
+    var array = ["#nome", "#filial", "#cnpj", "#logradouro", "#bairro", "#numero"];
+    for(var i = 0; i < array.length; i++){
+        var valor = $(array[i]).val();
+        if(valor.trim() == ""){
+            $(array[i]).val("");
+        }
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="Layout"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>PORTO</title>
+    <script src="/js/porto/form.js"/>
+    <script src="/js/json2html.js"/>
+</head>
+
+<body>
+    <section layout:fragment="conteudo">
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <ol class="breadcrumb">
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/porto/list">Porto</a></li>
+                            <li class="active">Detalhar Porto</li>
+                        </ol>
+
+                        <h1>Detalhar Porto</h1>
+                        <hr />
+                        <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
+                        <input type="hidden" th:field="*{portoDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
+                            <div class="form-group">
+                                <h3>Porto</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-5">
+                                        <label for="nome"><span class="corPadraoVermelho">*</span> Nome:</label>
+                                        <input type="text" class="form-control" id="nome" th:field="*{portoDTO.nome}" disabled="disabled"/>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="filial"><span class="corPadraoVermelho">*</span> Filial:</label>
+                                        <input type="text" class="form-control" id="filial" th:field="*{portoDTO.filial}" disabled="disabled"/>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label for="cnpj">Cnpj:</label>
+                                        <input type="text" class="form-control" id="cnpj"  th:field="*{portoDTO.cnpj}" disabled="disabled"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h3>Endereço</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-4">
+                                        <label for="pais"><span class="corPadraoVermelho">*</span> País:</label>
+                                        <select id="pais" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{portoDTO.endereco.pais}"
+                                                disabled="disabled">
+                                            <option value="">Selecione um país</option>
+                                            <option th:each="pais : ${listarPaises}" th:value="${pais.id}" th:text="${pais.nome}"></option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="estado"><span class="corPadraoVermelho">*</span> Estado:</label>
+                                        <select id="estado" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{portoDTO.endereco.estado}"
+                                                disabled="disabled"></select>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="municipio"><span class="corPadraoVermelho">*</span> Município:</label>
+                                        <select id="municipio" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{portoDTO.endereco.municipio}"
+                                                disabled="disabled"></select>
+                                    </div>
+                                    <div class="col-md-12"> &nbsp; </div>
+                                    <div class="col-sm-5">
+                                        <label for="logradouro"><span class="corPadraoVermelho">*</span> Logradouro:</label>
+                                        <input type="text" class="form-control" id="logradouro" th:field="*{portoDTO.endereco.logradouro}"
+                                               disabled="disabled"/>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="bairro"><span class="corPadraoVermelho">*</span> Bairro:</label>
+                                        <input type="text" class="form-control" id="bairro" th:field="*{portoDTO.endereco.bairro}"
+                                               disabled="disabled"/>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label for="numero"><span class="corPadraoVermelho">*</span> Número:</label>
+                                        <input type="text" class="form-control" id="numero" th:field="*{portoDTO.endereco.numero}"
+                                               disabled="disabled"/>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

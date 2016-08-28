@@ -36,7 +36,8 @@ public class PortoController {
     private static final String LISTAR_PORTOS="listarPortos";
     private static final String MENSAGEM_SUCESSO="Operação realizada com sucesso.";
     private static final String REDIRECT_LIST="redirect:/porto/list";
-
+    private static final String VIEW_DETAIL = "porto/Detail";
+    private static final String ACTION_DETAIL = "/detail/{id}";
 
     @Autowired
     private IPortoService portoService;
@@ -67,7 +68,16 @@ public class PortoController {
 
     @RequestMapping(value = ACTION_EDIT)
     public ModelAndView prepareUpdate(@PathVariable Long id){
-        ModelAndView mv = new ModelAndView(VIEW_FORM);
+        return this.prepareUpdateOrDetail(VIEW_FORM, id);
+    }
+
+    @RequestMapping(value = ACTION_DETAIL)
+    public ModelAndView prepareDetail(@PathVariable Long id){
+        return this.prepareUpdateOrDetail(VIEW_DETAIL, id);
+    }
+
+    private ModelAndView prepareUpdateOrDetail(String view, Long id){
+        ModelAndView mv = new ModelAndView(view);
         mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
         mv.addObject(PortoDTO.toDto(this.portoService.getOne(id)));
         return mv;

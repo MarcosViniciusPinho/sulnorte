@@ -38,6 +38,8 @@ public class PortoController {
     private static final String REDIRECT_LIST="redirect:/porto/list";
     private static final String VIEW_DETAIL = "porto/Detail";
     private static final String ACTION_DETAIL = "/detail/{id}";
+    private static final String ACTION_DELETE = "/delete/{id}";
+
 
     @Autowired
     private IPortoService portoService;
@@ -88,6 +90,13 @@ public class PortoController {
         this.portoService.save(portoDTO.toEntity());
         redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
         model.addAttribute(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
+        return REDIRECT_LIST;
+    }
+
+    @RequestMapping(value = ACTION_DELETE, method = RequestMethod.POST)
+    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes){
+        portoService.delete(id);
+        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
         return REDIRECT_LIST;
     }
 

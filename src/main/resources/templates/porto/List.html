@@ -6,6 +6,7 @@
 
 <head>
     <title>PORTO</title>
+    <script src="/js/porto/list.js"/>
 </head>
 
 <body>
@@ -59,7 +60,8 @@
                                 <a title="Editar" class="btn btn-link btn-xs" th:href="@{/porto/edit/{id}(id=${porto.id})}">
                                     <span class="glyphicon glyphicon-pencil corPadraoVermelho"></span>
                                 </a>
-                                <a title="Excluir" class="btn btn-link btn-xs" href="#">
+                                <a title="Excluir" class="btn btn-link btn-xs" href="#"
+                                    th:attr="data-id=${porto.id}, data-nome=${porto.nome}" data-toggle="modal" data-target="#modalExcluir">
                                     <span class="glyphicon glyphicon-trash corPadraoVermelho"></span>
                                 </a>
                             </td>
@@ -75,6 +77,26 @@
                         </tfoot>
                     </table>
                 </div>
+
+                <div class="modal fade" id="modalExcluir" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog">
+                            <form class="form-horizontal" action="/porto/delete/" method="POST" id="formExcluir">
+                                <div class="modal-content alinharModal">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="myModalLabel">Atenção</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span>Tem certeza que deseja excluir este porto?</span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                                        <button type="submit" class="btn btn-primary">Sim</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                </div>
+                <!--<div layout:include="Modal"></div>-->
             </div>
         </div>
     </div>

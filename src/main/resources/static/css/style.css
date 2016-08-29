@@ -32,3 +32,6 @@ a{
 .manterCorDoTextoPosMensagemDeErro{
     color: #555;
 }
+.alinharModal{
+    margin-top: 200px;
+}

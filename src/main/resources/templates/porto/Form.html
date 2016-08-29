@@ -31,7 +31,7 @@
                         <hr />
                         <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
                         <input type="hidden" th:field="*{portoDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
-                        <form method="post" action="/porto/save" th:object="${portoDTO}" id="form">
+                        <form method="POST" action="/porto/save" th:object="${portoDTO}" id="form">
                             <div class="form-group">
                                 <h3>Porto</h3>
                                 <input type="hidden" th:field="*{id}" id="id"/>

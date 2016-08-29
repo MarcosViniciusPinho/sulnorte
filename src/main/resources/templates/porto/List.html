@@ -80,7 +80,7 @@
 
                 <div class="modal fade" id="modalExcluir" tabindex="-1" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog">
-                            <form class="form-horizontal" action="/porto/delete/" method="POST" id="formExcluir">
+                            <form class="form-horizontal" th:attr="data-url-base='/porto/delete/'" method="POST" id="formExcluir">
                                 <div class="modal-content alinharModal">
                                     <div class="modal-header">
                                         <h3 class="modal-title" id="myModalLabel">Atenção</h3>

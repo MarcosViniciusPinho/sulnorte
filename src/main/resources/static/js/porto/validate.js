@@ -7,9 +7,6 @@ $(document).ready( function() {
             'filial':{
                 required: true, maxlength: 50
             },
-            'cnpj':{
-                number: true
-            },
             'endereco.pais': {
                 required: true
             },
@@ -36,9 +33,6 @@ $(document).ready( function() {
             'filial':{
                 required: "O campo Filial é obrigatório"
             },
-            'cnpj':{
-                number: "Informar somente números neste campo"
-            },
             'endereco.pais': {
                 required: "O campo País é obrigatório"
             },
@@ -60,7 +54,7 @@ $(document).ready( function() {
         }
     });
     validarCamposAoSalvar();
-
+    $('#cnpj').mask("99.999.999/9999-99");
 });
 
 function validarCamposAoSalvar(){

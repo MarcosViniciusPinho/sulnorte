@@ -3,6 +3,7 @@ package com.sulnorte.frota.dto;
 
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Porto;
+import com.sulnorte.frota.util.ReplaceUtil;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ public class PortoDTO implements Serializable {
 
     private String nome;
 
-    private Long cnpj;
+    private String cnpj;
 
     private String filial;
 
@@ -27,7 +28,7 @@ public class PortoDTO implements Serializable {
         Porto porto = new Porto();
         porto.setId(this.id);
         porto.setNome(this.nome);
-        porto.setCnpj(this.cnpj);
+        porto.setCnpj(ReplaceUtil.somenteNumerosParaCnpj(this.cnpj));
         porto.setFilial(this.filial);
         porto.setEndereco(this.endereco);
         return porto;
@@ -37,7 +38,7 @@ public class PortoDTO implements Serializable {
         PortoDTO portoDTO = new PortoDTO();
         portoDTO.setId(porto.getId());
         portoDTO.setNome(porto.getNome());
-        portoDTO.setCnpj(porto.getCnpj());
+        portoDTO.setCnpj(porto.getCnpj() != null ? porto.getCnpj().toString() : null);
         portoDTO.setFilial(porto.getFilial());
         portoDTO.setEndereco(porto.getEndereco());
         return portoDTO;
@@ -69,11 +70,11 @@ public class PortoDTO implements Serializable {
         this.nome = nome;
     }
 
-    public Long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

@@ -6,7 +6,7 @@
 
 <head>
     <title>PORTO</title>
-    <script src="/js/porto/form.js"/>
+    <script th:src="@{/js/porto/form.js}"/>
 </head>
 
 <body>
@@ -17,8 +17,8 @@
                     <div class="col-lg-12">
 
                         <ol class="breadcrumb">
-                            <li><a href="/home">Home</a></li>
-                            <li><a href="/porto/list">Porto</a></li>
+                            <li><a th:href="@{/}">Home</a></li>
+                            <li><a th:href="@{/porto/list}">Porto</a></li>
                             <li class="active">Detalhar Porto</li>
                         </ol>
 

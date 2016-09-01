@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>HOME</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/bootstrap.css" rel="stylesheet"/>
-    <link href="/css/simple-sidebar.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet"/>
-    <script src="/js/jquery.js"/>
-    <script src="/js/bootstrap.min.js"/>
-    <script src="/js/json2html.js"/>
-    <script src="/js/jquery.validate.js"/>
-    <script src="/js/jquery.maskedinput-1.1.4.pack.js"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/simple-sidebar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script th:src="@{/js/jquery.js}"/>
+    <script th:src="@{/js/bootstrap.min.js}"/>
+    <script th:src="@{/js/json2html.js}"/>
+    <script th:src="@{/js/jquery.validate.js}"/>
+    <script th:src="@{/js/jquery.maskedinput-1.1.4.pack.js}"/>
 </head>
 <body>
 
@@ -42,7 +43,7 @@
                 <i class="fa fa-caret-down"></i>
             </a>
             <div class="collapse" id="cadastro">
-                <a href="/porto/list" class="list-group-item"><span>Porto</span></a>
+                <a th:href="@{/porto/list}" class="list-group-item"><span>Porto</span></a>
                 <a href="#" class="list-group-item"><span>Armador</span></a>
                 <a href="#" class="list-group-item"><span>Rebocador</span></a>
             </div>

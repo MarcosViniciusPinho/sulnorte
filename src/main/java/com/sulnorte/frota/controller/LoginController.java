@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
     private static final String VIEW_HOME = "Menu";
-    private static final String ACTION_HOME = "/home";
+    private static final String ACTION_HOME = "/";
 
     @RequestMapping(value = ACTION_HOME)
     public String home(){

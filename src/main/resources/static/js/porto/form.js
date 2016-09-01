@@ -36,7 +36,7 @@ function carregarMunicipiosAoAlterar(){
 function executarListagemEstados(){
     var pais = $("#pais").val();
     if(pais !== ""){
-        executarJson("#estado", '/porto/listarEstadoPorPais', pais);
+        executarJson("#estado", $("#path").val() + '/porto/listarEstadoPorPais', pais);
         var estado = $("#estado").val();
         var id = $("#id").val();
         if(id !== "" && estado === ""){
@@ -48,7 +48,7 @@ function executarListagemEstados(){
 function executarListagemMunicipios(elemento){
     var estado = $(elemento).val();
     if(estado !==  ""){
-        executarJson("#municipio", '/porto/listarMunicipioPorEstado', estado);
+        executarJson("#municipio", $("#path").val() + '/porto/listarMunicipioPorEstado', estado);
     }
 }
 

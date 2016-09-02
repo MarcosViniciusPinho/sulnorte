@@ -1,13 +1,13 @@
 CREATE SEQUENCE sq_endereco INCREMENT BY 1 START WITH 1000;
 
 CREATE TABLE endereco(
-  id NUMBER(11) NOT NULL,
+  id INTEGER NOT NULL,
   logradouro VARCHAR(150) NOT NULL,
   bairro VARCHAR(100) NOT NULL,
-  numero NUMBER(10),
-  id_pais NUMBER(11) NOT NULL,
-  id_estado NUMBER(11) NOT NULL,
-  id_municipio NUMBER(11) NOT NULL
+  numero VARCHAR(10),
+  id_pais INTEGER NOT NULL,
+  id_estado INTEGER NOT NULL,
+  id_municipio INTEGER NOT NULL
 );
 
 ALTER TABLE endereco ADD CONSTRAINT pk_id_endereco PRIMARY KEY (id);

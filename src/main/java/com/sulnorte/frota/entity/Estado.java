@@ -13,7 +13,7 @@ public class Estado implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "sq_estado")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "sq_estado")
     @SequenceGenerator(name = "sq_estado", sequenceName = "sq_estado")
     @Column(name = "id", length = 11, nullable = false)
     private Long id;

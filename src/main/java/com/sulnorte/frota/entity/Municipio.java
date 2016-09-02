@@ -13,7 +13,7 @@ public class Municipio implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "sq_municipio")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "sq_municipio")
     @SequenceGenerator(name = "sq_municipio", sequenceName = "sq_municipio")
     @Column(name = "id", length = 11, nullable = false)
     private Long id;

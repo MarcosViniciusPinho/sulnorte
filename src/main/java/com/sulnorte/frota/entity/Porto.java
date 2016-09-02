@@ -13,8 +13,7 @@ public class Porto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "sq_porto")
-    @SequenceGenerator(name = "sq_porto", sequenceName = "sq_porto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 11, nullable = false)
     private Long id;
 

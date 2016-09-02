@@ -11,8 +11,7 @@ public class Pais implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "sq_pais")
-    @SequenceGenerator(name = "sq_pais", sequenceName = "sq_pais")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 11, nullable = false)
     private Long id;
 

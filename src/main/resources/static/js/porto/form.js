@@ -29,8 +29,8 @@ function carregarEstadosAoAlterar(){
 
 function carregarMunicipiosAoAlterar(){
     $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
-    executarListagemMunicipios("#estadoId");
     trocarMunicipioComDeterminadoEstado();
+    $("#municipio").val("#municipioId");
 }
 
 function executarListagemEstados(){

@@ -85,10 +85,9 @@ public class PortoController {
     }
 
     @RequestMapping(value = ACTION_SAVE)
-    public String save(PortoDTO portoDTO, RedirectAttributes redirectAttributes, Model model){
+    public String save(PortoDTO portoDTO, RedirectAttributes redirectAttributes){
         this.portoService.save(portoDTO.toEntity());
         redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
-        model.addAttribute(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
         return REDIRECT_LIST;
     }
 

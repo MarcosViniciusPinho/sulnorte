@@ -40,7 +40,6 @@ public class PortoController {
     private static final String ACTION_DETAIL = "/detail/{id}";
     private static final String ACTION_DELETE = "/delete/{id}";
 
-
     @Autowired
     private IPortoService portoService;
 
@@ -56,7 +55,7 @@ public class PortoController {
     @RequestMapping(value = ACTION_LIST)
     public ModelAndView list(){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
-        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAll()));
+        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByIdAsc()));
         return mv;
     }
 

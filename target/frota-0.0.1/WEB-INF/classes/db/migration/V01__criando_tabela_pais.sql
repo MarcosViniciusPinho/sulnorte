@@ -1,6 +1,0 @@
-CREATE TABLE pais(
-  id INTEGER NOT NULL,
-  nome VARCHAR(50) NOT NULL
-);
-
-ALTER TABLE pais ADD CONSTRAINT pk_id_pais PRIMARY KEY (id);

@@ -1,1 +1,0 @@
-INSERT INTO pais (id, nome) VALUES(1, 'Brasil');

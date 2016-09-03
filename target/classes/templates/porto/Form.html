@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="Layout"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>PORTO</title>
+    <script th:src="@{/js/porto/form.js}"/>
+    <script th:src="@{/js/porto/validate.js}"/>
+</head>
+
+<body>
+    <section layout:fragment="conteudo">
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <ol class="breadcrumb">
+                            <li><a th:href="@{/}">Home</a></li>
+                            <li><a th:href="@{/porto/list}">Porto</a></li>
+                            <li class="active" th:if="${id eq null}">Cadastrar Porto</li>
+                            <li class="active" th:if="${id ne null}">Alterar Porto</li>
+                        </ol>
+
+                        <h1 th:if="${id eq null}">Cadastrar Porto</h1>
+                        <h1 th:if="${id ne null}">Alterar Porto</h1>
+                        <hr />
+                        <input type="hidden" id="path" th:value="@{/}"/>
+                        <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
+                        <input type="hidden" th:field="*{portoDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
+                        <form method="POST" th:action="@{/porto/save}" th:object="${portoDTO}" id="form">
+                            <div class="form-group">
+                                <h3>Porto</h3>
+                                <input type="hidden" th:field="*{id}" id="id"/>
+                                <input type="hidden" th:field="*{endereco.id}"/>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-5">
+                                        <label for="nome"><span class="corPadraoVermelho">*</span> Nome:</label>
+                                        <input type="text" class="form-control" id="nome" th:field="*{nome}" name="nome" maxlength="100"
+                                               placeholder="Informe um nome"/>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="filial"><span class="corPadraoVermelho">*</span> Filial:</label>
+                                        <input type="text" class="form-control" id="filial" th:field="*{filial}" name="filial" maxlength="50"
+                                               placeholder="Informe uma filial"/>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label for="cnpj">Cnpj:</label>
+                                        <input type="text" class="form-control" id="cnpj"  th:field="*{cnpj}" placeholder="Informe um cnpj válido"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h3>Endereço</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-4">
+                                        <label for="pais"><span class="corPadraoVermelho">*</span> País:</label>
+                                        <select id="pais" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.pais}" name="endereco.pais">
+                                            <option value="">Selecione um país</option>
+                                            <option th:each="pais : ${listarPaises}" th:value="${pais.id}" th:text="${pais.nome}"></option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="estado"><span class="corPadraoVermelho">*</span> Estado:</label>
+                                        <select id="estado" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.estado}" name="endereco.estado"></select>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="municipio"><span class="corPadraoVermelho">*</span> Município:</label>
+                                        <select id="municipio" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{endereco.municipio}" name="endereco.municipio"></select>
+                                    </div>
+                                    <div class="col-md-12"> &nbsp; </div>
+                                    <div class="col-sm-5">
+                                        <label for="logradouro"><span class="corPadraoVermelho">*</span> Logradouro:</label>
+                                        <input type="text" class="form-control" id="logradouro" th:field="*{endereco.logradouro}"
+                                               name="endereco.logradouro" maxlength="150" placeholder="Informe um logradouro"/>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="bairro"><span class="corPadraoVermelho">*</span> Bairro:</label>
+                                        <input type="text" class="form-control" id="bairro" th:field="*{endereco.bairro}"
+                                               name="endereco.bairro" maxlength="100" placeholder="Informe um bairro"/>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label for="numero"><span class="corPadraoVermelho">*</span> Número:</label>
+                                        <input type="text" class="form-control" id="numero" th:field="*{endereco.numero}"
+                                               name="endereco.numero" maxlength="10" placeholder="Informe um número"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <input id="salvar" type="submit" class="btn btn-danger" value="Salvar"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

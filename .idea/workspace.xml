@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28374aa5-dbe2-44e3-a26f-819d147eade7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+    <list default="true" id="28374aa5-dbe2-44e3-a26f-819d147eade7" name="Default" comment="Excluindo o arquivo workspace.xml do repositório.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="frota.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="239">
               <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -111,6 +122,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sulnorte/frota/controller/PortoController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/porto/Detail.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/porto/form.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -915,7 +927,7 @@
       <updated>1470450546128</updated>
       <workItem from="1470450549065" duration="42329000" />
       <workItem from="1472871156055" duration="909000" />
-      <workItem from="1473013315172" duration="968000" />
+      <workItem from="1473013315172" duration="1037000" />
     </task>
     <task id="LOCAL-00001" summary="Configurando banco no heroku.">
       <created>1472789514855</created>
@@ -966,11 +978,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473015017876</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Excluindo o arquivo workspace.xml do repositório.">
+      <created>1473015067338</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1473015067338</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44206000" />
+    <option name="totallyTimeSpent" value="44275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="676" extended-state="6" />
@@ -1044,7 +1063,8 @@
     <MESSAGE value="Corrigindo BUG na tela de detalhar Porto." />
     <MESSAGE value="Criando arquivo para ignorar arquivos que não devem entrar no repositório." />
     <MESSAGE value="Excluindo o arquivo .idea do repositório." />
-    <option name="LAST_COMMIT_MESSAGE" value="Excluindo o arquivo .idea do repositório." />
+    <MESSAGE value="Excluindo o arquivo workspace.xml do repositório." />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluindo o arquivo workspace.xml do repositório." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1348,13 +1368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/scripts/script1_carga_inicial_na_tabela_pais.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1367,6 +1380,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
           <folding />
         </state>
       </provider>

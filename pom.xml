@@ -94,6 +94,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>0.3.4</version>
+				<configuration>
+					<appName>sulnorte-frota</appName>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

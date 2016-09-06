@@ -30,7 +30,6 @@ function carregarEstadosAoAlterar(){
 function carregarMunicipiosAoAlterar(){
     $("#municipio").html('<option value="" selected="selected">Selecione um município</option>');
     trocarMunicipioComDeterminadoEstado();
-    $("#municipio").val("#municipioId");
 }
 
 function executarListagemEstados(){
@@ -62,13 +61,13 @@ function selecionarEstadoAoEditar(){
 
 function selecionarMunicipioAoEditar(){
     var id = $("#id").val();
-    var idEstado = $("#estadoId").val();
-    var estado = $("#estado").val();
-    if(id !== "" && idEstado === estado){
+    if(id !== ""){
         var idMunicipio = $("#municipioId").val();
         $("#municipio").val(idMunicipio);
-    } else if(id !== "" && idEstado !== estado){
-        $("#municipio").val("");
+        var result = $("#municipio").val();
+        if(result === null){
+            $("#municipio").val("");
+        }
     }
 }
 

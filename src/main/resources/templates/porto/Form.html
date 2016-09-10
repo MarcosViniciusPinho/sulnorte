@@ -24,8 +24,8 @@
                             <li class="active" th:if="${id ne null}">Alterar Porto</li>
                         </ol>
 
-                        <h1 th:if="${id eq null}">Cadastrar Porto</h1>
-                        <h1 th:if="${id ne null}">Alterar Porto</h1>
+                        <h2 th:if="${id eq null}">Cadastrar Porto</h2>
+                        <h2 th:if="${id ne null}">Alterar Porto</h2>
                         <hr />
                         <input type="hidden" id="path" th:value="@{/}"/>
                         <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
@@ -49,7 +49,7 @@
                                     </div>
 
                                     <div class="col-sm-3">
-                                        <label for="cnpj">Cnpj:</label>
+                                        <label for="cnpj">CNPJ:</label>
                                         <input type="text" class="form-control" id="cnpj"  th:field="*{cnpj}" placeholder="Informe um cnpj válido"/>
                                     </div>
                                 </div>

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IPortoService extends JpaRepository<Porto, Long>{
 
-    public List<Porto> findAllByOrderByIdAsc();
+    public List<Porto> findAllByOrderByNomeAsc();
 }

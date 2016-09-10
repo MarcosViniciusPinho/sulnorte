@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -55,7 +54,7 @@ public class PortoController {
     @RequestMapping(value = ACTION_LIST)
     public ModelAndView list(){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
-        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByIdAsc()));
+        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc()));
         return mv;
     }
 

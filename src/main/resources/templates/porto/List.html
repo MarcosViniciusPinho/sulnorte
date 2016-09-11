@@ -36,24 +36,24 @@
                     <table class="table table-striped table-hover table-bordered" >
                         <thead>
                         <tr>
-                            <th class="centralizarTexto">Nome</th>
-                            <th class="centralizarTexto">CNPJ</th>
-                            <th class="centralizarTexto">Filial</th>
-                            <th class="centralizarTexto">Município</th>
-                            <th class="centralizarTexto">Estado</th>
-                            <th class="centralizarTexto">País</th>
-                            <th class="centralizarTexto">Ação</th>
+                            <th>Nome</th>
+                            <th>CNPJ</th>
+                            <th>Filial</th>
+                            <th>Município</th>
+                            <th>Estado</th>
+                            <th>País</th>
+                            <th>Ação</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="porto : ${listarPortos}">
-                            <td class="centralizarTexto" th:text="${porto.nome}"></td>
-                            <td class="centralizarTexto" th:text="${porto.cnpj}"></td>
-                            <td class="centralizarTexto" th:text="${porto.filial}"></td>
-                            <td class="centralizarTexto" th:text="${porto.endereco.municipio.nome}"></td>
-                            <td class="centralizarTexto" th:text="${porto.endereco.estado.sigla}"></td>
-                            <td class="centralizarTexto" th:text="${porto.endereco.pais.nome}"></td>
-                            <td class="centralizarTexto">
+                            <td th:text="${porto.nome}"></td>
+                            <td th:text="${porto.cnpj}"></td>
+                            <td th:text="${porto.filial}"></td>
+                            <td th:text="${porto.endereco.municipio.nome}"></td>
+                            <td th:text="${porto.endereco.estado.sigla}"></td>
+                            <td th:text="${porto.endereco.pais.nome}"></td>
+                            <td>
                                 <a title="Detalhar" class="btn btn-link btn-xs" th:href="@{/porto/detail/{id}(id=${porto.id})}">
                                     <span class="glyphicon glyphicon-th-list corPadraoVermelho"></span>
                                 </a>
@@ -67,12 +67,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="centralizarTexto" colspan="7" th:if="${#lists.isEmpty(listarPortos)}">Nenhum registro foi encontrado.</td>
+                            <td colspan="7" th:if="${#lists.isEmpty(listarPortos)}">Nenhum registro foi encontrado.</td>
                         </tr>
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td class="centralizarTexto" colspan="7" th:text="${'Existe(m) ' + #lists.size(listarPortos) + ' registro(s).'}"></td>
+                            <td colspan="7" th:text="${'Existe(m) ' + #lists.size(listarPortos) + ' registro(s).'}"></td>
                         </tr>
                         </tfoot>
                     </table>

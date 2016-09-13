@@ -31,7 +31,10 @@
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label>Filial:</label> &nbsp; <span th:text="${portoDTO.filial.nome}"/>
+                                        <label>Filial:</label>
+                                        &nbsp;
+                                        <span th:if="${portoDTO.filial ne null}" th:text="${portoDTO.filial.nome}"/>
+                                        <span th:if="${portoDTO.filial eq null}"></span>
                                     </div>
 
                                     <div class="col-sm-3">

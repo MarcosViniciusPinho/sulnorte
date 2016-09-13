@@ -49,7 +49,7 @@
                         <tr th:each="porto : ${listarPortos}">
                             <td th:text="${porto.nome}"></td>
                             <td th:text="${porto.cnpj}"></td>
-                            <td th:text="${porto.filial}"></td>
+                            <td th:text="${porto.filial.nome}"></td>
                             <td th:text="${porto.endereco.municipio.nome}"></td>
                             <td th:text="${porto.endereco.estado.sigla}"></td>
                             <td th:text="${porto.endereco.pais.nome}"></td>

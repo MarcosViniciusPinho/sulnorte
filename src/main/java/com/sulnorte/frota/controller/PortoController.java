@@ -1,13 +1,7 @@
 package com.sulnorte.frota.controller;
 
-import com.sulnorte.frota.business.IEstadoService;
-import com.sulnorte.frota.business.IMunicipioService;
-import com.sulnorte.frota.business.IPaisService;
-import com.sulnorte.frota.business.IPortoService;
-import com.sulnorte.frota.dto.EstadoDTO;
-import com.sulnorte.frota.dto.MunicipioDTO;
-import com.sulnorte.frota.dto.PaisDTO;
-import com.sulnorte.frota.dto.PortoDTO;
+import com.sulnorte.frota.business.*;
+import com.sulnorte.frota.dto.*;
 import com.sulnorte.frota.util.ApplicationConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,15 +23,16 @@ public class PortoController {
     private static final String ACTION_CREATE = "/create";
     private static final String ACTION_EDIT = "/edit/{id}";
     private static final String ACTION_SAVE = "/save";
-    private static final String LISTAR_PAISES="listarPaises";
+    private static final String LISTAR_PAISES = "listarPaises";
     private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
     private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
-    private static final String LISTAR_PORTOS="listarPortos";
-    private static final String MENSAGEM_SUCESSO="Operação realizada com sucesso.";
-    private static final String REDIRECT_LIST="redirect:/porto/list";
+    private static final String LISTAR_PORTOS = "listarPortos";
+    private static final String MENSAGEM_SUCESSO = "Operação realizada com sucesso.";
+    private static final String REDIRECT_LIST = "redirect:/porto/list";
     private static final String VIEW_DETAIL = "porto/Detail";
     private static final String ACTION_DETAIL = "/detail/{id}";
     private static final String ACTION_DELETE = "/delete/{id}";
+    private static final String LISTAR_FILIAIS = "listarFiliais";
 
     @Autowired
     private IPortoService portoService;
@@ -51,6 +46,9 @@ public class PortoController {
     @Autowired
     public IMunicipioService municipioService;
 
+    @Autowired
+    private IFilialService filialService;
+
     @RequestMapping(value = ACTION_LIST)
     public ModelAndView list(){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
@@ -62,6 +60,7 @@ public class PortoController {
     public ModelAndView prepareCreate(){
         ModelAndView mv = new ModelAndView(VIEW_FORM);
         mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
+        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAll()));
         mv.addObject(new PortoDTO());
         return mv;
     }
@@ -79,6 +78,7 @@ public class PortoController {
     private ModelAndView prepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
         mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
+        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAll()));
         mv.addObject(PortoDTO.toDto(this.portoService.getOne(id)));
         return mv;
     }

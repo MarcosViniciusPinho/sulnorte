@@ -2,7 +2,6 @@ CREATE TABLE porto(
   id INTEGER NOT NULL,
   nome VARCHAR(100) NOT NULL,
   cnpj INTEGER,
-  filial VARCHAR(50) NOT NULL,
   id_endereco INTEGER NOT NULL,
   id_filial INTEGER
 );

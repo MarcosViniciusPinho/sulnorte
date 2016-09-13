@@ -4,9 +4,6 @@ $(document).ready( function() {
             'nome':{
                 required: true, maxlength: 100
             },
-            'filial':{
-                required: true, maxlength: 50
-            },
             'endereco.pais': {
                 required: true
             },
@@ -29,9 +26,6 @@ $(document).ready( function() {
         messages:{
             'nome':{
                 required: "O campo Nome é obrigatório"
-            },
-            'filial':{
-                required: "O campo Filial é obrigatório"
             },
             'endereco.pais': {
                 required: "O campo País é obrigatório"
@@ -64,7 +58,7 @@ function validarCamposAoSalvar(){
 }
 
 function retiraEspacosEmBranco(){
-    var array = ["#nome", "#filial", "#cnpj", "#logradouro", "#bairro", "#numero"];
+    var array = ["#nome", "#cnpj", "#logradouro", "#bairro", "#numero"];
     for(var i = 0; i < array.length; i++){
         var valor = $(array[i]).val();
         if(valor.trim() == ""){

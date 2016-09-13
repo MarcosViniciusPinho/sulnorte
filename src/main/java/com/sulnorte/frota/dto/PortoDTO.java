@@ -2,6 +2,7 @@ package com.sulnorte.frota.dto;
 
 
 import com.sulnorte.frota.entity.Endereco;
+import com.sulnorte.frota.entity.Filial;
 import com.sulnorte.frota.entity.Porto;
 import com.sulnorte.frota.util.ReplaceUtil;
 import org.apache.commons.collections.CollectionUtils;
@@ -20,7 +21,7 @@ public class PortoDTO implements Serializable {
 
     private String cnpj;
 
-    private String filial;
+    private Filial filial;
 
     private Endereco endereco;
 
@@ -78,11 +79,11 @@ public class PortoDTO implements Serializable {
         this.cnpj = cnpj;
     }
 
-    public String getFilial() {
+    public Filial getFilial() {
         return filial;
     }
 
-    public void setFilial(String filial) {
+    public void setFilial(Filial filial) {
         this.filial = filial;
     }
 
@@ -96,6 +97,6 @@ public class PortoDTO implements Serializable {
 
     @Override
     public String toString() {
-        return id + " , " + nome + " , " + cnpj + " , " + filial;
+        return id + " , " + nome + " , " + cnpj;
     }
 }

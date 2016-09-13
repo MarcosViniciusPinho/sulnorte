@@ -23,8 +23,9 @@ public class Porto implements Serializable {
     @Column(name = "cnpj", length = 15)
     private Long cnpj;
 
-    @Column(name = "filial", length = 50, nullable = false)
-    private String filial;
+    @OneToOne
+    @JoinColumn(name = "id_filial")
+    private Filial filial;
 
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
@@ -55,11 +56,11 @@ public class Porto implements Serializable {
         this.cnpj = cnpj;
     }
 
-    public String getFilial() {
+    public Filial getFilial() {
         return filial;
     }
 
-    public void setFilial(String filial) {
+    public void setFilial(Filial filial) {
         this.filial = filial;
     }
 
@@ -73,6 +74,6 @@ public class Porto implements Serializable {
 
     @Override
     public String toString() {
-        return id + " , " + nome + " , " + cnpj + " , " + filial;
+        return id + " , " + nome + " , " + cnpj;
     }
 }

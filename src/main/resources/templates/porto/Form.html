@@ -43,9 +43,11 @@
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label for="filial"><span class="corPadraoVermelho">*</span> Filial:</label>
-                                        <input type="text" class="form-control" id="filial" th:field="*{filial}" name="filial" maxlength="50"
-                                               placeholder="Informe uma filial"/>
+                                        <label for="filial">Filial:</label>
+                                        <select id="filial" class="form-control" th:field="*{filial}" name="filial.nome">
+                                            <option value="">Selecione uma filial</option>
+                                            <option th:each="filial : ${listarFiliais}" th:value="${filial.id}" th:text="${filial.nome}"></option>
+                                        </select>
                                     </div>
 
                                     <div class="col-sm-3">

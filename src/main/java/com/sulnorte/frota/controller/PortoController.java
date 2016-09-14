@@ -60,7 +60,7 @@ public class PortoController {
     public ModelAndView prepareCreate(){
         ModelAndView mv = new ModelAndView(VIEW_FORM);
         mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
-        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAll()));
+        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAllByOrderByNomeAsc()));
         mv.addObject(new PortoDTO());
         return mv;
     }
@@ -78,7 +78,7 @@ public class PortoController {
     private ModelAndView prepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
         mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
-        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAll()));
+        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAllByOrderByNomeAsc()));
         mv.addObject(PortoDTO.toDto(this.portoService.getOne(id)));
         return mv;
     }

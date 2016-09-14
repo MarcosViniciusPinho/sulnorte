@@ -110,7 +110,7 @@ public class PortoController {
     @ResponseBody
     public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody Long idEstado) {
         EstadoDTO estado = EstadoDTO.toDto(this.estadoService.getOne(idEstado));
-        List<MunicipioDTO> listarMunicipios = MunicipioDTO.convertListEntityToListDto(this.municipioService.findByEstado(estado.toEntity()));
+        List<MunicipioDTO> listarMunicipios = MunicipioDTO.convertListEntityToListDto(this.municipioService.findByEstadoOrderByNomeAsc(estado.toEntity()));
         return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
     }
 

@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface IMunicipioService extends JpaRepository<Municipio, Long> {
 
-    public List<Municipio> findByEstado(Estado estado);
+    public List<Municipio> findByEstadoOrderByNomeAsc(Estado estado);
 
 }

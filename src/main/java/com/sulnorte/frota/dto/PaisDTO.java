@@ -24,6 +24,9 @@ public class PaisDTO implements Serializable {
     }
 
     public static PaisDTO toDto(Pais pais){
+        if(pais == null){
+            return null;
+        }
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(pais.getId());
         paisDTO.setNome(pais.getNome());

@@ -1,117 +1,101 @@
 package com.sulnorte.frota.controller;
 
-import com.sulnorte.frota.business.*;
-import com.sulnorte.frota.dto.*;
-import com.sulnorte.frota.util.ApplicationConstant;
+import com.sulnorte.frota.business.facade.IPortoFacade;
+import com.sulnorte.frota.dto.PortoDTO;
+import com.sulnorte.frota.entity.Porto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/porto")
-public class PortoController {
+public class PortoController extends EnderecoController<PortoDTO, Porto>{
 
     private static final String VIEW_LIST = "porto/List";
-    private static final String ACTION_LIST = "/list";
     private static final String VIEW_FORM = "porto/Form";
-    private static final String ACTION_CREATE = "/create";
-    private static final String ACTION_EDIT = "/edit/{id}";
-    private static final String ACTION_SAVE = "/save";
     private static final String LISTAR_PAISES = "listarPaises";
-    private static final String ACTION_LISTAR_ESTADO = "/listarEstadoPorPais";
-    private static final String ACTION_LISTAR_MUNICIPIO = "/listarMunicipioPorEstado";
     private static final String LISTAR_PORTOS = "listarPortos";
-    private static final String MENSAGEM_SUCESSO = "Operação realizada com sucesso.";
     private static final String REDIRECT_LIST = "redirect:/porto/list";
     private static final String VIEW_DETAIL = "porto/Detail";
-    private static final String ACTION_DETAIL = "/detail/{id}";
-    private static final String ACTION_DELETE = "/delete/{id}";
     private static final String LISTAR_FILIAIS = "listarFiliais";
 
     @Autowired
-    private IPortoService portoService;
+    private IPortoFacade<Porto> portoFacade;
 
-    @Autowired
-    public IPaisService paisService;
-
-    @Autowired
-    public IEstadoService estadoService;
-
-    @Autowired
-    public IMunicipioService municipioService;
-
-    @Autowired
-    private IFilialService filialService;
-
-    @RequestMapping(value = ACTION_LIST)
-    public ModelAndView list(){
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected ModelAndView onList(){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
-        mv.addObject(LISTAR_PORTOS, PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc()));
+        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAllPorto());
         return mv;
     }
 
-    @RequestMapping(value = ACTION_CREATE)
-    public ModelAndView prepareCreate(){
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected ModelAndView onPrepareCreate(){
         ModelAndView mv = new ModelAndView(VIEW_FORM);
-        mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
-        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAllByOrderByNomeAsc()));
+        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
+        mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
         mv.addObject(new PortoDTO());
         return mv;
     }
 
-    @RequestMapping(value = ACTION_EDIT)
-    public ModelAndView prepareUpdate(@PathVariable Long id){
-        return this.prepareUpdateOrDetail(VIEW_FORM, id);
-    }
-
-    @RequestMapping(value = ACTION_DETAIL)
-    public ModelAndView prepareDetail(@PathVariable Long id){
-        return this.prepareUpdateOrDetail(VIEW_DETAIL, id);
-    }
-
-    private ModelAndView prepareUpdateOrDetail(String view, Long id){
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
-        mv.addObject(LISTAR_PAISES, PaisDTO.convertListEntityToListDto(this.paisService.findAll()));
-        mv.addObject(LISTAR_FILIAIS, FilialDTO.convertListEntityToListDto(this.filialService.findAllByOrderByNomeAsc()));
-        mv.addObject(PortoDTO.toDto(this.portoService.getOne(id)));
+        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
+        mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
+        mv.addObject(this.portoFacade.findByIdPorto(id));
         return mv;
     }
 
-    @RequestMapping(value = ACTION_SAVE)
-    public String save(PortoDTO portoDTO, RedirectAttributes redirectAttributes){
-        this.portoService.save(portoDTO.toEntity());
-        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected IPortoFacade<Porto> getFacade() {
+        return portoFacade;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected String getViewForm() {
+        return VIEW_FORM;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected String getviewDetail() {
+        return VIEW_DETAIL;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected String getRedirectViewList() {
         return REDIRECT_LIST;
     }
 
-    @RequestMapping(value = ACTION_DELETE, method = RequestMethod.POST)
-    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes){
-        portoService.delete(id);
-        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
-        return REDIRECT_LIST;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected Porto convertDtoToEntity(PortoDTO portoDTO) {
+        return portoDTO.toEntity();
     }
 
-
-    @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody Long idPais) {
-        PaisDTO pais = PaisDTO.toDto(this.paisService.getOne(idPais));
-        List<EstadoDTO> listarEstados = EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais((pais.toEntity())));
-        return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = ACTION_LISTAR_MUNICIPIO, method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody Long idEstado) {
-        EstadoDTO estado = EstadoDTO.toDto(this.estadoService.getOne(idEstado));
-        List<MunicipioDTO> listarMunicipios = MunicipioDTO.convertListEntityToListDto(this.municipioService.findByEstadoOrderByNomeAsc(estado.toEntity()));
-        return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
-    }
 
 }

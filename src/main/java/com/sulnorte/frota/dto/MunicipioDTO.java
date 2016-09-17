@@ -30,6 +30,9 @@ public class MunicipioDTO implements Serializable {
     }
 
     public static MunicipioDTO toDto(Municipio municipio){
+        if(municipio == null){
+            return null;
+        }
         MunicipioDTO municipioDTO = new MunicipioDTO();
         municipioDTO.setId(municipio.getId());
         municipioDTO.setNome(municipio.getNome());

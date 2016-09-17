@@ -24,6 +24,9 @@ public class FilialDTO implements Serializable {
     }
 
     public static FilialDTO toDto(Filial filial){
+        if(filial == null){
+            return null;
+        }
         FilialDTO filialDTO = new FilialDTO();
         filialDTO.setId(filial.getId());
         filialDTO.setNome(filial.getNome());

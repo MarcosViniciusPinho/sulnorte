@@ -33,6 +33,9 @@ public class EstadoDTO implements Serializable {
     }
 
     public static EstadoDTO toDto(Estado estado){
+        if(estado == null){
+            return null;
+        }
         EstadoDTO estadoDTO = new EstadoDTO();
         estadoDTO.setId(estado.getId());
         estadoDTO.setNome(estado.getNome());

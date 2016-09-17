@@ -36,6 +36,9 @@ public class PortoDTO implements Serializable {
     }
 
     public static PortoDTO toDto(Porto porto){
+        if(porto == null){
+            return null;
+        }
         PortoDTO portoDTO = new PortoDTO();
         portoDTO.setId(porto.getId());
         portoDTO.setNome(porto.getNome());
@@ -43,6 +46,10 @@ public class PortoDTO implements Serializable {
         portoDTO.setFilial(porto.getFilial());
         portoDTO.setEndereco(porto.getEndereco());
         return portoDTO;
+    }
+
+    public static <T> Porto beforeFromSaveConvertToPorto(T entity){
+        return (Porto)entity;
     }
 
     public static List<PortoDTO> convertListEntityToListDto(List<Porto> entities){

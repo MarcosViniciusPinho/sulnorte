@@ -90,4 +90,17 @@ public class EstadoDTO implements Serializable {
     public String toString() {
         return id + " , " + nome + " , " + sigla;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EstadoDTO)) return false;
+        EstadoDTO estadoDTO = (EstadoDTO) o;
+        return id.equals(estadoDTO.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

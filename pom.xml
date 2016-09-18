@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>frota</name>
-	<description></description>
+	<description>Projeto para por fim nas planilhas eletrônicas deste mencionada empresa</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -101,6 +101,11 @@
 				<configuration>
 					<appName>sulnorte-frota</appName>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.1.10</version>
 			</plugin>
 		</plugins>
 	</build>

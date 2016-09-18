@@ -1,7 +1,7 @@
 CREATE TABLE armador(
   id INTEGER NOT NULL,
   nome VARCHAR(100) NOT NULL,
-  contato INTEGER,
+  contato VARCHAR(50),
   id_endereco INTEGER NOT NULL
 );
 

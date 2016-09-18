@@ -10,5 +10,5 @@ public interface IPortoService extends ICrudService<Porto>{
      * Método que faz a busca de todos os portos e os ordena em ordem alfabética.
      * @return List<Porto>
      */
-    public List<Porto> findAllByOrderByNomeAsc();
+    List<Porto> findAllByOrderByNomeAsc();
 }

@@ -12,6 +12,6 @@ public interface IEstadoService extends ICrudService<Estado> {
      * @param pais codigo do pais.
      * @return List<Estado>
      */
-    public List<Estado> findByPais(Pais pais);
+    List<Estado> findByPais(Pais pais);
 
 }

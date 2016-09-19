@@ -5,7 +5,7 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>PORTO</title>
+    <title>ARMADOR</title>
     <script th:src="@{/js/util/list.js}"/>
 </head>
 
@@ -18,17 +18,17 @@
 
                     <ol class="breadcrumb">
                         <li><a th:href="@{/}">Home</a></li>
-                        <li class="active">Porto</li>
+                        <li class="active">Armador</li>
                     </ol>
 
                     <div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(sucess)}">
                         <span th:text="${sucess}"></span>
                     </div>
 
-                    <h2>Porto</h2>
+                    <h2>Armador</h2>
                     <hr />
 
-                    <a th:href="@{/porto/create}" class="btn btn-danger">Novo</a>
+                    <a th:href="@{/armador/create}" class="btn btn-danger">Novo</a>
                     <div class="col-md-12">
                         &nbsp;
                     </div>
@@ -37,8 +37,7 @@
                         <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>CNPJ</th>
-                            <th>Filial</th>
+                            <th>Contato</th>
                             <th>Município</th>
                             <th>Estado</th>
                             <th>País</th>
@@ -46,34 +45,32 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="porto : ${listarPortos}">
-                            <td th:text="${porto.nome}"></td>
-                            <td th:text="${porto.cnpj}"></td>
-                            <td th:if="${porto.filial ne null}" th:text="${porto.filial.nome}"></td>
-                            <td th:if="${porto.filial eq null}"></td>
-                            <td th:text="${porto.endereco.municipio.nome}"></td>
-                            <td th:text="${porto.endereco.estado.sigla}"></td>
-                            <td th:text="${porto.endereco.pais.nome}"></td>
+                        <tr th:each="armador : ${listarArmadores}">
+                            <td th:text="${armador.nome}"></td>
+                            <td th:text="${armador.contato}"></td>
+                            <td th:text="${armador.endereco.municipio.nome}"></td>
+                            <td th:text="${armador.endereco.estado.sigla}"></td>
+                            <td th:text="${armador.endereco.pais.nome}"></td>
                             <td>
-                                <a title="Detalhar" class="btn btn-link btn-xs" th:href="@{/porto/detail/{id}(id=${porto.id})}">
+                                <a title="Detalhar" class="btn btn-link btn-xs" th:href="@{/armador/detail/{id}(id=${armador.id})}">
                                     <span class="glyphicon glyphicon-th-list corPadraoVermelho"></span>
                                 </a>
-                                <a title="Editar" class="btn btn-link btn-xs" th:href="@{/porto/edit/{id}(id=${porto.id})}">
+                                <a title="Editar" class="btn btn-link btn-xs" th:href="@{/armador/edit/{id}(id=${armador.id})}">
                                     <span class="glyphicon glyphicon-pencil corPadraoVermelho"></span>
                                 </a>
                                 <a title="Excluir" class="btn btn-link btn-xs" href="#"
-                                    th:attr="data-id=${porto.id}, data-nome=${porto.nome}" data-toggle="modal" data-target="#modalExcluir">
+                                    th:attr="data-id=${armador.id}, data-nome=${armador.nome}" data-toggle="modal" data-target="#modalExcluir">
                                     <span class="glyphicon glyphicon-trash corPadraoVermelho"></span>
                                 </a>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="7" th:if="${#lists.isEmpty(listarPortos)}">Nenhum registro foi encontrado.</td>
+                            <td colspan="7" th:if="${#lists.isEmpty(listarArmadores)}">Nenhum registro foi encontrado.</td>
                         </tr>
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="7" th:text="${'Existe(m) ' + #lists.size(listarPortos) + ' registro(s).'}"></td>
+                            <td colspan="7" th:text="${'Existe(m) ' + #lists.size(listarArmadores) + ' registro(s).'}"></td>
                         </tr>
                         </tfoot>
                     </table>
@@ -81,14 +78,14 @@
 
                 <div class="modal fade" id="modalExcluir" tabindex="-1" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog">
-                            <form class="form-horizontal" th:attr="data-url-base=@{/porto/delete/}" method="POST" id="formExcluir">
+                            <form class="form-horizontal" th:attr="data-url-base=@{/armador/delete/}" method="POST" id="formExcluir">
                                 <div class="modal-content alinharModal">
                                     <div class="modal-header">
                                         <h3 class="modal-title" id="myModalLabel">Atenção</h3>
                                     </div>
                                     <div class="modal-body">
-                                        <input type="hidden" value="Tem certeza que deseja excluir este porto" id="mensagemExcluir"/>
-                                        <span>Tem certeza que deseja excluir este porto?</span>
+                                        <input type="hidden" value="Tem certeza que deseja excluir este armador" id="mensagemExcluir"/>
+                                        <span>Tem certeza que deseja excluir este armador?</span>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>

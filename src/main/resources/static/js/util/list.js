@@ -6,6 +6,6 @@ $(document).ready(function () {
         var modal = $(this);
         var action = $('#formExcluir').data('url-base');
         $('#formExcluir').attr('action', action + id);
-        modal.find('.modal-body span').html('Tem certeza que deseja excluir o porto <strong>' + nome + '</strong>?');
+        modal.find('.modal-body span').html($('#mensagemExcluir').val() + ' <strong>' + nome + '</strong>?');
     })
 });

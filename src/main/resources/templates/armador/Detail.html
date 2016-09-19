@@ -5,7 +5,7 @@
        xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>PORTO</title>
+    <title>ARMADOR</title>
 </head>
 
 <body>
@@ -17,28 +17,21 @@
 
                         <ol class="breadcrumb">
                             <li><a th:href="@{/}">Home</a></li>
-                            <li><a th:href="@{/porto/list}">Porto</a></li>
-                            <li class="active">Detalhar Porto</li>
+                            <li><a th:href="@{/armador/list}">Armador</a></li>
+                            <li class="active">Detalhar Armador</li>
                         </ol>
 
-                        <h2>Detalhar Porto</h2>
+                        <h2>Detalhar Armador</h2>
                         <hr />
                             <div class="form-group">
-                                <h3>Porto</h3>
+                                <h3>Armador</h3>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-4">
-                                        <label>Nome:</label> &nbsp; <span th:text="${portoDTO.nome}"/>
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                        <label>Filial:</label>
-                                        &nbsp;
-                                        <span th:if="${portoDTO.filial ne null}" th:text="${portoDTO.filial.nome}"/>
-                                        <span th:if="${portoDTO.filial eq null}"></span>
+                                        <label>Nome:</label> &nbsp; <span th:text="${armadorDTO.nome}"/>
                                     </div>
 
                                     <div class="col-sm-3">
-                                        <label>CNPJ:</label> &nbsp; <span th:text="${portoDTO.cnpj}"/>
+                                        <label>Contato:</label> &nbsp; <span th:text="${armadorDTO.contato}"/>
                                     </div>
                                 </div>
                             </div>
@@ -47,27 +40,27 @@
                                 <h3>Endereço</h3>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-4">
-                                        <label>País:</label> &nbsp; <span th:text="${portoDTO.endereco.pais.nome}"/>
+                                        <label>País:</label> &nbsp; <span th:text="${armadorDTO.endereco.pais.nome}"/>
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label>Estado:</label> &nbsp; <span th:text="${portoDTO.endereco.estado.sigla}"/>
+                                        <label>Estado:</label> &nbsp; <span th:text="${armadorDTO.endereco.estado.sigla}"/>
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label>Município:</label> &nbsp; <span th:text="${portoDTO.endereco.municipio.nome}"/>
+                                        <label>Município:</label> &nbsp; <span th:text="${armadorDTO.endereco.municipio.nome}"/>
                                     </div>
                                     <div class="col-md-12"> &nbsp; </div>
                                     <div class="col-sm-4">
-                                        <label>Logradouro:</label> &nbsp; <span th:text="${portoDTO.endereco.logradouro}"/>
+                                        <label>Logradouro:</label> &nbsp; <span th:text="${armadorDTO.endereco.logradouro}"/>
                                     </div>
 
                                     <div class="col-sm-3">
-                                        <label>Número:</label> &nbsp; <span th:text="${portoDTO.endereco.numero}"/>
+                                        <label>Número:</label> &nbsp; <span th:text="${armadorDTO.endereco.numero}"/>
                                     </div>
 
                                     <div class="col-sm-4">
-                                        <label>Bairro:</label> &nbsp; <span th:text="${portoDTO.endereco.bairro}"/>
+                                        <label>Bairro:</label> &nbsp; <span th:text="${armadorDTO.endereco.bairro}"/>
                                     </div>
 
                                 </div>

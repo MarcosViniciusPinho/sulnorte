@@ -7,12 +7,8 @@
 <head>
     <title>ARMADOR</title>
     <script th:src="@{/js/util/form.js}"/>
+    <script th:src="@{/js/armador/form.js}"/>
     <script th:src="@{/js/armador/validate.js}"/>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#my-select').multiSelect();
-        });
-    </script>
 </head>
 
 <body>
@@ -55,24 +51,9 @@
                                     </div>
                                     <div class="col-md-12"> &nbsp; </div>
                                     <div class="col-sm-12">
-                                        <label for="my-select"><span class="corPadraoVermelho">*</span> Porto:</label>
-                                        <select multiple="multiple" id="my-select">
-                                            <option value='1'>elem 1</option>
-                                            <option value='2'>elem 2</option>
-                                            <option value='3'>elem 3</option>
-                                            <option value='4'>elem 4</option>
-                                            <option value='5'>elem 5</option>
-                                            <option value='6'>elem 6</option>
-                                            <option value='7'>elem 7</option>
-                                            <option value='8'>elem 8</option>
-                                            <option value='9'>elem 9</option>
-                                            <option value='10'>elem 10</option>
-                                            <option value='11'>elem 11</option>
-                                            <option value='12'>elem 12</option>
-                                            <option value='13'>elem 13</option>
-                                            <option value='14'>elem 14</option>
-                                            <option value='15'>elem 15</option>
-                                            <option value='16'>elem 16</option>
+                                        <label for="portos"><span class="corPadraoVermelho">*</span> Porto:</label>
+                                        <select multiple="multiple" id="portos" th:field="*{portoList}">
+                                            <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
                                         </select>
                                     </div>
 

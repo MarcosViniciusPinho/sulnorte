@@ -76,3 +76,6 @@ input{
 select{
     font-family: sans-serif;
 }
+div.ms-container{
+    width: 100%;
+}

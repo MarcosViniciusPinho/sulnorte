@@ -60,6 +60,7 @@
                                         <select multiple="multiple" id="portoList" th:field="*{portoList}" name="portoList">
                                             <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
                                         </select>
+                                        <label id="mensagemObrigatoriedadePorto" class="corPadraoVermelho"></label>
                                     </div>
                                 </div>
                             </div>

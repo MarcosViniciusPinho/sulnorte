@@ -31,7 +31,7 @@ $(document).ready( function() {
                 required: "O campo Nome é obrigatório"
             },
             'portoList':{
-                required: "É obrigatório selecionar pelo menos um Porto"
+                required: ""
             },
             'endereco.pais': {
                 required: "O campo País é obrigatório"
@@ -53,12 +53,14 @@ $(document).ready( function() {
             }
         }
     });
+    $('#mensagemObrigatoriedadePorto').hide();
     validarCamposAoSalvar();
 });
 
 function validarCamposAoSalvar(){
     $("#salvar").click(function() {
         retiraEspacosEmBranco();
+        validarCampoPortos();
     });
 }
 
@@ -69,5 +71,15 @@ function retiraEspacosEmBranco(){
         if(valor.trim() == ""){
             $(array[i]).val("");
         }
+    }
+}
+
+function validarCampoPortos(){
+    var portos = $('#portoList').val();
+    if(portos === null){
+        $('#mensagemObrigatoriedadePorto').show();
+        $('#mensagemObrigatoriedadePorto').html('É obrigatório selecionar pelo menos um Porto');
+    } else{
+        $('#mensagemObrigatoriedadePorto').hide();
     }
 }

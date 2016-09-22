@@ -1,3 +1,10 @@
 $(document).ready(function() {
-    $('#portoList').multiSelect();
+    $('#portoList').multiSelect({
+        afterSelect: function(){
+            validarCampoPortos();
+        },
+        afterDeselect: function(){
+            validarCampoPortos();
+        }
+    });
 });

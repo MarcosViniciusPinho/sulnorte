@@ -4,6 +4,9 @@ $(document).ready( function() {
             'nome':{
                 required: true, maxlength: 100
             },
+            'portoList':{
+                required: true
+            },
             'endereco.pais': {
                 required: true
             },
@@ -26,6 +29,9 @@ $(document).ready( function() {
         messages:{
             'nome':{
                 required: "O campo Nome é obrigatório"
+            },
+            'portoList':{
+                required: "É obrigatório selecionar pelo menos um Porto"
             },
             'endereco.pais': {
                 required: "O campo País é obrigatório"

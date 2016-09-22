@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    $('#portos').multiSelect();
+    $('#portoList').multiSelect();
 });

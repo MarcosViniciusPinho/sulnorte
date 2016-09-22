@@ -56,8 +56,8 @@
                                 <h3>Porto</h3>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-12">
-                                        <label for="portos"><span class="corPadraoVermelho">*</span> Selecione um porto:</label>
-                                        <select multiple="multiple" id="portos" th:field="*{portoList}">
+                                        <label for="portoList"><span class="corPadraoVermelho">*</span> Selecione um porto:</label>
+                                        <select multiple="multiple" id="portoList" th:field="*{portoList}" name="portoList">
                                             <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
                                         </select>
                                     </div>

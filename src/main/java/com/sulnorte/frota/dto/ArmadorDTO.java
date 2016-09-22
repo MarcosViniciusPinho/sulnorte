@@ -4,6 +4,7 @@ package com.sulnorte.frota.dto;
 import com.sulnorte.frota.entity.Armador;
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Porto;
+import com.sulnorte.frota.util.ReplaceUtil;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
@@ -99,5 +100,13 @@ public class ArmadorDTO implements Serializable {
 
     public void setPortoList(List<Porto> portoList) {
         this.portoList = portoList;
+    }
+
+    /**
+     * Usado para exibir os portos cadastrados na tela de detalhar.
+     * @return String
+     */
+    public String getPortosEscolhidos(){
+        return ReplaceUtil.somenteTexto(this.getPortoList());
     }
 }

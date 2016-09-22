@@ -74,6 +74,6 @@ public class Porto implements Serializable {
 
     @Override
     public String toString() {
-        return id + " , " + nome + " , " + cnpj;
+        return nome;
     }
 }

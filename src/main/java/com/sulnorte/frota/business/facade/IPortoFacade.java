@@ -11,7 +11,7 @@ public interface IPortoFacade<T> extends ICrudFacade<T> {
      * Método que busca todos os portos na base.
      * @return List<PortoDTO>
      */
-    List<PortoDTO> findAllPorto();
+    List<PortoDTO> findAll();
 
     /**
      * Método que busca todas as filiais na base.
@@ -24,6 +24,6 @@ public interface IPortoFacade<T> extends ICrudFacade<T> {
      * @param idPorto idPorto
      * @return PortoDTO
      */
-    PortoDTO findByIdPorto(Long idPorto);
+    PortoDTO findById(Long idPorto);
 
 }

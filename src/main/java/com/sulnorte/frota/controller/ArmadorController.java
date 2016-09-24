@@ -34,7 +34,7 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
     @Override
     protected ModelAndView onList(){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
-        mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAllAmador());
+        mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
         return mv;
     }
 
@@ -45,7 +45,7 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
     protected ModelAndView onPrepareCreate(){
         ModelAndView mv = new ModelAndView(VIEW_FORM);
         mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAllPorto());
+        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         mv.addObject(new ArmadorDTO());
         return mv;
     }
@@ -57,8 +57,8 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
     protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
         mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAllPorto());
-        mv.addObject(this.armadorFacade.findByIdArmador(id));
+        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
+        mv.addObject(this.armadorFacade.findById(id));
         return mv;
     }
 

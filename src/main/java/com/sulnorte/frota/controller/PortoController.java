@@ -29,7 +29,7 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
     @Override
     protected ModelAndView onList(){
         ModelAndView mv = new ModelAndView(VIEW_LIST);
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAllPorto());
+        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         return mv;
     }
 
@@ -53,7 +53,7 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
         ModelAndView mv = new ModelAndView(view);
         mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
         mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
-        mv.addObject(this.portoFacade.findByIdPorto(id));
+        mv.addObject(this.portoFacade.findById(id));
         return mv;
     }
 

@@ -10,13 +10,13 @@ public interface IArmadorFacade<T> extends ICrudFacade<T> {
      * Método que busca todos os armadores na base.
      * @return List<ArmadorDTO>
      */
-    List<ArmadorDTO> findAllAmador();
+    List<ArmadorDTO> findAll();
 
     /**
      * Método que busca um armador pelo seu respectivo id.
      * @param idArmador idArmador
      * @return ArmadorDTO
      */
-    ArmadorDTO findByIdArmador(Long idArmador);
+    ArmadorDTO findById(Long idArmador);
 
 }

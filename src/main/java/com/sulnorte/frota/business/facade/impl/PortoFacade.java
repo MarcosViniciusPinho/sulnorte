@@ -23,7 +23,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
      * {@inheritDoc}
      */
     @Override
-    public List<PortoDTO> findAllPorto() {
+    public List<PortoDTO> findAll() {
         return PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc());
     }
 
@@ -39,7 +39,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
      * {@inheritDoc}
      */
     @Override
-    public PortoDTO findByIdPorto(Long idPorto) {
+    public PortoDTO findById(Long idPorto) {
         return PortoDTO.toDto(this.portoService.getOne(idPorto));
     }
 

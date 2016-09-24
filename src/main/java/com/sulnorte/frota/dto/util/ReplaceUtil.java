@@ -1,7 +1,7 @@
-package com.sulnorte.frota.util;
+package com.sulnorte.frota.dto.util;
 
 
-import org.apache.commons.collections.CollectionUtils;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.Collection;
@@ -16,9 +16,7 @@ public class ReplaceUtil {
     }
 
     public static String somenteTexto(Collection lista){
-        if(CollectionUtils.isEmpty(lista)){
-            return null;
-        }
+        ParameterExceptionUtil.validateCollectionNull(lista);
         return lista.toString().replace("[","").replace("]","");
     }
 }

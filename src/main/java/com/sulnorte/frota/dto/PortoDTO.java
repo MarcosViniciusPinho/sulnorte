@@ -1,10 +1,11 @@
 package com.sulnorte.frota.dto;
 
 
+import com.sulnorte.frota.dto.util.ReplaceUtil;
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Filial;
 import com.sulnorte.frota.entity.Porto;
-import com.sulnorte.frota.util.ReplaceUtil;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
@@ -36,9 +37,7 @@ public class PortoDTO implements Serializable {
     }
 
     public static PortoDTO toDto(Porto porto){
-        if(porto == null){
-            return null;
-        }
+        ParameterExceptionUtil.validateObjectNull(porto);
         PortoDTO portoDTO = new PortoDTO();
         portoDTO.setId(porto.getId());
         portoDTO.setNome(porto.getNome());
@@ -49,6 +48,7 @@ public class PortoDTO implements Serializable {
     }
 
     public static <T> Porto beforeFromSaveConvertToPorto(T entity){
+        ParameterExceptionUtil.validateObjectNull(entity);
         return (Porto)entity;
     }
 

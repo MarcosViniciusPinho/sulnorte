@@ -4,7 +4,7 @@ package com.sulnorte.frota.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sulnorte.frota.entity.Estado;
 import com.sulnorte.frota.entity.Municipio;
-import org.apache.commons.collections.CollectionUtils;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,9 +30,7 @@ public class MunicipioDTO implements Serializable {
     }
 
     public static MunicipioDTO toDto(Municipio municipio){
-        if(municipio == null){
-            return null;
-        }
+        ParameterExceptionUtil.validateObjectNull(municipio);
         MunicipioDTO municipioDTO = new MunicipioDTO();
         municipioDTO.setId(municipio.getId());
         municipioDTO.setNome(municipio.getNome());
@@ -41,11 +39,10 @@ public class MunicipioDTO implements Serializable {
     }
 
     public static List<MunicipioDTO> convertListEntityToListDto(List<Municipio> entities){
+        ParameterExceptionUtil.validateCollectionNull(entities);
         List<MunicipioDTO> lista = new ArrayList<MunicipioDTO>();
-        if(CollectionUtils.isNotEmpty(entities)){
-            for(Municipio municipio : entities){
-                lista.add(toDto(municipio));
-            }
+        for(Municipio municipio : entities){
+            lista.add(toDto(municipio));
         }
         return lista;
     }

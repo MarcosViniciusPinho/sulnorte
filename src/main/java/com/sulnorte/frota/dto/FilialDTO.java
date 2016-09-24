@@ -2,7 +2,7 @@ package com.sulnorte.frota.dto;
 
 
 import com.sulnorte.frota.entity.Filial;
-import org.apache.commons.collections.CollectionUtils;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,9 +24,7 @@ public class FilialDTO implements Serializable {
     }
 
     public static FilialDTO toDto(Filial filial){
-        if(filial == null){
-            return null;
-        }
+        ParameterExceptionUtil.validateObjectNull(filial);
         FilialDTO filialDTO = new FilialDTO();
         filialDTO.setId(filial.getId());
         filialDTO.setNome(filial.getNome());
@@ -34,11 +32,10 @@ public class FilialDTO implements Serializable {
     }
 
     public static List<FilialDTO> convertListEntityToListDto(List<Filial> entities){
+        ParameterExceptionUtil.validateCollectionNull(entities);
         List<FilialDTO> lista = new ArrayList<FilialDTO>();
-        if(CollectionUtils.isNotEmpty(entities)){
-            for(Filial filial : entities){
-                lista.add(toDto(filial));
-            }
+        for(Filial filial : entities){
+            lista.add(toDto(filial));
         }
         return lista;
     }

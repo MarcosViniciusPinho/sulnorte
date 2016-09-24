@@ -2,7 +2,7 @@ package com.sulnorte.frota.dto;
 
 
 import com.sulnorte.frota.entity.Pais;
-import org.apache.commons.collections.CollectionUtils;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,9 +24,7 @@ public class PaisDTO implements Serializable {
     }
 
     public static PaisDTO toDto(Pais pais){
-        if(pais == null){
-            return null;
-        }
+        ParameterExceptionUtil.validateObjectNull(pais);
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(pais.getId());
         paisDTO.setNome(pais.getNome());
@@ -34,11 +32,10 @@ public class PaisDTO implements Serializable {
     }
 
     public static List<PaisDTO> convertListEntityToListDto(List<Pais> entities){
+        ParameterExceptionUtil.validateCollectionNull(entities);
         List<PaisDTO> lista = new ArrayList<PaisDTO>();
-        if(CollectionUtils.isNotEmpty(entities)){
-            for(Pais pais : entities){
-                lista.add(toDto(pais));
-            }
+        for(Pais pais : entities){
+            lista.add(toDto(pais));
         }
         return lista;
     }

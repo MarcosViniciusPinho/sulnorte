@@ -32,9 +32,13 @@ public abstract class CrudController<V, T> {
      */
     @RequestMapping(value = ACTION_SAVE, method = RequestMethod.POST)
     public String save(V entity, RedirectAttributes redirectAttributes){
-        this.getFacade().save(this.convertDtoToEntity(entity));
-        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
-        return this.getRedirectViewList();
+        try{
+            this.getFacade().save(this.convertDtoToEntity(entity));
+            redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
+            return this.getRedirectViewList();
+        } catch (RuntimeException ex) {
+            throw new RuntimeException("Erro ao salvar/alterar", ex);
+        }
     }
 
     /**
@@ -45,9 +49,13 @@ public abstract class CrudController<V, T> {
      */
     @RequestMapping(value = ACTION_DELETE, method = RequestMethod.POST)
     public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes){
-        this.getFacade().delete(id);
-        redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
-        return this.getRedirectViewList();
+        try {
+            this.getFacade().delete(id);
+            redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
+            return this.getRedirectViewList();
+        } catch (RuntimeException ex) {
+            throw new RuntimeException("Erro ao deletar", ex);
+        }
     }
 
     /**
@@ -56,7 +64,11 @@ public abstract class CrudController<V, T> {
      */
     @RequestMapping(value = ACTION_LIST)
     public ModelAndView list(){
-        return this.onList();
+        try {
+            return this.onList();
+        } catch (RuntimeException ex) {
+            throw new RuntimeException("Erro ao listar", ex);
+        }
     }
 
     /**

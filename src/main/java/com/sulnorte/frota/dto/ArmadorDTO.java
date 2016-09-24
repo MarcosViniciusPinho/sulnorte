@@ -1,10 +1,11 @@
 package com.sulnorte.frota.dto;
 
 
+import com.sulnorte.frota.dto.util.ReplaceUtil;
 import com.sulnorte.frota.entity.Armador;
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Porto;
-import com.sulnorte.frota.util.ReplaceUtil;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
@@ -36,9 +37,7 @@ public class ArmadorDTO implements Serializable {
     }
 
     public static ArmadorDTO toDto(Armador armador){
-        if(armador == null){
-            return null;
-        }
+        ParameterExceptionUtil.validateObjectNull(armador);
         ArmadorDTO armadorDTO = new ArmadorDTO();
         armadorDTO.setId(armador.getId());
         armadorDTO.setNome(armador.getNome());
@@ -49,6 +48,7 @@ public class ArmadorDTO implements Serializable {
     }
 
     public static <T> Armador beforeFromSaveConvertToPorto(T entity){
+        ParameterExceptionUtil.validateObjectNull(entity);
         return (Armador)entity;
     }
 

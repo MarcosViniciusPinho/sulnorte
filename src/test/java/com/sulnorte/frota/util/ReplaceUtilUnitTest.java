@@ -1,5 +1,6 @@
 package com.sulnorte.frota.util;
 
+import com.sulnorte.frota.dto.util.ReplaceUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

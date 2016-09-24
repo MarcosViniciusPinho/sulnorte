@@ -4,7 +4,7 @@ package com.sulnorte.frota.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sulnorte.frota.entity.Estado;
 import com.sulnorte.frota.entity.Pais;
-import org.apache.commons.collections.CollectionUtils;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,9 +33,7 @@ public class EstadoDTO implements Serializable {
     }
 
     public static EstadoDTO toDto(Estado estado){
-        if(estado == null){
-            return null;
-        }
+        ParameterExceptionUtil.validateObjectNull(estado);
         EstadoDTO estadoDTO = new EstadoDTO();
         estadoDTO.setId(estado.getId());
         estadoDTO.setNome(estado.getNome());
@@ -45,11 +43,10 @@ public class EstadoDTO implements Serializable {
     }
 
     public static List<EstadoDTO> convertListEntityToListDto(List<Estado> entities){
+        ParameterExceptionUtil.validateCollectionNull(entities);
         List<EstadoDTO> lista = new ArrayList<EstadoDTO>();
-        if(CollectionUtils.isNotEmpty(entities)){
-            for(Estado estado : entities){
-                lista.add(toDto(estado));
-            }
+        for(Estado estado : entities){
+            lista.add(toDto(estado));
         }
         return lista;
     }

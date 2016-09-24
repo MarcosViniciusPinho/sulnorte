@@ -3,7 +3,7 @@ package com.sulnorte.frota.controller;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -11,18 +11,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class LoginControllerUnitTest {
 
-	@Autowired
+	@InjectMocks
 	private LoginController loginController;
 
 	@Test
 	public void testHome() {
 		Assert.assertNotNull(loginController.home());
 		Assert.assertEquals("Menu", loginController.home());
-	}
-	@Test(expected = AssertionError.class)
-	public void testHomeFalha() {
-		Assert.assertNotNull(loginController.home());
-		Assert.assertEquals(null, loginController.home());
 	}
 
 }

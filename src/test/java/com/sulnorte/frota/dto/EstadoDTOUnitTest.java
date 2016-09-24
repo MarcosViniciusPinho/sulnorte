@@ -1,6 +1,7 @@
 package com.sulnorte.frota.dto;
 
 import com.sulnorte.frota.entity.Estado;
+import com.sulnorte.frota.exception.NullParameterException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,17 +26,6 @@ public class EstadoDTOUnitTest {
 		Assert.assertEquals(estadoEsperado, estadoAtual);
 	}
 
-	@Test(expected = AssertionError.class)
-	public void testToEntityComFalha(){
-		Estado estadoEsperado = new Estado();
-		estadoEsperado.setId(2L);
-		EstadoDTO estadoDTO = new EstadoDTO();
-		estadoDTO.setId(1L);
-		Estado estadoAtual = estadoDTO.toEntity();
-		Assert.assertNotNull(estadoAtual);
-		Assert.assertEquals(estadoEsperado, estadoAtual);
-	}
-
 	@Test
 	public void testToDto(){
 		Estado estado = new Estado();
@@ -47,27 +37,10 @@ public class EstadoDTOUnitTest {
 		Assert.assertEquals(estadoEsperado, estadoAtual);
 	}
 
-	@Test(expected = AssertionError.class)
-	public void testToDtoComFalha(){
-		Estado estado = new Estado();
-		estado.setId(2L);
-		EstadoDTO estadoAtual = EstadoDTO.toDto(estado);
-		EstadoDTO estadoEsperado = new EstadoDTO();
-		estadoEsperado.setId(1L);
-		Assert.assertNotNull(estadoAtual);
-		Assert.assertEquals(estadoEsperado, estadoAtual);
-	}
-
-	@Test
-	public void testToDtoNull(){
-		EstadoDTO estadoAtual = EstadoDTO.toDto(null);
-		Assert.assertNull(estadoAtual);
-	}
-
-	@Test(expected = AssertionError.class)
+	@Test(expected = NullParameterException.class)
 	public void testToDtoNullComFalha(){
 		EstadoDTO estadoAtual = EstadoDTO.toDto(null);
-		Assert.assertNotNull(estadoAtual);
+		Assert.assertNull(estadoAtual);
 	}
 
 	@Test
@@ -85,23 +58,8 @@ public class EstadoDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test(expected = AssertionError.class)
-	public void testConvertListEntityToListDtoComFalha(){
-		List<Estado> listaEntidade = new ArrayList<Estado>();
-		Estado estado = new Estado();
-		estado.setId(2L);
-		listaEntidade.add(estado);
-		List<EstadoDTO> listaDtoEsperado = new ArrayList<EstadoDTO>();
-		EstadoDTO estadoDTO = new EstadoDTO();
-		estadoDTO.setId(1L);
-		listaDtoEsperado.add(estadoDTO);
-		List<EstadoDTO> listaDtoAtual = EstadoDTO.convertListEntityToListDto(listaEntidade);
-		Assert.assertNotNull(listaDtoAtual);
-		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
-	}
-
 	@Test(expected = NullPointerException.class)
-	public void testConvertListEntityToListDtoComFalha2(){
+	public void testConvertListEntityToListDtoComFalha(){
 		List<Estado> listaEntidade = new ArrayList<Estado>();
 		listaEntidade.add(new Estado());
 		List<EstadoDTO> listaDtoEsperado = new ArrayList<EstadoDTO>();
@@ -111,17 +69,9 @@ public class EstadoDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test
+	@Test(expected = NullParameterException.class)
 	public void testConvertListEntityToListDtoNull(){
 		List<EstadoDTO> listaDtoEsperado = new ArrayList<EstadoDTO>();
-		List<EstadoDTO> listaDtoAtual = EstadoDTO.convertListEntityToListDto(null);
-		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
-	}
-
-	@Test(expected = AssertionError.class)
-	public void testConvertListEntityToListDtoNullComFalha(){
-		List<EstadoDTO> listaDtoEsperado = new ArrayList<EstadoDTO>();
-		listaDtoEsperado.add(new EstadoDTO());
 		List<EstadoDTO> listaDtoAtual = EstadoDTO.convertListEntityToListDto(null);
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}

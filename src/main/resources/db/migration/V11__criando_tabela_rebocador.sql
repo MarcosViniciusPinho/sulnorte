@@ -1,0 +1,21 @@
+CREATE TABLE rebocador(
+  id INTEGER NOT NULL,
+  nome VARCHAR(100) NOT NULL,
+  ano INTEGER NOT NULL,
+  bp NUMERIC(10,2) NOT NULL,
+  bhp NUMERIC(10,2) NOT NULL,
+  id_situacao_rebocador INTEGER NOT NULL,
+  id_propulsao INTEGER NOT NULL,
+  id_armador INTEGER NOT NULL,
+  id_porto INTEGER NOT NULL
+);
+
+ALTER TABLE rebocador ADD CONSTRAINT pk_id_rebocador PRIMARY KEY (id);
+
+ALTER TABLE rebocador ADD CONSTRAINT fk_sire_id FOREIGN KEY (id_situacao_rebocador) REFERENCES situacao_rebocador (id);
+
+ALTER TABLE rebocador ADD CONSTRAINT fk_prop_id FOREIGN KEY (id_propulsao) REFERENCES propulsao (id);
+
+ALTER TABLE rebocador ADD CONSTRAINT fk_arma_id FOREIGN KEY (id_armador) REFERENCES armador (id);
+
+ALTER TABLE rebocador ADD CONSTRAINT fk_port_id FOREIGN KEY (id_porto) REFERENCES porto (id);

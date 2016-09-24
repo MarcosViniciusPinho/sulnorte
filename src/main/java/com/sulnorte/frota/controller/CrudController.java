@@ -37,7 +37,7 @@ public abstract class CrudController<V, T> {
             redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
         } catch (RuntimeException ex) {
-            throw new RuntimeException("Erro ao salvar/alterar", ex);
+            throw new RuntimeException(ex);
         }
     }
 
@@ -54,7 +54,7 @@ public abstract class CrudController<V, T> {
             redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
         } catch (RuntimeException ex) {
-            throw new RuntimeException("Erro ao deletar", ex);
+            throw new RuntimeException(ex);
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class CrudController<V, T> {
         try {
             return this.onList();
         } catch (RuntimeException ex) {
-            throw new RuntimeException("Erro ao listar", ex);
+            throw new RuntimeException(ex);
         }
     }
 

@@ -2,6 +2,7 @@ package com.sulnorte.frota.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class Porto implements Serializable {
     @Column(name = "id", length = 11, nullable = false)
     private Long id;
 
+    @NotBlank(message = "O Campo Nome é Obrigatório")
     @Column(name = "nome", length = 100, nullable = false)
     private String nome;
 

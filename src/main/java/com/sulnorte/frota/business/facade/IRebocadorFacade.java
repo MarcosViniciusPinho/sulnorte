@@ -1,6 +1,8 @@
 package com.sulnorte.frota.business.facade;
 
-import com.sulnorte.frota.dto.*;
+import com.sulnorte.frota.dto.PropulsaoDTO;
+import com.sulnorte.frota.dto.RebocadorDTO;
+import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
 
 import java.util.List;
 
@@ -11,18 +13,6 @@ public interface IRebocadorFacade<T> extends ICrudFacade<T> {
      * @return List<PortoDTO>
      */
     List<RebocadorDTO> findAll();
-
-    /**
-     * Método que busca todos os portos na base.
-     * @return List<PortoDTO>
-     */
-    List<PortoDTO> findAllPorto();
-
-    /**
-     * Método que busca todos os armadores na base.
-     * @return List<ArmadorDTO>
-     */
-    List<ArmadorDTO> findAllAmador();
 
     /**
      * Método que busca todos as propulsões na base.

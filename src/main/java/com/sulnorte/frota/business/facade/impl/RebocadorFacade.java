@@ -1,8 +1,12 @@
 package com.sulnorte.frota.business.facade.impl;
 
 import com.sulnorte.frota.business.facade.IRebocadorFacade;
-import com.sulnorte.frota.business.service.*;
-import com.sulnorte.frota.dto.*;
+import com.sulnorte.frota.business.service.IPropulsaoService;
+import com.sulnorte.frota.business.service.IRebocadorService;
+import com.sulnorte.frota.business.service.ISituacaoRebocadorService;
+import com.sulnorte.frota.dto.PropulsaoDTO;
+import com.sulnorte.frota.dto.RebocadorDTO;
+import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +17,6 @@ public class RebocadorFacade<T> implements IRebocadorFacade<T> {
 
     @Autowired
     private IRebocadorService rebocadorService;
-
-    @Autowired
-    private IPortoService portoService;
-
-    @Autowired
-    private IArmadorService armadorService;
 
     @Autowired
     private IPropulsaoService propulsaoService;
@@ -32,22 +30,6 @@ public class RebocadorFacade<T> implements IRebocadorFacade<T> {
     @Override
     public List<RebocadorDTO> findAll() {
         return RebocadorDTO.convertListEntityToListDto(this.rebocadorService.findAllByOrderByNomeAsc());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<PortoDTO> findAllPorto() {
-        return PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<ArmadorDTO> findAllAmador() {
-        return ArmadorDTO.convertListEntityToListDto(this.armadorService.findAllByOrderByNomeAsc());
     }
 
     /**

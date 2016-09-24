@@ -30,8 +30,12 @@ public abstract class EnderecoController<V, T> extends CrudController<V, T>{
     @RequestMapping(value = ACTION_LISTAR_ESTADO, method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody Long idPais) {
-        List<EstadoDTO> listarEstados = enderecoFacade.findByEstadoPerPais(idPais);
-        return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
+        try {
+            List<EstadoDTO> listarEstados = enderecoFacade.findByEstadoPerPais(idPais);
+            return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
+        } catch (RuntimeException ex){
+            throw new RuntimeException("Erro na busca de estados", ex);
+        }
     }
 
     /**
@@ -43,8 +47,12 @@ public abstract class EnderecoController<V, T> extends CrudController<V, T>{
     @RequestMapping(value = ACTION_LISTAR_MUNICIPIO, method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody Long idEstado) {
-        List<MunicipioDTO> listarMunicipios = enderecoFacade.findByMunicipioPerEstado(idEstado);
-        return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
+        try {
+            List<MunicipioDTO> listarMunicipios = enderecoFacade.findByMunicipioPerEstado(idEstado);
+            return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
+        } catch (RuntimeException ex){
+            throw new RuntimeException("Erro na busca de municipios", ex);
+        }
     }
 
 

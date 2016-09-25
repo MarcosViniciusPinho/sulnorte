@@ -26,6 +26,11 @@
                         <h2 th:if="${id eq null}">Cadastrar Rebocador</h2>
                         <h2 th:if="${id ne null}">Alterar Rebocador</h2>
                         <hr />
+
+                        <div class="textoCamposObrigatorios">
+                            <small class="col-sm-offset-10">(<span class="corPadraoVermelho">*</span>) Campos obrigatórios</small>
+                        </div>
+
                         <input type="hidden" id="path" th:value="@{/}"/>
                         <input type="hidden" value="rebocador" id="pathController"/>
                         <form method="POST" th:action="@{/rebocador/save}" th:object="${rebocadorDTO}" id="form">

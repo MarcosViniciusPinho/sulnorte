@@ -79,3 +79,9 @@ select{
 div.ms-container{
     width: 100%;
 }
+small{
+    font-family: sans-serif;
+}
+div.textoCamposObrigatorios{
+    margin-top: -40px;
+}

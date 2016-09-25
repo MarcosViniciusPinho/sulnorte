@@ -84,13 +84,9 @@
                             </div>
 
                             <div class="form-group">
-                                <span class="rebocadorTituloPorto">Porto</span>
-                                <span class="rebocadorTituloArmador">Armador</span>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="well col-sm-6">
-                                    <div class="col-sm-12">
+                                <h3>Porto</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-6">
                                         <label for="porto"><span class="corPadraoVermelho">*</span> Selecione um porto:</label>
                                         <select id="porto" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{porto}" name="porto">
                                             <option value="">Selecione um porto</option>
@@ -98,9 +94,12 @@
                                         </select>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="well col-sm-6">
-                                    <div class="col-sm-12">
+                            <div class="form-group">
+                                <h3>Armador</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-6">
                                         <label for="armador"><span class="corPadraoVermelho">*</span> Selecione um armador:</label>
                                         <select id="armador" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{armador}" name="armador">
                                             <option value="">Selecione um armador</option>

@@ -69,7 +69,7 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
         mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
         mv.addObject(LISTAR_PROPULSOES, this.rebocadorFacade.findAllPropulsao());
         mv.addObject(LISTAR_SITUACOES, this.rebocadorFacade.findAllSituacao());
-        mv.addObject(this.armadorFacade.findById(id));
+        mv.addObject(this.rebocadorFacade.findById(id));
         return mv;
     }
 

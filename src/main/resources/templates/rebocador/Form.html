@@ -6,7 +6,7 @@
 
 <head>
     <title>REBOCADOR</title>
-    <!--<script th:src="@{/js/rebocador/validate.js}"/>-->
+    <script th:src="@{/js/rebocador/validate.js}"/>
 </head>
 
 <body>
@@ -59,8 +59,8 @@
 
                                     <div class="col-md-12"> &nbsp; </div>
                                     <div class="col-sm-6">
-                                        <label for="situacao"><span class="corPadraoVermelho">*</span> Situação:</label>
-                                        <select id="situacao" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{situacaoRebocador}" name="situacaoRebocador">
+                                        <label for="situacaoRebocador"><span class="corPadraoVermelho">*</span> Situação:</label>
+                                        <select id="situacaoRebocador" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{situacaoRebocador}" name="situacaoRebocador">
                                             <option value="">Selecione uma situação</option>
                                             <option th:each="rebocador : ${listarSituacoes}" th:value="${rebocador.id}" th:text="${rebocador.nome}"></option>
                                         </select>
@@ -87,7 +87,7 @@
                                 <h3>Porto</h3>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-6">
-                                        <label for="porto"><span class="corPadraoVermelho">*</span> Selecione um porto:</label>
+                                        <label for="porto"><span class="corPadraoVermelho">*</span> Porto:</label>
                                         <select id="porto" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{porto}" name="porto">
                                             <option value="">Selecione um porto</option>
                                             <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
@@ -100,7 +100,7 @@
                                 <h3>Armador</h3>
                                 <div class="well col-sm-12">
                                     <div class="col-sm-6">
-                                        <label for="armador"><span class="corPadraoVermelho">*</span> Selecione um armador:</label>
+                                        <label for="armador"><span class="corPadraoVermelho">*</span> Armador:</label>
                                         <select id="armador" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{armador}" name="armador">
                                             <option value="">Selecione um armador</option>
                                             <option th:each="armador : ${listarArmadores}" th:value="${armador.id}" th:text="${armador.nome}"></option>

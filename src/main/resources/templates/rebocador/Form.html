@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="Layout"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>ARMADOR</title>
+    <!--<script th:src="@{/js/rebocador/validate.js}"/>-->
+</head>
+
+<body>
+    <section layout:fragment="conteudo">
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <ol class="breadcrumb">
+                            <li><a th:href="@{/}">Home</a></li>
+                            <li><a th:href="@{/rebocador/list}">Rebocador</a></li>
+                            <li class="active" th:if="${id eq null}">Cadastrar Rebocador</li>
+                            <li class="active" th:if="${id ne null}">Alterar Rebocador</li>
+                        </ol>
+
+                        <h2 th:if="${id eq null}">Cadastrar Rebocador</h2>
+                        <h2 th:if="${id ne null}">Alterar Rebocador</h2>
+                        <hr />
+                        <input type="hidden" id="path" th:value="@{/}"/>
+                        <input type="hidden" value="armador" id="pathController"/>
+                        <form method="POST" th:action="@{/rebocador/save}" th:object="${rebocadorDTO}" id="form">
+                            <div class="form-group">
+                                <h3>Rebocador</h3>
+                                <input type="hidden" th:field="*{id}" id="id"/>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-6">
+                                        <label for="nome"><span class="corPadraoVermelho">*</span> Nome:</label>
+                                        <input type="text" class="form-control" id="nome" th:field="*{nome}" name="nome" maxlength="100"
+                                               placeholder="Informe um nome"/>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="ano"><span class="corPadraoVermelho">*</span> Ano:</label>
+                                        <input type="text" class="form-control" id="ano"  th:field="*{ano}" placeholder="Informe um ano" name="ano"
+                                            maxlength="4"/>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="bp"><span class="corPadraoVermelho">*</span> BP:</label>
+                                        <input type="text" class="form-control" id="bp"  th:field="*{bp}" placeholder="Informe um bp" name="bp"
+                                               maxlength="10"/>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="bhp"><span class="corPadraoVermelho">*</span> BHP:</label>
+                                        <input type="text" class="form-control" id="bhp"  th:field="*{bhp}" placeholder="Informe um bhp" name="bhp"
+                                               maxlength="10"/>
+                                    </div>
+
+                                    <div class="col-md-12"> &nbsp; </div>
+                                    <div class="col-sm-6">
+                                        <label for="situacao"><span class="corPadraoVermelho">*</span> Situação:</label>
+                                        <select id="situacao" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{situacaoRebocador}" name="situacaoRebocador">
+                                            <option value="">Selecione uma situação</option>
+                                            <option th:each="rebocador : ${listarSituacoes}" th:value="${rebocador.id}" th:text="${rebocador.nome}"></option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="propulsao"><span class="corPadraoVermelho">*</span> Propulsão:</label>
+                                        <select id="propulsao" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{propulsao}" name="propulsao">
+                                            <option value="">Selecione uma propulsão</option>
+                                            <option th:each="propulsao : ${listarPropulsoes}" th:value="${propulsao.id}" th:text="${propulsao.nome}"></option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-12"> &nbsp; </div>
+                                    <div class="col-sm-12">
+                                        <label for="observacao">Observação:</label>
+                                        <textarea class="form-control" id="observacao" th:field="*{observacao}" placeholder="Informe suas observações"
+                                               maxlength="255" cols="60" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="rebocadorTituloPorto">Porto</span>
+                                <span class="rebocadorTituloArmador">Armador</span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="well col-sm-6">
+                                    <div class="col-sm-12">
+                                        <label for="porto"><span class="corPadraoVermelho">*</span> Selecione um porto:</label>
+                                        <select id="porto" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{porto}" name="porto">
+                                            <option value="">Selecione um porto</option>
+                                            <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="well col-sm-6">
+                                    <div class="col-sm-12">
+                                        <label for="armador"><span class="corPadraoVermelho">*</span> Selecione um armador:</label>
+                                        <select id="armador" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{armador}" name="armador">
+                                            <option value="">Selecione um armador</option>
+                                            <option th:each="armador : ${listarArmadores}" th:value="${armador.id}" th:text="${armador.nome}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="salvar" type="submit" class="btn btn-danger" value="Salvar"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

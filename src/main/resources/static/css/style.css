@@ -79,3 +79,10 @@ select{
 div.ms-container{
     width: 100%;
 }
+span.rebocadorTituloArmador{
+    margin-left: 570px;
+    font-size: 24px;
+}
+span.rebocadorTituloPorto{
+    font-size: 24px;
+}

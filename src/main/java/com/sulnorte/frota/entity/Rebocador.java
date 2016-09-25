@@ -23,15 +23,15 @@ public class Rebocador implements Serializable {
     @Column(name = "nome", length = 100, nullable = false)
     private String nome;
 
-    @NotBlank(message = "O Campo Ano é Obrigatório")
+    @NotNull(message = "O Campo Ano é Obrigatório")
     @Column(name = "ano", length = 4, nullable = false)
     private Integer ano;
 
-    @NotBlank(message = "O Campo Bp é Obrigatório")
+    @NotNull(message = "O Campo Bp é Obrigatório")
     @Column(name = "bp", length = 10, precision = 10, scale = 2, nullable = false)
     private BigDecimal bp;
 
-    @NotBlank(message = "O Campo Bhp é Obrigatório")
+    @NotNull(message = "O Campo Bhp é Obrigatório")
     @Column(name = "bhp", length = 10, precision = 10, scale = 2, nullable = false)
     private BigDecimal bhp;
 

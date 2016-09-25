@@ -1,7 +1,7 @@
 package com.sulnorte.frota.dto;
 
 
-import com.sulnorte.frota.entity.Rebocador;
+import com.sulnorte.frota.entity.*;
 import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
 
@@ -26,13 +26,13 @@ public class RebocadorDTO implements Serializable {
 
     private String observacao;
 
-    private SituacaoRebocadorDTO situacaoRebocador;
+    private SituacaoRebocador situacaoRebocador;
 
-    private PropulsaoDTO propulsao;
+    private Propulsao propulsao;
 
-    private ArmadorDTO armador;
+    private Armador armador;
 
-    private PortoDTO porto;
+    private Porto porto;
 
 
     public Rebocador toEntity(){
@@ -43,10 +43,10 @@ public class RebocadorDTO implements Serializable {
         rebocador.setBp(this.bp);
         rebocador.setBhp(this.bhp);
         rebocador.setObservacao(this.observacao);
-        rebocador.setPropulsao(this.propulsao.toEntity());
-        rebocador.setSituacaoRebocador(this.situacaoRebocador.toEntity());
-        rebocador.setArmador(this.armador.toEntity());
-        rebocador.setPorto(this.porto.toEntity());
+        rebocador.setPropulsao(this.propulsao);
+        rebocador.setSituacaoRebocador(this.situacaoRebocador);
+        rebocador.setArmador(this.armador);
+        rebocador.setPorto(this.porto);
         return rebocador;
     }
 
@@ -55,13 +55,14 @@ public class RebocadorDTO implements Serializable {
         RebocadorDTO rebocadorDTO = new RebocadorDTO();
         rebocadorDTO.setId(rebocador.getId());
         rebocadorDTO.setNome(rebocador.getNome());
+        rebocadorDTO.setAno(rebocador.getAno());
         rebocadorDTO.setBp(rebocador.getBp());
         rebocadorDTO.setBhp(rebocador.getBhp());
         rebocadorDTO.setObservacao(rebocador.getObservacao());
-        rebocadorDTO.setPropulsao(PropulsaoDTO.toDto(rebocador.getPropulsao()));
-        rebocadorDTO.setSituacaoRebocador(SituacaoRebocadorDTO.toDto(rebocador.getSituacaoRebocador()));
-        rebocadorDTO.setArmador(ArmadorDTO.toDto(rebocador.getArmador()));
-        rebocadorDTO.setPorto(PortoDTO.toDto(rebocador.getPorto()));
+        rebocadorDTO.setPropulsao(rebocador.getPropulsao());
+        rebocadorDTO.setSituacaoRebocador(rebocador.getSituacaoRebocador());
+        rebocadorDTO.setArmador(rebocador.getArmador());
+        rebocadorDTO.setPorto(rebocador.getPorto());
         return rebocadorDTO;
     }
 
@@ -129,35 +130,35 @@ public class RebocadorDTO implements Serializable {
         this.observacao = observacao;
     }
 
-    public SituacaoRebocadorDTO getSituacaoRebocador() {
+    public SituacaoRebocador getSituacaoRebocador() {
         return situacaoRebocador;
     }
 
-    public void setSituacaoRebocador(SituacaoRebocadorDTO situacaoRebocador) {
+    public void setSituacaoRebocador(SituacaoRebocador situacaoRebocador) {
         this.situacaoRebocador = situacaoRebocador;
     }
 
-    public PropulsaoDTO getPropulsao() {
+    public Propulsao getPropulsao() {
         return propulsao;
     }
 
-    public void setPropulsao(PropulsaoDTO propulsao) {
+    public void setPropulsao(Propulsao propulsao) {
         this.propulsao = propulsao;
     }
 
-    public ArmadorDTO getArmador() {
+    public Armador getArmador() {
         return armador;
     }
 
-    public void setArmador(ArmadorDTO armador) {
+    public void setArmador(Armador armador) {
         this.armador = armador;
     }
 
-    public PortoDTO getPorto() {
+    public Porto getPorto() {
         return porto;
     }
 
-    public void setPorto(PortoDTO porto) {
+    public void setPorto(Porto porto) {
         this.porto = porto;
     }
 

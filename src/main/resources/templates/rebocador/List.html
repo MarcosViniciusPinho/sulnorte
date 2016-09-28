@@ -55,7 +55,8 @@
                             <td th:text="${rebocador.ano}"></td>
                             <td th:text="${rebocador.bp}"></td>
                             <td th:text="${rebocador.bhp}"></td>
-                            <td th:text="${rebocador.propulsao.nome}"></td>
+                            <td th:text="${rebocador.propulsao.nome}" th:if="${rebocador.propulsao ne null}"></td>
+                            <td th:if="${rebocador.propulsao eq null}"></td>
                             <td th:text="${rebocador.situacaoRebocador.nome}"></td>
                             <td>
                                 <a title="Detalhar" class="btn btn-link btn-xs" th:href="@{/rebocador/detail/{id}(id=${rebocador.id})}">

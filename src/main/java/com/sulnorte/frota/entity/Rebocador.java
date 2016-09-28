@@ -23,16 +23,13 @@ public class Rebocador implements Serializable {
     @Column(name = "nome", length = 100, nullable = false)
     private String nome;
 
-    @NotNull(message = "O Campo Ano é Obrigatório")
-    @Column(name = "ano", length = 4, nullable = false)
+    @Column(name = "ano", length = 4)
     private Integer ano;
 
-    @NotNull(message = "O Campo Bp é Obrigatório")
-    @Column(name = "bp", length = 10, precision = 10, scale = 2, nullable = false)
+    @Column(name = "bp", length = 10, precision = 10, scale = 2)
     private BigDecimal bp;
 
-    @NotNull(message = "O Campo Bhp é Obrigatório")
-    @Column(name = "bhp", length = 10, precision = 10, scale = 2, nullable = false)
+    @Column(name = "bhp", length = 10, precision = 10, scale = 2)
     private BigDecimal bhp;
 
     @Column(name = "observacao", length = 250)
@@ -43,9 +40,8 @@ public class Rebocador implements Serializable {
     @JoinColumn(name = "id_situacao_rebocador", nullable = false)
     private SituacaoRebocador situacaoRebocador;
 
-    @NotNull(message = "O Campo Propulsão é Obrigatório")
     @OneToOne
-    @JoinColumn(name = "id_propulsao", nullable = false)
+    @JoinColumn(name = "id_propulsao")
     private Propulsao propulsao;
 
     @NotNull(message = "O Campo Armador é Obrigatório")

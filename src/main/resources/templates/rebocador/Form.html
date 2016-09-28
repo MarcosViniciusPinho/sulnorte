@@ -46,20 +46,20 @@
                                     </div>
 
                                     <div class="col-sm-2">
-                                        <label for="ano"><span class="corPadraoVermelho">*</span> Ano:</label>
+                                        <label for="ano">Ano:</label>
                                         <input type="text" class="form-control" id="ano"  th:field="*{ano}" placeholder="Informe um ano" name="ano"
                                             maxlength="4"/>
                                     </div>
 
                                     <div class="col-sm-2">
-                                        <label for="bp"><span class="corPadraoVermelho">*</span> BP:</label>
-                                        <input type="text" class="form-control manterCorDoTextoPosMensagemDeErro" id="bp"  th:field="*{bp}" placeholder="Informe um bp" name="bp"
+                                        <label for="bp">BP:</label>
+                                        <input type="text" class="form-control" id="bp"  th:field="*{bp}" placeholder="Informe um bp" name="bp"
                                                maxlength="10"/>
                                     </div>
 
                                     <div class="col-sm-2">
-                                        <label for="bhp"><span class="corPadraoVermelho">*</span> BHP:</label>
-                                        <input type="text" class="form-control manterCorDoTextoPosMensagemDeErro" id="bhp"  th:field="*{bhp}" placeholder="Informe um bhp" name="bhp"
+                                        <label for="bhp">BHP:</label>
+                                        <input type="text" class="form-control" id="bhp"  th:field="*{bhp}" placeholder="Informe um bhp" name="bhp"
                                                maxlength="10"/>
                                     </div>
 
@@ -73,8 +73,8 @@
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <label for="propulsao"><span class="corPadraoVermelho">*</span> Propulsão:</label>
-                                        <select id="propulsao" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{propulsao}" name="propulsao">
+                                        <label for="propulsao">Propulsão:</label>
+                                        <select id="propulsao" class="form-control" th:field="*{propulsao}" name="propulsao">
                                             <option value="">Selecione uma propulsão</option>
                                             <option th:each="propulsao : ${listarPropulsoes}" th:value="${propulsao.id}" th:text="${propulsao.nome}"></option>
                                         </select>

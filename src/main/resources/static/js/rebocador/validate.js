@@ -4,19 +4,7 @@ $(document).ready( function() {
             'nome':{
                 required: true, maxlength: 100
             },
-            'ano':{
-                required: true, maxlength: 4
-            },
-            'bp':{
-                required: true, maxlength: 10
-            },
-            'bhp':{
-                required: true, maxlength: 10
-            },
             'situacaoRebocador':{
-                required: true
-            },
-            'propulsao':{
                 required: true
             },
             'porto':{
@@ -30,20 +18,8 @@ $(document).ready( function() {
             'nome':{
                 required: "O campo Nome é obrigatório"
             },
-            'ano': {
-                required: "O campo Ano é obrigatório"
-            },
-            'bp':{
-                required: "O campo BP é obrigatório"
-            },
-            'bhp':{
-                required: "O campo BHP é obrigatório"
-            },
             'situacaoRebocador':{
                 required: "O campo Situação é obrigatório"
-            },
-            'propulsao':{
-                required: "O campo Propulsão é obrigatório"
             },
             'porto':{
                 required: "O campo Porto é obrigatório"

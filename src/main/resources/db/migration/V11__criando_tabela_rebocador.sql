@@ -1,12 +1,12 @@
 CREATE TABLE rebocador(
   id INTEGER NOT NULL,
   nome VARCHAR(100) NOT NULL,
-  ano INTEGER(4) NOT NULL,
-  bp NUMERIC(10,2) NOT NULL,
-  bhp NUMERIC(10,2) NOT NULL,
+  ano INTEGER(4),
+  bp NUMERIC(10,2),
+  bhp NUMERIC(10,2),
   observacao VARCHAR(255),
   id_situacao_rebocador INTEGER NOT NULL,
-  id_propulsao INTEGER NOT NULL,
+  id_propulsao INTEGER,
   id_armador INTEGER NOT NULL,
   id_porto INTEGER NOT NULL
 );

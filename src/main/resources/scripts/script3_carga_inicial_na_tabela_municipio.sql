@@ -2453,7 +2453,7 @@ INSERT INTO municipio (id, nome, id_estado) VALUES (2452,'Varre-Sai',19);
 INSERT INTO municipio (id, nome, id_estado) VALUES (2453,'Trajano de Moraes',19);
 INSERT INTO municipio (id, nome, id_estado) VALUES (2454,'Santa Maria Madalena',19);
 INSERT INTO municipio (id, nome, id_estado) VALUES (2455,'São Sebastião do Alto',19);
-INSERT INTO municipio (id, nome, id_estado) VALUES (2456,'Rio das Flores Rio das Flores',19);
+INSERT INTO municipio (id, nome, id_estado) VALUES (2456,'Rio das Flores',19);
 INSERT INTO municipio (id, nome, id_estado) VALUES (2457,'Comendador Levy Gasparian',19);
 INSERT INTO municipio (id, nome, id_estado) VALUES (2458,'Laje do Muriaé',19);
 INSERT INTO municipio (id, nome, id_estado) VALUES (2459,'São José de Ubá',19);

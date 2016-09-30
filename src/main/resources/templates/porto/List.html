@@ -78,27 +78,10 @@
                         </tfoot>
                     </table>
                 </div>
-
-                <div class="modal fade" id="modalExcluir" tabindex="-1" data-backdrop="static" data-keyboard="false">
-                        <div class="modal-dialog">
-                            <form class="form-horizontal" th:attr="data-url-base=@{/porto/delete/}" method="POST" id="formExcluir">
-                                <div class="modal-content alinharModal">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title" id="myModalLabel">Atenção</h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <input type="hidden" value="Tem certeza que deseja excluir este porto" id="mensagemExcluir"/>
-                                        <span>Tem certeza que deseja excluir este porto?</span>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                                        <button type="submit" class="btn btn-danger">Sim</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                </div>
-                <!--<div layout:include="Modal"></div>-->
+                <form class="form-horizontal" th:attr="data-url-base=@{/porto/delete/}" method="POST" id="formExcluir">
+                    <input type="hidden" value="Tem certeza que deseja excluir este porto" id="mensagemExcluir"/>
+                    <div layout:include="Modal"></div>
+                </form>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@
 
 <head>
     <title>PORTO</title>
+    <script th:src="@{/js/util/list.js}"/>
 </head>
 
 <body>
@@ -72,10 +73,17 @@
 
                                 </div>
                             </div>
+                        <a th:href="@{/cadastro/porto/edit/{id}(id=${portoDTO.id})}" class="btn btn-danger">Editar</a>
+                        <a th:attr="data-id=${portoDTO.id}, data-nome=${portoDTO.nome}" data-toggle="modal" data-target="#modalExcluir"
+                           class="btn btn-danger">Excluir</a>
                     </div>
                 </div>
             </div>
         </div>
+        <form class="form-horizontal" th:attr="data-url-base=@{/cadastro/porto/delete/}" method="POST" id="formExcluir">
+            <input type="hidden" value="Tem certeza que deseja excluir este porto" id="mensagemExcluir"/>
+            <div layout:include="Modal"></div>
+        </form>
     </section>
 </body>
 </html>

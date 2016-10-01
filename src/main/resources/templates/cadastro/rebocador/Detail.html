@@ -6,6 +6,7 @@
 
 <head>
     <title>REBOCADOR</title>
+    <script th:src="@{/js/util/list.js}"/>
 </head>
 
 <body>
@@ -77,10 +78,17 @@
                                 </div>
                             </div>
                         </div>
+                        <a th:href="@{/cadastro/rebocador/edit/{id}(id=${rebocadorDTO.id})}" class="btn btn-danger">Editar</a>
+                        <a th:attr="data-id=${rebocadorDTO.id}, data-nome=${rebocadorDTO.nome}" data-toggle="modal" data-target="#modalExcluir"
+                           class="btn btn-danger">Excluir</a>
                     </div>
                 </div>
             </div>
         </div>
+        <form class="form-horizontal" th:attr="data-url-base=@{/cadastro/rebocador/delete/}" method="POST" id="formExcluir">
+            <input type="hidden" value="Tem certeza que deseja excluir este rebocador" id="mensagemExcluir"/>
+            <div layout:include="Modal"></div>
+        </form>
     </section>
 </body>
 </html>

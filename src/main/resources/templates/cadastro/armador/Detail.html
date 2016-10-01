@@ -6,6 +6,7 @@
 
 <head>
     <title>ARMADOR</title>
+    <script th:src="@{/js/util/list.js}"/>
 </head>
 
 <body>
@@ -74,10 +75,17 @@
 
                                 </div>
                             </div>
+                        <a th:href="@{/cadastro/armador/edit/{id}(id=${armadorDTO.id})}" class="btn btn-danger">Editar</a>
+                        <a th:attr="data-id=${armadorDTO.id}, data-nome=${armadorDTO.nome}" data-toggle="modal" data-target="#modalExcluir"
+                           class="btn btn-danger">Excluir</a>
                     </div>
                 </div>
             </div>
         </div>
+        <form class="form-horizontal" th:attr="data-url-base=@{/cadastro/armador/delete/}" method="POST" id="formExcluir">
+            <input type="hidden" value="Tem certeza que deseja excluir este armador" id="mensagemExcluir"/>
+            <div layout:include="Modal"></div>
+        </form>
     </section>
 </body>
 </html>

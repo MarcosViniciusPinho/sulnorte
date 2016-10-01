@@ -36,9 +36,9 @@
                     <table class="table table-striped table-hover table-bordered" >
                         <thead>
                         <tr>
+                            <th>Nome</th>
                             <th>Porto/Terminal</th>
                             <th>Operador(Armador)</th>
-                            <th>Rebocador</th>
                             <th>Ano</th>
                             <th>BP</th>
                             <th>BHP</th>
@@ -49,9 +49,9 @@
                         </thead>
                         <tbody>
                         <tr th:each="rebocador : ${listarRebocadores}">
+                            <td th:text="${rebocador.nome}"></td>
                             <td th:text="${rebocador.porto.nome}"></td>
                             <td th:text="${rebocador.armador.nome}"></td>
-                            <td th:text="${rebocador.nome}"></td>
                             <td th:text="${rebocador.ano}"></td>
                             <td th:text="${rebocador.bp}"></td>
                             <td th:text="${rebocador.bhp}"></td>

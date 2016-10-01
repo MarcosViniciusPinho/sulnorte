@@ -12,13 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/cadastro/porto")
 public class PortoController extends EnderecoController<PortoDTO, Porto>{
 
-    private static final String VIEW_LIST = "cadastro/porto/List";
-    private static final String VIEW_FORM = "cadastro/porto/Form";
     private static final String LISTAR_PAISES = "listarPaises";
     private static final String LISTAR_PORTOS = "listarPortos";
-    private static final String REDIRECT_LIST = "redirect:/cadastro/porto/list";
-    private static final String VIEW_DETAIL = "cadastro/porto/Detail";
     private static final String LISTAR_FILIAIS = "listarFiliais";
+    private static final String PATH_PORTO = "porto";
 
     @Autowired
     private IPortoFacade<Porto> portoFacade;
@@ -28,7 +25,7 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
      */
     @Override
     protected ModelAndView onList(){
-        ModelAndView mv = new ModelAndView(VIEW_LIST);
+        ModelAndView mv = new ModelAndView(getViewList());
         mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         return mv;
     }
@@ -38,7 +35,7 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
      */
     @Override
     protected ModelAndView onPrepareCreate(){
-        ModelAndView mv = new ModelAndView(VIEW_FORM);
+        ModelAndView mv = new ModelAndView(getViewForm());
         mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
         mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
         mv.addObject(new PortoDTO());
@@ -69,24 +66,8 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
      * {@inheritDoc}
      */
     @Override
-    protected String getViewForm() {
-        return VIEW_FORM;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getviewDetail() {
-        return VIEW_DETAIL;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getRedirectViewList() {
-        return REDIRECT_LIST;
+    protected String getPathController() {
+        return PATH_PORTO;
     }
 
     /**
@@ -96,6 +77,5 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
     protected Porto convertDtoToEntity(PortoDTO portoDTO) {
         return portoDTO.toEntity();
     }
-
 
 }

@@ -16,15 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/cadastro/rebocador")
 public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>{
 
-    private static final String VIEW_LIST = "cadastro/rebocador/List";
-    private static final String VIEW_FORM = "cadastro/rebocador/Form";
-    private static final String REDIRECT_LIST = "redirect:/cadastro/rebocador/list";
-    private static final String VIEW_DETAIL = "cadastro/rebocador/Detail";
     private static final String LISTAR_REBOCADORES = "listarRebocadores";
     private static final String LISTAR_ARMADORES = "listarArmadores";
     private static final String LISTAR_PORTOS = "listarPortos";
     private static final String LISTAR_PROPULSOES = "listarPropulsoes";
     private static final String LISTAR_SITUACOES = "listarSituacoes";
+    private static final String PATH_REBOCADOR = "rebocador";
 
     @Autowired
     private IRebocadorFacade<Rebocador> rebocadorFacade;
@@ -40,7 +37,7 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
      */
     @Override
     protected ModelAndView onList(){
-        ModelAndView mv = new ModelAndView(VIEW_LIST);
+        ModelAndView mv = new ModelAndView(getViewList());
         mv.addObject(LISTAR_REBOCADORES, this.rebocadorFacade.findAll());
         return mv;
     }
@@ -50,7 +47,7 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
      */
     @Override
     protected ModelAndView onPrepareCreate(){
-        ModelAndView mv = new ModelAndView(VIEW_FORM);
+        ModelAndView mv = new ModelAndView(getViewForm());
         mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
         mv.addObject(LISTAR_PROPULSOES, this.rebocadorFacade.findAllPropulsao());
@@ -85,24 +82,8 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
      * {@inheritDoc}
      */
     @Override
-    protected String getViewForm() {
-        return VIEW_FORM;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getviewDetail() {
-        return VIEW_DETAIL;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getRedirectViewList() {
-        return REDIRECT_LIST;
+    protected String getPathController() {
+        return PATH_REBOCADOR;
     }
 
     /**
@@ -112,6 +93,5 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
     protected Rebocador convertDtoToEntity(RebocadorDTO rebocadorDTO) {
         return rebocadorDTO.toEntity();
     }
-
 
 }

@@ -14,13 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/cadastro/armador")
 public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
 
-    private static final String VIEW_LIST = "cadastro/armador/List";
-    private static final String VIEW_FORM = "cadastro/armador/Form";
     private static final String LISTAR_PAISES = "listarPaises";
     private static final String LISTAR_ARMADORES = "listarArmadores";
     private static final String LISTAR_PORTOS = "listarPortos";
-    private static final String REDIRECT_LIST = "redirect:/cadastro/armador/list";
-    private static final String VIEW_DETAIL = "cadastro/armador/Detail";
+    private static final String PATH_ARMADOR = "armador";
 
     @Autowired
     private IArmadorFacade<Armador> armadorFacade;
@@ -33,7 +30,7 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
      */
     @Override
     protected ModelAndView onList(){
-        ModelAndView mv = new ModelAndView(VIEW_LIST);
+        ModelAndView mv = new ModelAndView(getViewList());
         mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
         return mv;
     }
@@ -43,7 +40,7 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
      */
     @Override
     protected ModelAndView onPrepareCreate(){
-        ModelAndView mv = new ModelAndView(VIEW_FORM);
+        ModelAndView mv = new ModelAndView(getViewForm());
         mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
         mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         mv.addObject(new ArmadorDTO());
@@ -74,24 +71,8 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
      * {@inheritDoc}
      */
     @Override
-    protected String getViewForm() {
-        return VIEW_FORM;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getviewDetail() {
-        return VIEW_DETAIL;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getRedirectViewList() {
-        return REDIRECT_LIST;
+    protected String getPathController() {
+        return PATH_ARMADOR;
     }
 
     /**
@@ -101,6 +82,5 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
     protected Armador convertDtoToEntity(ArmadorDTO armadorDTO) {
         return armadorDTO.toEntity();
     }
-
 
 }

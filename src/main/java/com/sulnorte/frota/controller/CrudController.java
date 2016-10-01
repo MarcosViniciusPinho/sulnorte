@@ -1,7 +1,6 @@
 package com.sulnorte.frota.controller;
 
 import com.sulnorte.frota.business.facade.ICrudFacade;
-import com.sulnorte.frota.util.ApplicationConstant;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +16,13 @@ public abstract class CrudController<V, T> {
     private static final String MENSAGEM_SUCESSO = "Operação realizada com sucesso.";
     private static final String ACTION_DETAIL = "/detail/{id}";
     private static final String ACTION_DELETE = "/delete/{id}";
+    private static final String SUCESS="sucess";
+
+    private static final String CADASTRO_PATH="cadastro/";
+    private static final String VIEW_LIST = "/List";
+    private static final String VIEW_FORM = "/Form";
+    private static final String VIEW_DETAIL = "/Detail";
+    private static final String REDIRECT_LIST = "redirect:/";
 
     /**
      * Método que deverá ser sempre implementado por suas subclasses.
@@ -34,7 +40,7 @@ public abstract class CrudController<V, T> {
     public String save(V entity, RedirectAttributes redirectAttributes){
         try{
             this.getFacade().save(this.convertDtoToEntity(entity));
-            redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
+            redirectAttributes.addFlashAttribute(SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
         } catch (RuntimeException ex) {
             throw new RuntimeException(ex);
@@ -51,7 +57,7 @@ public abstract class CrudController<V, T> {
     public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes){
         try {
             this.getFacade().delete(id);
-            redirectAttributes.addFlashAttribute(ApplicationConstant.SUCESS, MENSAGEM_SUCESSO);
+            redirectAttributes.addFlashAttribute(SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
         } catch (RuntimeException ex) {
             throw new RuntimeException(ex);
@@ -109,7 +115,7 @@ public abstract class CrudController<V, T> {
      */
     @RequestMapping(value = ACTION_DETAIL)
     public ModelAndView prepareDetail(@PathVariable Long id){
-        return this.onPrepareUpdateOrDetail(this.getviewDetail(), id);
+        return this.onPrepareUpdateOrDetail(this.getViewDetail(), id);
     }
 
     /**
@@ -121,30 +127,56 @@ public abstract class CrudController<V, T> {
     protected abstract ModelAndView onPrepareUpdateOrDetail(String view, Long id);
 
     /**
-     * Método que retorna o caminho da pagina de alterar.
-     * @return String
-     */
-    protected abstract String getViewForm();
-
-    /**
-     * Método que retorna o caminho da pagina de detalhar.
-     * @return
-     */
-    protected abstract String getviewDetail();
-
-    /**
-     * Método que redireciona para a tela de listagem dos registros.
-     * @return String
-     */
-    protected abstract String getRedirectViewList();
-
-    /**
      * Convert uma classe dto para uma classe pojo e que deve ser implementado nas subclasses.
      * @param dto dto
      * @return T
      */
     protected abstract T convertDtoToEntity(V dto);
 
+    /**
+     * Método que serve para pegar o path especifico do controller podendo ser: porto, armador e rebocador.
+     * @return String
+     */
+    protected abstract String getPathController();
 
+    /**
+     * Método que concatena o path cadastro com o path especifico de cada controller, podendo ser: porto, armador e rebocador.
+     * @return String
+     */
+    private String getPathView(){
+        return CADASTRO_PATH + getPathController();
+    }
+
+    /**
+     * Método que redireciona para a tela de cadastrar/alterar.
+     * @return String
+     */
+    protected String getViewForm(){
+        return getPathView() + VIEW_FORM;
+    }
+
+    /**
+     * Método que redireciona para a tela de detalhar.
+     * @return String
+     */
+    private String getViewDetail(){
+        return getPathView() + VIEW_DETAIL;
+    }
+
+    /**
+     * Método que redireciona para listagem dos registros(Porto, Armador e Rebocador)
+     * @return String
+     */
+    protected String getViewList(){
+        return getPathView() + VIEW_LIST;
+    }
+
+    /**
+     * Método que redireciona para listagem dos registros(Porto, Armador e Rebocador)
+     * @return String
+     */
+    private String getRedirectViewList(){
+        return REDIRECT_LIST + getPathView() + ACTION_LIST;
+    }
 
 }

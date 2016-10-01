@@ -5,9 +5,10 @@
        xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>PORTO</title>
+    <title>ARMADOR</title>
     <script th:src="@{/js/util/form.js}"/>
-    <script th:src="@{/js/porto/validate.js}"/>
+    <script th:src="@{/js/cadastro/armador/form.js}"/>
+    <script th:src="@{/js/cadastro/armador/validate.js}"/>
 </head>
 
 <body>
@@ -19,13 +20,13 @@
 
                         <ol class="breadcrumb">
                             <li><a th:href="@{/}">Home</a></li>
-                            <li><a th:href="@{/porto/list}">Porto</a></li>
-                            <li class="active" th:if="${id eq null}">Cadastrar Porto</li>
-                            <li class="active" th:if="${id ne null}">Alterar Porto</li>
+                            <li><a th:href="@{/cadastro/armador/list}">Armador</a></li>
+                            <li class="active" th:if="${id eq null}">Cadastrar Armador</li>
+                            <li class="active" th:if="${id ne null}">Alterar Armador</li>
                         </ol>
 
-                        <h2 th:if="${id eq null}">Cadastrar Porto</h2>
-                        <h2 th:if="${id ne null}">Alterar Porto</h2>
+                        <h2 th:if="${id eq null}">Cadastrar Armador</h2>
+                        <h2 th:if="${id ne null}">Alterar Armador</h2>
                         <hr />
 
                         <div class="textoCamposObrigatorios">
@@ -33,12 +34,12 @@
                         </div>
 
                         <input type="hidden" id="path" th:value="@{/}"/>
-                        <input type="hidden" th:field="*{portoDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
-                        <input type="hidden" th:field="*{portoDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
-                        <input type="hidden" value="porto" id="pathController"/>
-                        <form method="POST" th:action="@{/porto/save}" th:object="${portoDTO}" id="form">
+                        <input type="hidden" th:field="*{armadorDTO.endereco.estado.id}" id="estadoId" th:if="${id ne null}"/>
+                        <input type="hidden" th:field="*{armadorDTO.endereco.municipio.id}" id="municipioId" th:if="${id ne null}"/>
+                        <input type="hidden" value="cadastro/armador" id="pathController"/>
+                        <form method="POST" th:action="@{/cadastro/armador/save}" th:object="${armadorDTO}" id="form">
                             <div class="form-group">
-                                <h3>Porto</h3>
+                                <h3>Armador</h3>
                                 <input type="hidden" th:field="*{id}" id="id"/>
                                 <input type="hidden" th:field="*{endereco.id}"/>
                                 <div class="well col-sm-12">
@@ -48,17 +49,23 @@
                                                placeholder="Informe um nome"/>
                                     </div>
 
-                                    <div class="col-sm-4">
-                                        <label for="filial">Filial:</label>
-                                        <select id="filial" class="form-control" th:field="*{filial}" name="filial.nome">
-                                            <option value="">Selecione uma filial</option>
-                                            <option th:each="filial : ${listarFiliais}" th:value="${filial.id}" th:text="${filial.nome}"></option>
-                                        </select>
+                                    <div class="col-sm-4 col-md-offset-3">
+                                        <label for="contato">Contato:</label>
+                                        <input type="text" class="form-control" id="contato"  th:field="*{contato}" placeholder="Informe um contato"
+                                            maxlength="50"/>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div class="col-sm-3">
-                                        <label for="cnpj">CNPJ:</label>
-                                        <input type="text" class="form-control" id="cnpj"  th:field="*{cnpj}" placeholder="Informe um cnpj válido"/>
+                            <div class="form-group">
+                                <h3>Porto</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-12">
+                                        <label for="portoList"><span class="corPadraoVermelho">*</span> Selecione um porto:</label>
+                                        <select multiple="multiple" id="portoList" th:field="*{portoList}" name="portoList">
+                                            <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
+                                        </select>
+                                        <label id="mensagemObrigatoriedadePorto" class="corPadraoVermelho"></label>
                                     </div>
                                 </div>
                             </div>

@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/armador")
+@RequestMapping("/cadastro/armador")
 public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
 
-    private static final String VIEW_LIST = "armador/List";
-    private static final String VIEW_FORM = "armador/Form";
+    private static final String VIEW_LIST = "cadastro/armador/List";
+    private static final String VIEW_FORM = "cadastro/armador/Form";
     private static final String LISTAR_PAISES = "listarPaises";
     private static final String LISTAR_ARMADORES = "listarArmadores";
     private static final String LISTAR_PORTOS = "listarPortos";
-    private static final String REDIRECT_LIST = "redirect:/armador/list";
-    private static final String VIEW_DETAIL = "armador/Detail";
+    private static final String REDIRECT_LIST = "redirect:/cadastro/armador/list";
+    private static final String VIEW_DETAIL = "cadastro/armador/Detail";
 
     @Autowired
     private IArmadorFacade<Armador> armadorFacade;

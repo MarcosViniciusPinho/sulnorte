@@ -17,7 +17,7 @@
 
                         <ol class="breadcrumb">
                             <li><a th:href="@{/}">Home</a></li>
-                            <li><a th:href="@{/rebocador/list}">Rebocador</a></li>
+                            <li><a th:href="@{/cadastro/rebocador/list}">Rebocador</a></li>
                             <li class="active">Detalhar Rebocador</li>
                         </ol>
 
@@ -48,7 +48,9 @@
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <label>Propulsão:</label> &nbsp; <span th:text="${rebocadorDTO.propulsao.nome}"/>
+                                        <label>Propulsão:</label> &nbsp;
+                                        <span th:text="${rebocadorDTO.propulsao.nome}" th:if="${rebocadorDTO.propulsao ne null}"/>
+                                        <span th:if="${rebocadorDTO.propulsao eq null}"/>
                                     </div>
 
                                     <div class="col-md-12"> &nbsp; </div>

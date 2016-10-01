@@ -6,8 +6,8 @@
 
 <head>
     <title>REBOCADOR</title>
-    <script th:src="@{/js/rebocador/validate.js}"/>
-    <script th:src="@{/js/rebocador/form.js}"/>
+    <script th:src="@{/js/cadastro/rebocador/validate.js}"/>
+    <script th:src="@{/js/cadastro/rebocador/form.js}"/>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
                         <ol class="breadcrumb">
                             <li><a th:href="@{/}">Home</a></li>
-                            <li><a th:href="@{/rebocador/list}">Rebocador</a></li>
+                            <li><a th:href="@{/cadastro/rebocador/list}">Rebocador</a></li>
                             <li class="active" th:if="${id eq null}">Cadastrar Rebocador</li>
                             <li class="active" th:if="${id ne null}">Alterar Rebocador</li>
                         </ol>
@@ -33,8 +33,8 @@
                         </div>
 
                         <input type="hidden" id="path" th:value="@{/}"/>
-                        <input type="hidden" value="rebocador" id="pathController"/>
-                        <form method="POST" th:action="@{/rebocador/save}" th:object="${rebocadorDTO}" id="form">
+                        <input type="hidden" value="cadastro/rebocador" id="pathController"/>
+                        <form method="POST" th:action="@{/cadastro/rebocador/save}" th:object="${rebocadorDTO}" id="form">
                             <div class="form-group">
                                 <h3>Rebocador</h3>
                                 <input type="hidden" th:field="*{id}" id="id"/>

@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/porto")
+@RequestMapping("/cadastro/porto")
 public class PortoController extends EnderecoController<PortoDTO, Porto>{
 
-    private static final String VIEW_LIST = "porto/List";
-    private static final String VIEW_FORM = "porto/Form";
+    private static final String VIEW_LIST = "cadastro/porto/List";
+    private static final String VIEW_FORM = "cadastro/porto/Form";
     private static final String LISTAR_PAISES = "listarPaises";
     private static final String LISTAR_PORTOS = "listarPortos";
-    private static final String REDIRECT_LIST = "redirect:/porto/list";
-    private static final String VIEW_DETAIL = "porto/Detail";
+    private static final String REDIRECT_LIST = "redirect:/cadastro/porto/list";
+    private static final String VIEW_DETAIL = "cadastro/porto/Detail";
     private static final String LISTAR_FILIAIS = "listarFiliais";
 
     @Autowired

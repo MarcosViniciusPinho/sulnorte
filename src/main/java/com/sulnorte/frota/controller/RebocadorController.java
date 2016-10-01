@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/rebocador")
+@RequestMapping("/cadastro/rebocador")
 public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>{
 
-    private static final String VIEW_LIST = "rebocador/List";
-    private static final String VIEW_FORM = "rebocador/Form";
-    private static final String REDIRECT_LIST = "redirect:/rebocador/list";
-    private static final String VIEW_DETAIL = "rebocador/Detail";
+    private static final String VIEW_LIST = "cadastro/rebocador/List";
+    private static final String VIEW_FORM = "cadastro/rebocador/Form";
+    private static final String REDIRECT_LIST = "redirect:/cadastro/rebocador/list";
+    private static final String VIEW_DETAIL = "cadastro/rebocador/Detail";
     private static final String LISTAR_REBOCADORES = "listarRebocadores";
     private static final String LISTAR_ARMADORES = "listarArmadores";
     private static final String LISTAR_PORTOS = "listarPortos";

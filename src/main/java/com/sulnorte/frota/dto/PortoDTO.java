@@ -1,6 +1,7 @@
 package com.sulnorte.frota.dto;
 
 
+import com.sulnorte.frota.dto.util.PatternUtil;
 import com.sulnorte.frota.dto.util.ReplaceUtil;
 import com.sulnorte.frota.entity.Endereco;
 import com.sulnorte.frota.entity.Filial;
@@ -100,6 +101,14 @@ public class PortoDTO implements Serializable {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    /**
+     * Método que é utilizado para colocar a mascara no campo CNPJ nas telas: List e no Detail.
+     * @return String
+     */
+    public String getCnpjComMascara(){
+        return PatternUtil.mascaraPadraoCnpj(this.getCnpj());
     }
 
     @Override

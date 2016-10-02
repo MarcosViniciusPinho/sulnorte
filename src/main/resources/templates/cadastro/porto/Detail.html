@@ -39,7 +39,7 @@
                                     </div>
 
                                     <div class="col-sm-3">
-                                        <label>CNPJ:</label> &nbsp; <span th:text="${portoDTO.cnpj}"/>
+                                        <label>CNPJ:</label> &nbsp; <span th:if="${portoDTO.cnpj ne null}" th:text="${portoDTO.cnpjComMascara}"/>
                                     </div>
                                 </div>
                             </div>

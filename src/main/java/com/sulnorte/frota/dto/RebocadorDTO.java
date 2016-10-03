@@ -1,12 +1,12 @@
 package com.sulnorte.frota.dto;
 
 
+import com.sulnorte.frota.dto.util.ReplaceUtil;
 import com.sulnorte.frota.entity.*;
 import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,9 +20,9 @@ public class RebocadorDTO implements Serializable {
 
     private Integer ano;
 
-    private BigDecimal bp;
+    private String bp;
 
-    private BigDecimal bhp;
+    private String bhp;
 
     private String observacao;
 
@@ -40,8 +40,8 @@ public class RebocadorDTO implements Serializable {
         rebocador.setId(this.id);
         rebocador.setNome(this.nome);
         rebocador.setAno(this.ano);
-        rebocador.setBp(this.bp);
-        rebocador.setBhp(this.bhp);
+        rebocador.setBp(ReplaceUtil.retirarPadraoDecimalBr(this.bp));
+        rebocador.setBhp(ReplaceUtil.retirarPadraoDecimalBr(this.bhp));
         rebocador.setObservacao(this.observacao);
         rebocador.setPropulsao(this.propulsao);
         rebocador.setSituacaoRebocador(this.situacaoRebocador);
@@ -56,8 +56,8 @@ public class RebocadorDTO implements Serializable {
         rebocadorDTO.setId(rebocador.getId());
         rebocadorDTO.setNome(rebocador.getNome());
         rebocadorDTO.setAno(rebocador.getAno());
-        rebocadorDTO.setBp(rebocador.getBp());
-        rebocadorDTO.setBhp(rebocador.getBhp());
+        rebocadorDTO.setBp(rebocador.getBp() != null ? rebocador.getBp().toString() : null);
+        rebocadorDTO.setBhp(rebocador.getBhp() != null ? rebocador.getBhp().toString() : null);
         rebocadorDTO.setObservacao(rebocador.getObservacao());
         rebocadorDTO.setPropulsao(rebocador.getPropulsao());
         rebocadorDTO.setSituacaoRebocador(rebocador.getSituacaoRebocador());
@@ -106,19 +106,19 @@ public class RebocadorDTO implements Serializable {
         this.ano = ano;
     }
 
-    public BigDecimal getBp() {
+    public String getBp() {
         return bp;
     }
 
-    public void setBp(BigDecimal bp) {
+    public void setBp(String bp) {
         this.bp = bp;
     }
 
-    public BigDecimal getBhp() {
+    public String getBhp() {
         return bhp;
     }
 
-    public void setBhp(BigDecimal bhp) {
+    public void setBhp(String bhp) {
         this.bhp = bhp;
     }
 

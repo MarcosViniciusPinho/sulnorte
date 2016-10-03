@@ -16,7 +16,7 @@ public class ReplaceUtil {
         return Long.parseLong(cnpj.replace(".","").replace(".","").replace("/","").replace("-",""));
     }
 
-    public static BigDecimal retirarPadraoDecimalBr(String valor){
+    public static BigDecimal retirarMascaraPadraoDecimalBr(String valor){
         if(StringUtils.isEmpty(valor)){
             return null;
         }

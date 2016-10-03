@@ -1,6 +1,7 @@
 package com.sulnorte.frota.dto;
 
 
+import com.sulnorte.frota.dto.util.PatternUtil;
 import com.sulnorte.frota.dto.util.ReplaceUtil;
 import com.sulnorte.frota.entity.*;
 import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
@@ -40,8 +41,8 @@ public class RebocadorDTO implements Serializable {
         rebocador.setId(this.id);
         rebocador.setNome(this.nome);
         rebocador.setAno(this.ano);
-        rebocador.setBp(ReplaceUtil.retirarPadraoDecimalBr(this.bp));
-        rebocador.setBhp(ReplaceUtil.retirarPadraoDecimalBr(this.bhp));
+        rebocador.setBp(ReplaceUtil.retirarMascaraPadraoDecimalBr(this.bp));
+        rebocador.setBhp(ReplaceUtil.retirarMascaraPadraoDecimalBr(this.bhp));
         rebocador.setObservacao(this.observacao);
         rebocador.setPropulsao(this.propulsao);
         rebocador.setSituacaoRebocador(this.situacaoRebocador);
@@ -56,8 +57,8 @@ public class RebocadorDTO implements Serializable {
         rebocadorDTO.setId(rebocador.getId());
         rebocadorDTO.setNome(rebocador.getNome());
         rebocadorDTO.setAno(rebocador.getAno());
-        rebocadorDTO.setBp(rebocador.getBp() != null ? rebocador.getBp().toString() : null);
-        rebocadorDTO.setBhp(rebocador.getBhp() != null ? rebocador.getBhp().toString() : null);
+        rebocadorDTO.setBp(PatternUtil.mascaraPadraoDecimalBr(rebocador.getBp()));
+        rebocadorDTO.setBhp(PatternUtil.mascaraPadraoDecimalBr(rebocador.getBhp()));
         rebocadorDTO.setObservacao(rebocador.getObservacao());
         rebocadorDTO.setPropulsao(rebocador.getPropulsao());
         rebocadorDTO.setSituacaoRebocador(rebocador.getSituacaoRebocador());

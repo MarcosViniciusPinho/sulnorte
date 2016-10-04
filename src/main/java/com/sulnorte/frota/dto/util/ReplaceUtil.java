@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class ReplaceUtil {
 
-    public static Long somenteNumerosParaCnpj(String cnpj){
+    public static Long retirarMascaraPadraoCnpj(String cnpj){
         if(StringUtils.isEmpty(cnpj)){
             return null;
         }

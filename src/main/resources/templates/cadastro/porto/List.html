@@ -48,8 +48,7 @@
                         <tbody>
                         <tr th:each="porto : ${listarPortos}">
                             <td th:text="${porto.nome}"></td>
-                            <td th:if="${porto.cnpj ne null}" th:text="${porto.cnpjComMascara}"></td>
-                            <td th:if="${porto.cnpj eq null}"></td>
+                            <td th:text="${porto.cnpj}"></td>
                             <td th:if="${porto.filial ne null}" th:text="${porto.filial.nome}"></td>
                             <td th:if="${porto.filial eq null}"></td>
                             <td th:text="${porto.endereco.municipio.nome}"></td>

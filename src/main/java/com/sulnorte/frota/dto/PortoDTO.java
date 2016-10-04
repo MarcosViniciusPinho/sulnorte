@@ -31,7 +31,7 @@ public class PortoDTO implements Serializable {
         Porto porto = new Porto();
         porto.setId(this.id);
         porto.setNome(this.nome);
-        porto.setCnpj(ReplaceUtil.somenteNumerosParaCnpj(this.cnpj));
+        porto.setCnpj(ReplaceUtil.retirarMascaraPadraoCnpj(this.cnpj));
         porto.setFilial(this.filial);
         porto.setEndereco(this.endereco);
         return porto;
@@ -42,7 +42,7 @@ public class PortoDTO implements Serializable {
         PortoDTO portoDTO = new PortoDTO();
         portoDTO.setId(porto.getId());
         portoDTO.setNome(porto.getNome());
-        portoDTO.setCnpj(porto.getCnpj() != null ? porto.getCnpj().toString() : null);
+        portoDTO.setCnpj(PatternUtil.mascaraPadraoCnpj(porto.getCnpj()));
         portoDTO.setFilial(porto.getFilial());
         portoDTO.setEndereco(porto.getEndereco());
         return portoDTO;
@@ -101,14 +101,6 @@ public class PortoDTO implements Serializable {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
-    }
-
-    /**
-     * Método que é utilizado para colocar a mascara no campo CNPJ nas telas: List e no Detail.
-     * @return String
-     */
-    public String getCnpjComMascara(){
-        return PatternUtil.mascaraPadraoCnpj(this.getCnpj());
     }
 
     @Override

@@ -18,13 +18,13 @@ public class ReplaceUtilUnitTest {
 	public void testSomenteNumerosParaCnpj(){
 		Long cnpjSomenteNumeros = 72039912000188L;
 		String cnpjComMascara = "72.039.912/0001-88";
-		Assert.assertNotNull(ReplaceUtil.somenteNumerosParaCnpj(cnpjComMascara));
-		Assert.assertEquals(cnpjSomenteNumeros, ReplaceUtil.somenteNumerosParaCnpj(cnpjComMascara));
+		Assert.assertNotNull(ReplaceUtil.retirarMascaraPadraoCnpj(cnpjComMascara));
+		Assert.assertEquals(cnpjSomenteNumeros, ReplaceUtil.retirarMascaraPadraoCnpj(cnpjComMascara));
 	}
 
 	@Test
 	public void testSomenteNumerosParaCnpjComValorNull(){
-		Assert.assertNull(ReplaceUtil.somenteNumerosParaCnpj(null));
+		Assert.assertNull(ReplaceUtil.retirarMascaraPadraoCnpj(null));
 	}
 
 	@Test

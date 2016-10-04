@@ -36,8 +36,7 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
     @Override
     protected ModelAndView onPrepareCreate(){
         ModelAndView mv = new ModelAndView(getViewForm());
-        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
-        mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
+        this.onLoadView(mv);
         mv.addObject(new PortoDTO());
         return mv;
     }
@@ -48,10 +47,18 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
     @Override
     protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
-        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
-        mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
+        this.onLoadView(mv);
         mv.addObject(this.portoFacade.findById(id));
         return mv;
+    }
+
+    /**
+     * Método criado para retirar duplicação de código nos métodos 'onPrepareCreate' e 'onPrepareUpdateOrDetail'
+     * @param mv mv
+     */
+    private void onLoadView(ModelAndView mv){
+        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
+        mv.addObject(LISTAR_FILIAIS, this.portoFacade.findAllFilial());
     }
 
     /**

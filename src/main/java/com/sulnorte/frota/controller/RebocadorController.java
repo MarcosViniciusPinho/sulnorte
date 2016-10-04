@@ -48,10 +48,7 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
     @Override
     protected ModelAndView onPrepareCreate(){
         ModelAndView mv = new ModelAndView(getViewForm());
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
-        mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
-        mv.addObject(LISTAR_PROPULSOES, this.rebocadorFacade.findAllPropulsao());
-        mv.addObject(LISTAR_SITUACOES, this.rebocadorFacade.findAllSituacao());
+        this.onLoadView(mv);
         mv.addObject(new RebocadorDTO());
         return mv;
     }
@@ -62,12 +59,20 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
     @Override
     protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
+        this.onLoadView(mv);
+        mv.addObject(this.rebocadorFacade.findById(id));
+        return mv;
+    }
+
+    /**
+     * Método criado para retirar duplicação de código nos métodos 'onPrepareCreate' e 'onPrepareUpdateOrDetail'
+     * @param mv mv
+     */
+    private void onLoadView(ModelAndView mv){
         mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
         mv.addObject(LISTAR_PROPULSOES, this.rebocadorFacade.findAllPropulsao());
         mv.addObject(LISTAR_SITUACOES, this.rebocadorFacade.findAllSituacao());
-        mv.addObject(this.rebocadorFacade.findById(id));
-        return mv;
     }
 
     /**

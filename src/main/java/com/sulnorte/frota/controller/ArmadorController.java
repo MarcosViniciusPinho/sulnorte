@@ -41,8 +41,7 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
     @Override
     protected ModelAndView onPrepareCreate(){
         ModelAndView mv = new ModelAndView(getViewForm());
-        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
+        this.onLoadView(mv);
         mv.addObject(new ArmadorDTO());
         return mv;
     }
@@ -53,10 +52,18 @@ public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{
     @Override
     protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
         ModelAndView mv = new ModelAndView(view);
-        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
+        this.onLoadView(mv);
         mv.addObject(this.armadorFacade.findById(id));
         return mv;
+    }
+
+    /**
+     * Método criado para retirar duplicação de código nos métodos 'onPrepareCreate' e 'onPrepareUpdateOrDetail'
+     * @param mv mv
+     */
+    private void onLoadView(ModelAndView mv){
+        mv.addObject(LISTAR_PAISES, enderecoFacade.findAllPais());
+        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
     }
 
     /**

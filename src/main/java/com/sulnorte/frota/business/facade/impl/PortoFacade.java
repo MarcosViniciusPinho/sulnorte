@@ -3,8 +3,10 @@ package com.sulnorte.frota.business.facade.impl;
 import com.sulnorte.frota.business.facade.IPortoFacade;
 import com.sulnorte.frota.business.service.IFilialService;
 import com.sulnorte.frota.business.service.IPortoService;
+import com.sulnorte.frota.business.service.IRebocadorService;
 import com.sulnorte.frota.dto.FilialDTO;
 import com.sulnorte.frota.dto.PortoDTO;
+import com.sulnorte.frota.entity.Rebocador;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,9 @@ public class PortoFacade<T> implements IPortoFacade<T> {
     @Autowired
     private IFilialService filialService;
 
+    @Autowired
+    private IRebocadorService rebocadorService;
+
     /**
      * {@inheritDoc}
      */
@@ -32,10 +37,12 @@ public class PortoFacade<T> implements IPortoFacade<T> {
         }
         for(PortoDTO portoDTO : lista){
             Long idPorto = this.portoService.findByIdPortoOnArmador(portoDTO.getId());
-            if(idPorto == null){
-                portoDTO.setUsado(Boolean.FALSE);//Porto nao esta sendo usado.
-            } else if(portoDTO.getId().equals(idPorto)){
-                portoDTO.setUsado(Boolean.TRUE);//Porto esta sendo usado.
+            Rebocador rebocador = this.rebocadorService.findFirstByPortoId(portoDTO.getId());
+            if(idPorto == null && rebocador == null){
+                portoDTO.setUsado(Boolean.FALSE);//Porto nao esta sendo usado nem em Armador e nem em Rebocador.
+            } else if(portoDTO.getId().equals(idPorto)
+                    || (rebocador.getPorto() != null && portoDTO.getId().equals(rebocador.getPorto().getId()))){
+                portoDTO.setUsado(Boolean.TRUE);//Porto esta sendo usado ou em Armador ou em Rebocador.
             }
         }
         return lista;

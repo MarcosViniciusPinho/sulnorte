@@ -33,9 +33,9 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
         for(ArmadorDTO armadorDTO : lista){
             Rebocador rebocador = this.rebocadorService.findFirstByArmadorId(armadorDTO.getId());
             if(rebocador == null){
-                armadorDTO.setUsado(Boolean.FALSE);
+                armadorDTO.setUsado(Boolean.FALSE);//Armador nao esta sendo usado em Rebocador.
             } else if(rebocador.getArmador() != null && armadorDTO.getId().equals(rebocador.getArmador().getId())){
-                armadorDTO.setUsado(Boolean.TRUE);
+                armadorDTO.setUsado(Boolean.TRUE);//Armador esta sendo usado em Rebocador.
             }
         }
         return lista;

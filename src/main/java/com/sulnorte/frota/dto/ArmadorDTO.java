@@ -26,6 +26,8 @@ public class ArmadorDTO implements Serializable {
 
     private List<Porto> portoList = new ArrayList<Porto>(0);
 
+    private boolean usado;
+
     public Armador toEntity(){
         Armador armador = new Armador();
         armador.setId(this.id);
@@ -100,6 +102,14 @@ public class ArmadorDTO implements Serializable {
 
     public void setPortoList(List<Porto> portoList) {
         this.portoList = portoList;
+    }
+
+    public boolean isUsado() {
+        return usado;
+    }
+
+    public void setUsado(boolean usado) {
+        this.usado = usado;
     }
 
     /**

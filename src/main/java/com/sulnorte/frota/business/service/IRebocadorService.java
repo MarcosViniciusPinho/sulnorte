@@ -11,4 +11,18 @@ public interface IRebocadorService extends ICrudService<Rebocador>{
      * @return List<Rebocador>
      */
     List<Rebocador> findAllByOrderByNomeAsc();
+
+    /**
+     * Método que busca um armador em rebocador.
+     * @param idArmador idArmador
+     * @return Rebocador
+     */
+    Rebocador findFirstByArmadorId(Long idArmador);
+
+    /**
+     * Método que busca um porto em rebocador.
+     * @param idPorto idPorto
+     * @return Rebocador
+     */
+    Rebocador findFirstByPortoId(Long idPorto);
 }

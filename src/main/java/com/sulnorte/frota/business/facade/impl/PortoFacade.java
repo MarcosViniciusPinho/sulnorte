@@ -31,7 +31,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
             return new ArrayList<PortoDTO>();
         }
         for(PortoDTO portoDTO : lista){
-            Long idPorto = portoService.findByIdPortoOnArmador(portoDTO.getId());
+            Long idPorto = this.portoService.findByIdPortoOnArmador(portoDTO.getId());
             if(idPorto == null){
                 portoDTO.setUsado(Boolean.FALSE);//Porto nao esta sendo usado.
             } else if(portoDTO.getId().equals(idPorto)){

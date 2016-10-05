@@ -32,25 +32,10 @@ a{
     color: #ee0000;
     font-family: sans-serif;
 }
-label{
+label, span, small{
     font-family: sans-serif;
 }
-span{
-    font-family: sans-serif;
-}
-h1{
-    font-family: sans-serif;
-}
-h2{
-    font-family: sans-serif;
-}
-h3{
-    font-family: sans-serif;
-}
-h4{
-    font-family: sans-serif;
-}
-h5{
+h1, h2, h3, h4, h5{
     font-family: sans-serif;
 }
 li{
@@ -59,31 +44,15 @@ li{
 title{
     font-family: sans-serif;
 }
-th{
+th, td{
     text-align: center;
     font-family: sans-serif;
 }
-td{
-    text-align: center;
-    font-family: sans-serif;
-}
-ul, li{
-    font-family: sans-serif;
-}
-button{
-    font-family: sans-serif;
-}
-input{
-    font-family: sans-serif;
-}
-select{
+input, select, button{
     font-family: sans-serif;
 }
 div.ms-container{
     width: 100%;
-}
-small{
-    font-family: sans-serif;
 }
 div.textoCamposObrigatorios{
     margin-top: -40px;

@@ -5,9 +5,11 @@ import com.sulnorte.frota.business.service.IFilialService;
 import com.sulnorte.frota.business.service.IPortoService;
 import com.sulnorte.frota.dto.FilialDTO;
 import com.sulnorte.frota.dto.PortoDTO;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +26,19 @@ public class PortoFacade<T> implements IPortoFacade<T> {
      */
     @Override
     public List<PortoDTO> findAll() {
-        return PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc());
+        List<PortoDTO> lista = PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc());
+        if(CollectionUtils.isEmpty(lista)){
+            return new ArrayList<PortoDTO>();
+        }
+        for(PortoDTO portoDTO : lista){
+            Long idPorto = portoService.findByIdPortoOnArmador(portoDTO.getId());
+            if(idPorto == null){
+                portoDTO.setUsado(Boolean.FALSE);//Porto nao esta sendo usado.
+            } else if(portoDTO.getId().equals(idPorto)){
+                portoDTO.setUsado(Boolean.TRUE);//Porto esta sendo usado.
+            }
+        }
+        return lista;
     }
 
     /**

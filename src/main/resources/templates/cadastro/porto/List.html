@@ -61,7 +61,7 @@
                                 <a title="Editar" class="btn btn-link btn-xs" th:href="@{/cadastro/porto/edit/{id}(id=${porto.id})}">
                                     <span class="glyphicon glyphicon-pencil corPadraoVermelho"></span>
                                 </a>
-                                <a title="Excluir" class="btn btn-link btn-xs" href="#"
+                                <a title="Excluir" class="btn btn-link btn-xs" href="#" th:if="${!porto.usado}"
                                     th:attr="data-id=${porto.id}, data-nome=${porto.nome}" data-toggle="modal" data-target="#modalExcluir">
                                     <span class="glyphicon glyphicon-trash corPadraoVermelho"></span>
                                 </a>

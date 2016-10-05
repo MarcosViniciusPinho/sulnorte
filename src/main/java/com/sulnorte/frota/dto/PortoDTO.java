@@ -27,6 +27,8 @@ public class PortoDTO implements Serializable {
 
     private Endereco endereco;
 
+    private boolean usado;
+
     public Porto toEntity(){
         Porto porto = new Porto();
         porto.setId(this.id);
@@ -101,6 +103,14 @@ public class PortoDTO implements Serializable {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public boolean isUsado() {
+        return usado;
+    }
+
+    public void setUsado(boolean usado) {
+        this.usado = usado;
     }
 
     @Override

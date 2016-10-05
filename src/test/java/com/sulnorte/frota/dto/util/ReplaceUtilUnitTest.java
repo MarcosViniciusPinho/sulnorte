@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class ReplaceUtilUnitTest {
 
 	@Test
-	public void testSomenteNumerosParaCnpj(){
+	public void testRetirarMascaraPadraoCnpj(){
 		Long cnpjSomenteNumeros = 72039912000188L;
 		String cnpjComMascara = "72.039.912/0001-88";
 		Assert.assertNotNull(ReplaceUtil.retirarMascaraPadraoCnpj(cnpjComMascara));
@@ -23,7 +24,7 @@ public class ReplaceUtilUnitTest {
 	}
 
 	@Test
-	public void testSomenteNumerosParaCnpjComValorNull(){
+	public void testRetirarMascaraPadraoCnpjNull(){
 		Assert.assertNull(ReplaceUtil.retirarMascaraPadraoCnpj(null));
 	}
 
@@ -42,6 +43,18 @@ public class ReplaceUtilUnitTest {
 		String textoEsperado = "";
 		Assert.assertNotNull(ReplaceUtil.somenteTexto(lista));
 		Assert.assertEquals(textoEsperado, ReplaceUtil.somenteTexto(lista));
+	}
+
+	@Test
+	public void testRetirarMascaraPadraoDecimalBr(){
+		BigDecimal valorEsperado = new BigDecimal("736482.32");
+		Assert.assertNotNull(ReplaceUtil.retirarMascaraPadraoDecimalBr("736.482,32"));
+		Assert.assertEquals(valorEsperado, ReplaceUtil.retirarMascaraPadraoDecimalBr("736.482,32"));
+	}
+
+	@Test
+	public void testRetirarMascaraPadraoDecimalBrNull(){
+		Assert.assertNull(ReplaceUtil.retirarMascaraPadraoDecimalBr(null));
 	}
 
 }

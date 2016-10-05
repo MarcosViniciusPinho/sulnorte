@@ -36,16 +36,41 @@ public class PortoFacade<T> implements IPortoFacade<T> {
             return new ArrayList<PortoDTO>();
         }
         for(PortoDTO portoDTO : lista){
-            Long idPorto = this.portoService.findByIdPortoOnArmador(portoDTO.getId());
-            Rebocador rebocador = this.rebocadorService.findFirstByPortoId(portoDTO.getId());
-            if(idPorto == null && rebocador == null){
-                portoDTO.setUsado(Boolean.FALSE);//Porto nao esta sendo usado nem em Armador e nem em Rebocador.
-            } else if(portoDTO.getId().equals(idPorto)
-                    || (rebocador.getPorto() != null && portoDTO.getId().equals(rebocador.getPorto().getId()))){
-                portoDTO.setUsado(Boolean.TRUE);//Porto esta sendo usado ou em Armador ou em Rebocador.
-            }
+            this.verificarDisponibilidadeParaExclusao(portoDTO);
         }
         return lista;
+    }
+
+    /**
+     * Método que verifica o porto que nao esta sendo usado em Armador ou Rebocador.
+     * @param idPorto idPorto
+     * @return boolean
+     */
+    private boolean isPortoNaoUsado(Long idPorto){
+        Long idPortoOther = this.portoService.findByIdPortoOnArmador(idPorto);
+        Rebocador rebocador = this.rebocadorService.findFirstByPortoId(idPorto);
+        return idPortoOther == null && rebocador == null;
+    }
+
+    /**
+     * Método que verifica o porto que esta sendo usado em Armador ou Rebocador.
+     * @param idPorto idPorto
+     * @return boolean
+     */
+    private boolean isPortoUsado(Long idPorto){
+        Long idPortoOther = this.portoService.findByIdPortoOnArmador(idPorto);
+        Rebocador rebocador = this.rebocadorService.findFirstByPortoId(idPorto);
+        return idPorto.equals(idPortoOther)
+                || (rebocador.getPorto() != null && idPorto.equals(rebocador.getPorto().getId()));
+    }
+
+    private PortoDTO verificarDisponibilidadeParaExclusao(PortoDTO portoDTO){
+        if(this.isPortoNaoUsado(portoDTO.getId())){
+            portoDTO.setUsado(Boolean.FALSE);
+        } else if(this.isPortoUsado(portoDTO.getId())){
+            portoDTO.setUsado(Boolean.TRUE);
+        }
+        return portoDTO;
     }
 
     /**
@@ -61,7 +86,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
      */
     @Override
     public PortoDTO findById(Long idPorto) {
-        return PortoDTO.toDto(this.portoService.getOne(idPorto));
+        return this.verificarDisponibilidadeParaExclusao(PortoDTO.toDto(this.portoService.getOne(idPorto)));
     }
 
     /**

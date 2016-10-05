@@ -31,14 +31,38 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
             return new ArrayList<ArmadorDTO>();
         }
         for(ArmadorDTO armadorDTO : lista){
-            Rebocador rebocador = this.rebocadorService.findFirstByArmadorId(armadorDTO.getId());
-            if(rebocador == null){
-                armadorDTO.setUsado(Boolean.FALSE);//Armador nao esta sendo usado em Rebocador.
-            } else if(rebocador.getArmador() != null && armadorDTO.getId().equals(rebocador.getArmador().getId())){
-                armadorDTO.setUsado(Boolean.TRUE);//Armador esta sendo usado em Rebocador.
-            }
+            this.verificarDisponibilidadeParaExclusao(armadorDTO);
         }
         return lista;
+    }
+
+    /**
+     * Método que verifica o armador que nao esta sendo usado em Rebocador.
+     * @param idArmador idArmador
+     * @return boolean
+     */
+    private boolean isArmadorNaoUsado(Long idArmador){
+        Rebocador rebocador = this.rebocadorService.findFirstByArmadorId(idArmador);
+        return rebocador == null;
+    }
+
+    /**
+     * Método que verifica o armador que esta sendo usado em Rebocador.
+     * @param idArmador idArmador
+     * @return boolean
+     */
+    private boolean isArmadorUsado(Long idArmador){
+        Rebocador rebocador = this.rebocadorService.findFirstByArmadorId(idArmador);
+        return rebocador.getArmador() != null && idArmador.equals(rebocador.getArmador().getId());
+    }
+
+    private ArmadorDTO verificarDisponibilidadeParaExclusao(ArmadorDTO armadorDTO){
+        if(this.isArmadorNaoUsado(armadorDTO.getId())){
+            armadorDTO.setUsado(Boolean.FALSE);
+        } else if(this.isArmadorUsado(armadorDTO.getId())){
+            armadorDTO.setUsado(Boolean.TRUE);
+        }
+        return armadorDTO;
     }
 
     /**
@@ -46,7 +70,7 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
      */
     @Override
     public ArmadorDTO findById(Long idPorto) {
-        return ArmadorDTO.toDto(this.armadorService.getOne(idPorto));
+        return this.verificarDisponibilidadeParaExclusao(ArmadorDTO.toDto(this.armadorService.getOne(idPorto)));
     }
 
     /**

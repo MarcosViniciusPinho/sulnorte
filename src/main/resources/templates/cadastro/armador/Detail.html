@@ -77,7 +77,7 @@
                             </div>
                         <a th:href="@{/cadastro/armador/edit/{id}(id=${armadorDTO.id})}" class="btn btn-danger">Editar</a>
                         <a th:attr="data-id=${armadorDTO.id}, data-nome=${armadorDTO.nome}" data-toggle="modal" data-target="#modalExcluir"
-                           class="btn btn-danger">Excluir</a>
+                           class="btn btn-danger" th:if="${!armadorDTO.usado}">Excluir</a>
                     </div>
                 </div>
             </div>

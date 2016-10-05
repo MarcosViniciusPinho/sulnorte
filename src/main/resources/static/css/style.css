@@ -67,6 +67,9 @@ td{
     text-align: center;
     font-family: sans-serif;
 }
+ul, li{
+    font-family: sans-serif;
+}
 button{
     font-family: sans-serif;
 }

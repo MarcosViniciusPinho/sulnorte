@@ -26,6 +26,12 @@ public class RebocadorDTOUnitTest {
 		Assert.assertEquals(rebocadorEsperado, rebocadorAtual);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testToEntityComFalha(){
+		Assert.assertNotNull(new RebocadorDTO().toEntity());
+		Assert.assertEquals(new Rebocador(), new RebocadorDTO().toEntity());
+	}
+
 	@Test
 	public void testToDto(){
 		Rebocador rebocador = new Rebocador();
@@ -35,6 +41,12 @@ public class RebocadorDTOUnitTest {
 		rebocadorEsperado.setId(1L);
 		Assert.assertNotNull(rebocadorAtual);
 		Assert.assertEquals(rebocadorEsperado, rebocadorAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testToDtoComFalha(){
+		Assert.assertNotNull(RebocadorDTO.toDto(new Rebocador()));
+		Assert.assertEquals(new RebocadorDTO(), RebocadorDTO.toDto(new Rebocador()));
 	}
 
 	@Test(expected = NullParameterException.class)

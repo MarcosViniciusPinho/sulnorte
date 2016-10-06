@@ -26,6 +26,12 @@ public class MunicipioDTOUnitTest {
 		Assert.assertEquals(municipioEsperado, municipioAtual);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testToEntityComFalha(){
+		Assert.assertNotNull(new MunicipioDTO().toEntity());
+		Assert.assertEquals(new Municipio(), new MunicipioDTO().toEntity());
+	}
+
 	@Test
 	public void testToDto(){
 		Municipio municipio = new Municipio();
@@ -35,6 +41,12 @@ public class MunicipioDTOUnitTest {
 		municipioEsperado.setId(1L);
 		Assert.assertNotNull(municipioAtual);
 		Assert.assertEquals(municipioEsperado, municipioAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testToDtoComFalha(){
+		Assert.assertNotNull(MunicipioDTO.toDto(new Municipio()));
+		Assert.assertEquals(new MunicipioDTO(), MunicipioDTO.toDto(new Municipio()));
 	}
 
 	@Test(expected = NullParameterException.class)

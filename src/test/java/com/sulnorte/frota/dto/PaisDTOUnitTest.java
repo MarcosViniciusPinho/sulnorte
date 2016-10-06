@@ -26,6 +26,12 @@ public class PaisDTOUnitTest {
 		Assert.assertEquals(paisEsperado, paisAtual);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testToEntityComFalha(){
+		Assert.assertNotNull(new PaisDTO().toEntity());
+		Assert.assertEquals(new Pais(), new PaisDTO().toEntity());
+	}
+
 	@Test
 	public void testToDto(){
 		Pais pais = new Pais();
@@ -35,6 +41,12 @@ public class PaisDTOUnitTest {
 		paisEsperado.setId(1L);
 		Assert.assertNotNull(paisAtual);
 		Assert.assertEquals(paisEsperado, paisAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testToDtoComFalha(){
+		Assert.assertNotNull(PaisDTO.toDto(new Pais()));
+		Assert.assertEquals(new PaisDTO(), PaisDTO.toDto(new Pais()));
 	}
 
 	@Test(expected = NullParameterException.class)

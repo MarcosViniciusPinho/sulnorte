@@ -26,6 +26,12 @@ public class PortoDTOUnitTest {
 		Assert.assertEquals(portoEsperado, portoAtual);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testToEntityComFalha(){
+		Assert.assertNotNull(new PortoDTO().toEntity());
+		Assert.assertEquals(new Porto(), new PortoDTO().toEntity());
+	}
+
 	@Test
 	public void testToDto(){
 		Porto porto = new Porto();
@@ -35,6 +41,12 @@ public class PortoDTOUnitTest {
 		portoEsperado.setId(1L);
 		Assert.assertNotNull(portoAtual);
 		Assert.assertEquals(portoEsperado, portoAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testToDtoComFalha(){
+		Assert.assertNotNull(PortoDTO.toDto(new Porto()));
+		Assert.assertEquals(new PortoDTO(), PortoDTO.toDto(new Porto()));
 	}
 
 	@Test(expected = NullParameterException.class)

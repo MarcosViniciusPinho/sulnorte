@@ -27,6 +27,12 @@ public class ArmadorDTOUnitTest {
 		Assert.assertEquals(armadorEsperado, armadorAtual);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testToEntityComFalha(){
+		Assert.assertNotNull(new ArmadorDTO().toEntity());
+		Assert.assertEquals(new Armador(), new ArmadorDTO().toEntity());
+	}
+
 	@Test
 	public void testToDto(){
 		Armador armador = new Armador();
@@ -36,6 +42,12 @@ public class ArmadorDTOUnitTest {
 		armadorEsperado.setId(1L);
 		Assert.assertNotNull(armadorAtual);
 		Assert.assertEquals(armadorEsperado, armadorAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testToDtoComFalha(){
+		Assert.assertNotNull(ArmadorDTO.toDto(new Armador()));
+		Assert.assertEquals(new ArmadorDTO(), ArmadorDTO.toDto(new Armador()));
 	}
 
 	@Test(expected = NullParameterException.class)

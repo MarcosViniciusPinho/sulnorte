@@ -26,6 +26,12 @@ public class EstadoDTOUnitTest {
 		Assert.assertEquals(estadoEsperado, estadoAtual);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testToEntityComFalha(){
+		Assert.assertNotNull(new EstadoDTO().toEntity());
+		Assert.assertEquals(new Estado(), new EstadoDTO().toEntity());
+	}
+
 	@Test
 	public void testToDto(){
 		Estado estado = new Estado();
@@ -35,6 +41,12 @@ public class EstadoDTOUnitTest {
 		estadoEsperado.setId(1L);
 		Assert.assertNotNull(estadoAtual);
 		Assert.assertEquals(estadoEsperado, estadoAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testToDtoComFalha(){
+		Assert.assertNotNull(EstadoDTO.toDto(new Estado()));
+		Assert.assertEquals(new EstadoDTO(), EstadoDTO.toDto(new Estado()));
 	}
 
 	@Test(expected = NullParameterException.class)

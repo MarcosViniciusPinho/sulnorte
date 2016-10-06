@@ -115,7 +115,7 @@ public class PortoDTO implements Serializable {
 
     @Override
     public String toString() {
-        return id + " , " + nome + " , " + cnpj;
+        return nome;
     }
 
     @Override

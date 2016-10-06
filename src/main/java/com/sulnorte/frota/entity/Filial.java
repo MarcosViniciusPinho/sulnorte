@@ -34,8 +34,4 @@ public class Filial implements Serializable {
         this.nome = nome;
     }
 
-    @Override
-    public String toString() {
-        return id + " , " + nome;
-    }
 }

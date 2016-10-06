@@ -164,11 +164,6 @@ public class RebocadorDTO implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + " , " + nome + " , " + ano + " , " + bp + " , " + bhp + " , " + observacao;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof RebocadorDTO)) return false;

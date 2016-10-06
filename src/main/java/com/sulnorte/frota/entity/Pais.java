@@ -35,11 +35,6 @@ public class Pais implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + " , " + nome;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Pais)) return false;
@@ -47,8 +42,4 @@ public class Pais implements Serializable {
         return id.equals(pais.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

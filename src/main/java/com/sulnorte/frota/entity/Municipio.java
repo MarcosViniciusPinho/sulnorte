@@ -50,11 +50,6 @@ public class Municipio implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + ", " + nome;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Municipio)) return false;
@@ -62,8 +57,4 @@ public class Municipio implements Serializable {
         return id.equals(municipio.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

@@ -34,8 +34,4 @@ public class Propulsao implements Serializable {
         this.nome = nome;
     }
 
-    @Override
-    public String toString() {
-        return id + " , " + nome;
-    }
 }

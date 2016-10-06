@@ -82,11 +82,6 @@ public class Armador implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + " , " + nome + " , " + contato;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Armador)) return false;

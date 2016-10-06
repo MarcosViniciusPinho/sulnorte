@@ -135,11 +135,6 @@ public class Rebocador implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + " , " + nome + " , " + ano + " , " + bp + " , " + bhp + " , " + observacao;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Rebocador)) return false;

@@ -72,11 +72,6 @@ public class MunicipioDTO implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + ", " + nome;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof MunicipioDTO)) return false;

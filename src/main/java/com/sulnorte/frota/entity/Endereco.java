@@ -104,8 +104,4 @@ public class Endereco implements Serializable {
         this.municipio = municipio;
     }
 
-    @Override
-    public String toString() {
-        return id + ", " + logradouro + ", " + bairro + ", " + numero;
-    }
 }

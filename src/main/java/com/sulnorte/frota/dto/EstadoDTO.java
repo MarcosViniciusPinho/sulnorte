@@ -84,11 +84,6 @@ public class EstadoDTO implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return id + " , " + nome + " , " + sigla;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof EstadoDTO)) return false;

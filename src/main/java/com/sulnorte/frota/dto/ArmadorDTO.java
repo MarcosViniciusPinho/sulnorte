@@ -119,4 +119,17 @@ public class ArmadorDTO implements Serializable {
     public String getPortosEscolhidos(){
         return ReplaceUtil.somenteTexto(this.getPortoList());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ArmadorDTO)) return false;
+        ArmadorDTO that = (ArmadorDTO) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

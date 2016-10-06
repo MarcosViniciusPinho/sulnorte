@@ -75,4 +75,17 @@ public class MunicipioDTO implements Serializable {
     public String toString() {
         return id + ", " + nome;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MunicipioDTO)) return false;
+        MunicipioDTO that = (MunicipioDTO) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

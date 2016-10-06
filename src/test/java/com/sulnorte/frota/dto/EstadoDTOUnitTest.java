@@ -70,7 +70,7 @@ public class EstadoDTOUnitTest {
 	}
 
 	@Test(expected = NullParameterException.class)
-	public void testConvertListEntityToListDtoNull(){
+	public void testConvertListEntityToListDtoNullComFalha(){
 		List<EstadoDTO> listaDtoEsperado = new ArrayList<EstadoDTO>();
 		List<EstadoDTO> listaDtoAtual = EstadoDTO.convertListEntityToListDto(null);
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);

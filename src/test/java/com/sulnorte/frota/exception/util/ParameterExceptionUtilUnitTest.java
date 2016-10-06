@@ -15,7 +15,7 @@ import java.util.List;
 public class ParameterExceptionUtilUnitTest {
 
 	@Test(expected = NullParameterException.class)
-	public void testValidateObjectNull(){
+	public void testValidateObjectNullComFalha(){
 		ParameterExceptionUtil.validateObjectNull(null);
 	}
 
@@ -25,7 +25,7 @@ public class ParameterExceptionUtilUnitTest {
 	}
 
 	@Test(expected = NullParameterException.class)
-	public void testValidateCollectionNull(){
+	public void testValidateCollectionNullComFalha(){
 		ParameterExceptionUtil.validateCollectionNull(null);
 	}
 

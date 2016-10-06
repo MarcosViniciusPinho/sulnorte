@@ -1,6 +1,7 @@
 package com.sulnorte.frota.dto;
 
 import com.sulnorte.frota.entity.Armador;
+import com.sulnorte.frota.entity.Porto;
 import com.sulnorte.frota.exception.NullParameterException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -90,5 +91,28 @@ public class ArmadorDTOUnitTest {
 	@Test(expected = NullParameterException.class)
 	public void testBeforeFromSaveConvertToArmadorNullComFalha(){
 		Assert.assertNotNull(ArmadorDTO.beforeFromSaveConvertToArmador(null));
+	}
+
+	@Test
+	public void testGetPortosEscolhidos(){
+		Porto porto = new Porto();
+		porto.setId(1L);
+		List<Porto> portoList = new ArrayList<Porto>();
+		portoList.add(porto);
+		ArmadorDTO armadorDTO = new ArmadorDTO();
+		armadorDTO.setPortoList(portoList);
+		String textoEsperado = portoList.toString().replace("[","").replace("]","");
+		Assert.assertNotNull(armadorDTO.getPortosEscolhidos());
+		Assert.assertEquals(textoEsperado, armadorDTO.getPortosEscolhidos());
+	}
+
+	@Test(expected = NullParameterException.class)
+	public void testGetPortosEscolhidosComFalha(){
+		List<Porto> portoList = new ArrayList<Porto>();
+		ArmadorDTO armadorDTO = new ArmadorDTO();
+		armadorDTO.setPortoList(portoList);
+		String textoEsperado = portoList.toString().replace("[","").replace("]","");
+		Assert.assertNotNull(armadorDTO.getPortosEscolhidos());
+		Assert.assertEquals(textoEsperado, armadorDTO.getPortosEscolhidos());
 	}
 }

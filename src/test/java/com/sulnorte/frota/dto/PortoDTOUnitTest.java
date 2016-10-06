@@ -91,4 +91,20 @@ public class PortoDTOUnitTest {
 	public void testBeforeFromSaveConvertToPortoNullComFalha(){
 		Assert.assertNotNull(PortoDTO.beforeFromSaveConvertToPorto(null));
 	}
+
+	@Test
+	public void testToString(){
+		PortoDTO portoEsperado = new PortoDTO();
+		portoEsperado.setId(1L);
+		portoEsperado.setNome("Porto");
+		List<PortoDTO> portoListEsperado = new ArrayList<PortoDTO>();
+		portoListEsperado.add(portoEsperado);
+		PortoDTO portoAtual = new PortoDTO();
+		portoAtual.setId(1L);
+		portoAtual.setNome("Porto");
+		List<PortoDTO> portoListAtual = new ArrayList<PortoDTO>();
+		portoListAtual.add(portoAtual);
+		Assert.assertNotNull(portoListAtual);
+		Assert.assertEquals(portoListEsperado, portoListAtual);
+	}
 }

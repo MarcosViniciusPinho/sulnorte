@@ -49,7 +49,7 @@ public class ArmadorDTO implements Serializable {
         return armadorDTO;
     }
 
-    public static <T> Armador beforeFromSaveConvertToPorto(T entity){
+    public static <T> Armador beforeFromSaveConvertToArmador(T entity){
         ParameterExceptionUtil.validateObjectNull(entity);
         return (Armador)entity;
     }

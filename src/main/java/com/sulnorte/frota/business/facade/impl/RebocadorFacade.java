@@ -61,7 +61,7 @@ public class RebocadorFacade<T> implements IRebocadorFacade<T> {
      */
     @Override
     public void save(T entity) {
-        this.rebocadorService.save(RebocadorDTO.beforeFromSaveConvertToPorto(entity));
+        this.rebocadorService.save(RebocadorDTO.beforeFromSaveConvertToRebocador(entity));
     }
 
     /**

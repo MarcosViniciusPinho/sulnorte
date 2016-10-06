@@ -117,4 +117,17 @@ public class PortoDTO implements Serializable {
     public String toString() {
         return id + " , " + nome + " , " + cnpj;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PortoDTO)) return false;
+        PortoDTO portoDTO = (PortoDTO) o;
+        return id.equals(portoDTO.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

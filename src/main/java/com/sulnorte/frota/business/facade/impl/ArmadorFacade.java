@@ -78,7 +78,7 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
      */
     @Override
     public void save(T entity) {
-        this.armadorService.save(ArmadorDTO.beforeFromSaveConvertToPorto(entity));
+        this.armadorService.save(ArmadorDTO.beforeFromSaveConvertToArmador(entity));
     }
 
     /**

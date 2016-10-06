@@ -67,7 +67,7 @@ public class RebocadorDTO implements Serializable {
         return rebocadorDTO;
     }
 
-    public static <T> Rebocador beforeFromSaveConvertToPorto(T entity){
+    public static <T> Rebocador beforeFromSaveConvertToRebocador(T entity){
         ParameterExceptionUtil.validateObjectNull(entity);
         return (Rebocador)entity;
     }

@@ -1,0 +1,94 @@
+package com.sulnorte.frota.dto;
+
+import com.sulnorte.frota.entity.Porto;
+import com.sulnorte.frota.exception.NullParameterException;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class PortoDTOUnitTest {
+
+	@Test
+	public void testToEntity(){
+		Porto portoEsperado = new Porto();
+		portoEsperado.setId(1L);
+		PortoDTO portoDTO = new PortoDTO();
+		portoDTO.setId(1L);
+		Porto portoAtual = portoDTO.toEntity();
+		Assert.assertNotNull(portoAtual);
+		Assert.assertEquals(portoEsperado, portoAtual);
+	}
+
+	@Test
+	public void testToDto(){
+		Porto porto = new Porto();
+		porto.setId(1L);
+		PortoDTO portoAtual = PortoDTO.toDto(porto);
+		PortoDTO portoEsperado = new PortoDTO();
+		portoEsperado.setId(1L);
+		Assert.assertNotNull(portoAtual);
+		Assert.assertEquals(portoEsperado, portoAtual);
+	}
+
+	@Test(expected = NullParameterException.class)
+	public void testToDtoNullComFalha(){
+		PortoDTO portoAtual = PortoDTO.toDto(null);
+		Assert.assertNull(portoAtual);
+	}
+
+	@Test
+	public void testConvertListEntityToListDto(){
+		List<Porto> listaEntidade = new ArrayList<Porto>();
+		List<PortoDTO> listaDtoEsperado = new ArrayList<PortoDTO>();
+		Porto porto = new Porto();
+		porto.setId(1L);
+		listaEntidade.add(porto);
+		PortoDTO portoDTO = new PortoDTO();
+		portoDTO.setId(1L);
+		listaDtoEsperado.add(portoDTO);
+		List<PortoDTO> listaDtoAtual = PortoDTO.convertListEntityToListDto(listaEntidade);
+		Assert.assertNotNull(listaDtoAtual);
+		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testConvertListEntityToListDtoComFalha(){
+		List<Porto> listaEntidade = new ArrayList<Porto>();
+		listaEntidade.add(new Porto());
+		List<PortoDTO> listaDtoEsperado = new ArrayList<PortoDTO>();
+		listaDtoEsperado.add(new PortoDTO());
+		List<PortoDTO> listaDtoAtual = PortoDTO.convertListEntityToListDto(listaEntidade);
+		Assert.assertNotNull(listaDtoAtual);
+		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
+	}
+
+	@Test
+	public void testConvertListEntityToListDtoNull(){
+		List<PortoDTO> listaDtoEsperado = new ArrayList<PortoDTO>();
+		List<PortoDTO> listaDtoAtual = PortoDTO.convertListEntityToListDto(null);
+		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
+	}
+
+	@Test
+	public void testBeforeFromSaveConvertToPorto(){
+		Porto portoEsperado = new Porto();
+		portoEsperado.setId(1L);
+		Porto portoOther = new Porto();
+		portoOther.setId(1L);
+		Porto portoAtual = PortoDTO.beforeFromSaveConvertToPorto(portoOther);
+		Assert.assertNotNull(portoAtual);
+		Assert.assertEquals(portoEsperado, portoAtual);
+	}
+
+	@Test(expected = NullParameterException.class)
+	public void testBeforeFromSaveConvertToPortoNullComFalha(){
+		Assert.assertNotNull(PortoDTO.beforeFromSaveConvertToPorto(null));
+	}
+}

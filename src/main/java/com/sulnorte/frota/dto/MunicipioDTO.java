@@ -23,9 +23,9 @@ public class MunicipioDTO implements Serializable {
 
     public Municipio toEntity(){
         Municipio estado = new Municipio();
-        estado.setId(this.id);
-        estado.setNome(this.nome);
-        estado.setEstado(this.estado);
+        estado.setId(this.getId());
+        estado.setNome(this.getNome());
+        estado.setEstado(this.getEstado());
         return estado;
     }
 

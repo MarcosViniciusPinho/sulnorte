@@ -25,10 +25,10 @@ public class EstadoDTO implements Serializable {
 
     public Estado toEntity(){
         Estado estado = new Estado();
-        estado.setId(this.id);
-        estado.setNome(this.nome);
-        estado.setSigla(this.sigla);
-        estado.setPais(this.pais);
+        estado.setId(this.getId());
+        estado.setNome(this.getNome());
+        estado.setSigla(this.getSigla());
+        estado.setPais(this.getPais());
         return estado;
     }
 

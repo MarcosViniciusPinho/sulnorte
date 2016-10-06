@@ -18,8 +18,8 @@ public class PropulsaoDTO implements Serializable {
 
     public Propulsao toEntity(){
         Propulsao propulsao = new Propulsao();
-        propulsao.setId(this.id);
-        propulsao.setNome(this.nome);
+        propulsao.setId(this.getId());
+        propulsao.setNome(this.getNome());
         return propulsao;
     }
 

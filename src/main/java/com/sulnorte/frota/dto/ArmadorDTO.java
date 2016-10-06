@@ -30,11 +30,11 @@ public class ArmadorDTO implements Serializable {
 
     public Armador toEntity(){
         Armador armador = new Armador();
-        armador.setId(this.id);
-        armador.setNome(this.nome);
-        armador.setContato(this.contato);
-        armador.setEndereco(this.endereco);
-        armador.setPortoList(this.portoList);
+        armador.setId(this.getId());
+        armador.setNome(this.getNome());
+        armador.setContato(this.getContato());
+        armador.setEndereco(this.getEndereco());
+        armador.setPortoList(this.getPortoList());
         return armador;
     }
 

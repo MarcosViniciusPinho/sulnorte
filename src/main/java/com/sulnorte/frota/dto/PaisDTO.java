@@ -18,8 +18,8 @@ public class PaisDTO implements Serializable {
 
     public Pais toEntity(){
         Pais pais = new Pais();
-        pais.setId(this.id);
-        pais.setNome(this.nome);
+        pais.setId(this.getId());
+        pais.setNome(this.getNome());
         return pais;
     }
 

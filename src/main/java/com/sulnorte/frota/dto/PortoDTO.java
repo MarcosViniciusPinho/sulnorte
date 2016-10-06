@@ -31,11 +31,11 @@ public class PortoDTO implements Serializable {
 
     public Porto toEntity(){
         Porto porto = new Porto();
-        porto.setId(this.id);
-        porto.setNome(this.nome);
-        porto.setCnpj(ReplaceUtil.retirarMascaraPadraoCnpj(this.cnpj));
-        porto.setFilial(this.filial);
-        porto.setEndereco(this.endereco);
+        porto.setId(this.getId());
+        porto.setNome(this.getNome());
+        porto.setCnpj(ReplaceUtil.retirarMascaraPadraoCnpj(this.getCnpj()));
+        porto.setFilial(this.getFilial());
+        porto.setEndereco(this.getEndereco());
         return porto;
     }
 

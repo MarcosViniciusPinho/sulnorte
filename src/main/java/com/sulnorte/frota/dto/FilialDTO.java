@@ -18,8 +18,8 @@ public class FilialDTO implements Serializable {
 
     public Filial toEntity(){
         Filial filial = new Filial();
-        filial.setId(this.id);
-        filial.setNome(this.nome);
+        filial.setId(this.getId());
+        filial.setNome(this.getNome());
         return filial;
     }
 

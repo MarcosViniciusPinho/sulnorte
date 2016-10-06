@@ -38,16 +38,16 @@ public class RebocadorDTO implements Serializable {
 
     public Rebocador toEntity(){
         Rebocador rebocador = new Rebocador();
-        rebocador.setId(this.id);
-        rebocador.setNome(this.nome);
-        rebocador.setAno(this.ano);
-        rebocador.setBp(ReplaceUtil.retirarMascaraPadraoDecimalBr(this.bp));
-        rebocador.setBhp(ReplaceUtil.retirarMascaraPadraoDecimalBr(this.bhp));
-        rebocador.setObservacao(this.observacao);
-        rebocador.setPropulsao(this.propulsao);
-        rebocador.setSituacaoRebocador(this.situacaoRebocador);
-        rebocador.setArmador(this.armador);
-        rebocador.setPorto(this.porto);
+        rebocador.setId(this.getId());
+        rebocador.setNome(this.getNome());
+        rebocador.setAno(this.getAno());
+        rebocador.setBp(ReplaceUtil.retirarMascaraPadraoDecimalBr(this.getBp()));
+        rebocador.setBhp(ReplaceUtil.retirarMascaraPadraoDecimalBr(this.getBhp()));
+        rebocador.setObservacao(this.getObservacao());
+        rebocador.setPropulsao(this.getPropulsao());
+        rebocador.setSituacaoRebocador(this.getSituacaoRebocador());
+        rebocador.setArmador(this.getArmador());
+        rebocador.setPorto(this.getPorto());
         return rebocador;
     }
 

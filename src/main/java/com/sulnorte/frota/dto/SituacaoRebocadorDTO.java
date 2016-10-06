@@ -18,8 +18,8 @@ public class SituacaoRebocadorDTO implements Serializable {
 
     public SituacaoRebocador toEntity(){
         SituacaoRebocador situacaoRebocador = new SituacaoRebocador();
-        situacaoRebocador.setId(this.id);
-        situacaoRebocador.setNome(this.nome);
+        situacaoRebocador.setId(this.getId());
+        situacaoRebocador.setNome(this.getNome());
         return situacaoRebocador;
     }
 

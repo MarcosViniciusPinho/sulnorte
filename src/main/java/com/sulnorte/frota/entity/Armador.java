@@ -94,8 +94,4 @@ public class Armador implements Serializable {
         return id.equals(armador.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

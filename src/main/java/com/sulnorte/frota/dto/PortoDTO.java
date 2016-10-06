@@ -126,8 +126,4 @@ public class PortoDTO implements Serializable {
         return id.equals(portoDTO.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

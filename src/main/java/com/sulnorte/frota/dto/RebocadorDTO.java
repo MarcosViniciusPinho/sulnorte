@@ -176,8 +176,4 @@ public class RebocadorDTO implements Serializable {
         return id.equals(that.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

@@ -87,8 +87,4 @@ public class Porto implements Serializable {
         return id.equals(porto.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

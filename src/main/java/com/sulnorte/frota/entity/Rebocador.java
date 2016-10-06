@@ -147,8 +147,4 @@ public class Rebocador implements Serializable {
         return id.equals(rebocador.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

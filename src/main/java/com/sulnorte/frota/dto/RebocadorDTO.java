@@ -167,4 +167,17 @@ public class RebocadorDTO implements Serializable {
     public String toString() {
         return id + " , " + nome + " , " + ano + " , " + bp + " , " + bhp + " , " + observacao;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RebocadorDTO)) return false;
+        RebocadorDTO that = (RebocadorDTO) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

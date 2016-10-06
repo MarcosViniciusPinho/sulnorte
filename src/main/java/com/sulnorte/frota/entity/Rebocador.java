@@ -138,4 +138,17 @@ public class Rebocador implements Serializable {
     public String toString() {
         return id + " , " + nome + " , " + ano + " , " + bp + " , " + bhp + " , " + observacao;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rebocador)) return false;
+        Rebocador rebocador = (Rebocador) o;
+        return id.equals(rebocador.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

@@ -96,8 +96,4 @@ public class EstadoDTO implements Serializable {
         return id.equals(estadoDTO.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }

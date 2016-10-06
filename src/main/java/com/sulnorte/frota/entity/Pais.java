@@ -38,4 +38,17 @@ public class Pais implements Serializable {
     public String toString() {
         return id + " , " + nome;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pais)) return false;
+        Pais pais = (Pais) o;
+        return id.equals(pais.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

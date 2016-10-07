@@ -26,8 +26,8 @@ public class RebocadorDTOUnitTest {
 		Assert.assertEquals(rebocadorEsperado, rebocadorAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToEntityComFalha(){
+	@Test
+	public void testToEntity2(){
 		Assert.assertNotNull(new RebocadorDTO().toEntity());
 		Assert.assertEquals(new Rebocador(), new RebocadorDTO().toEntity());
 	}
@@ -43,8 +43,8 @@ public class RebocadorDTOUnitTest {
 		Assert.assertEquals(rebocadorEsperado, rebocadorAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToDtoComFalha(){
+	@Test
+	public void testToDto2(){
 		Assert.assertNotNull(RebocadorDTO.toDto(new Rebocador()));
 		Assert.assertEquals(new RebocadorDTO(), RebocadorDTO.toDto(new Rebocador()));
 	}
@@ -70,8 +70,8 @@ public class RebocadorDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testConvertListEntityToListDtoComFalha(){
+	@Test
+	public void testConvertListEntityToListDto2(){
 		List<Rebocador> listaEntidade = new ArrayList<Rebocador>();
 		listaEntidade.add(new Rebocador());
 		List<RebocadorDTO> listaDtoEsperado = new ArrayList<RebocadorDTO>();

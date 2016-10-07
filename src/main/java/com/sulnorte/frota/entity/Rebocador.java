@@ -139,7 +139,7 @@ public class Rebocador implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Rebocador)) return false;
         Rebocador rebocador = (Rebocador) o;
-        return id.equals(rebocador.id);
+        return id != null ? id.equals(rebocador.id) : rebocador.id == null;
     }
 
 }

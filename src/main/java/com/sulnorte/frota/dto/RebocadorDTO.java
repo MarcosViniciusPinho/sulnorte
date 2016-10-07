@@ -168,7 +168,7 @@ public class RebocadorDTO implements Serializable {
         if (this == o) return true;
         if (!(o instanceof RebocadorDTO)) return false;
         RebocadorDTO that = (RebocadorDTO) o;
-        return id.equals(that.id);
+        return id != null ? id.equals(that.id) : that.id == null;
     }
 
 }

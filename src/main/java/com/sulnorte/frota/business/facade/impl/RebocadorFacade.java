@@ -7,6 +7,7 @@ import com.sulnorte.frota.business.service.ISituacaoRebocadorService;
 import com.sulnorte.frota.dto.PropulsaoDTO;
 import com.sulnorte.frota.dto.RebocadorDTO;
 import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +70,7 @@ public class RebocadorFacade<T> implements IRebocadorFacade<T> {
      */
     @Override
     public void delete(Long id) {
+        ParameterExceptionUtil.validateObjectNull(id);
         this.rebocadorService.delete(id);
     }
 }

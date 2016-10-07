@@ -5,6 +5,7 @@ import com.sulnorte.frota.business.service.IArmadorService;
 import com.sulnorte.frota.business.service.IRebocadorService;
 import com.sulnorte.frota.dto.ArmadorDTO;
 import com.sulnorte.frota.entity.Rebocador;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,8 +70,9 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
      * {@inheritDoc}
      */
     @Override
-    public ArmadorDTO findById(Long idPorto) {
-        return this.verificarDisponibilidadeParaExclusao(ArmadorDTO.toDto(this.armadorService.getOne(idPorto)));
+    public ArmadorDTO findById(Long idArmador) {
+        ParameterExceptionUtil.validateObjectNull(idArmador);
+        return this.verificarDisponibilidadeParaExclusao(ArmadorDTO.toDto(this.armadorService.getOne(idArmador)));
     }
 
     /**
@@ -86,6 +88,7 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
      */
     @Override
     public void delete(Long id) {
+        ParameterExceptionUtil.validateObjectNull(id);
         this.armadorService.delete(id);
     }
 }

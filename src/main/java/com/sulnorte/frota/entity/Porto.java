@@ -84,7 +84,7 @@ public class Porto implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Porto)) return false;
         Porto porto = (Porto) o;
-        return id.equals(porto.id);
+        return id != null ? id.equals(porto.id) : porto.id == null;
     }
 
 }

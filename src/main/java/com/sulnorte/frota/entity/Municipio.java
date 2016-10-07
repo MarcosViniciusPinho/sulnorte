@@ -54,7 +54,7 @@ public class Municipio implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Municipio)) return false;
         Municipio municipio = (Municipio) o;
-        return id.equals(municipio.id);
+        return id != null ? id.equals(municipio.id) : municipio.id == null;
     }
 
 }

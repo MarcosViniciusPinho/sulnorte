@@ -303,8 +303,8 @@ public class PortoFacadeUnitTest {
 		Assert.assertEquals(filialDTOList, this.portoFacade.findAllFilial());
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testFindAllFilialComFalha2(){
+	@Test
+	public void testFindAllFilial2(){
 		List<FilialDTO> filialDTOList = new ArrayList<FilialDTO>();
 		filialDTOList.add(new FilialDTO());
 		List<Filial> filialList = new ArrayList<Filial>();
@@ -322,8 +322,8 @@ public class PortoFacadeUnitTest {
 		this.portoFacade.save(porto);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testSaveComFalha(){
+	@Test
+	public void testSave2(){
 		Mockito.when(this.portoService.save(new Porto())).thenReturn(new Porto());
 		this.portoFacade.save(new Porto());
 	}

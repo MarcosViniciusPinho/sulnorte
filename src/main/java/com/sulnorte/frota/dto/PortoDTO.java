@@ -123,7 +123,7 @@ public class PortoDTO implements Serializable {
         if (this == o) return true;
         if (!(o instanceof PortoDTO)) return false;
         PortoDTO portoDTO = (PortoDTO) o;
-        return id.equals(portoDTO.id);
+        return id != null ? id.equals(portoDTO.id) : portoDTO.id == null;
     }
 
 }

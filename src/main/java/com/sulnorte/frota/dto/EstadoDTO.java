@@ -88,7 +88,7 @@ public class EstadoDTO implements Serializable {
         if (this == o) return true;
         if (!(o instanceof EstadoDTO)) return false;
         EstadoDTO estadoDTO = (EstadoDTO) o;
-        return id.equals(estadoDTO.id);
+        return id != null ? id.equals(estadoDTO.id) : estadoDTO.id == null;
     }
 
 }

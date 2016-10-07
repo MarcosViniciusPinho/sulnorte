@@ -86,7 +86,7 @@ public class Armador implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Armador)) return false;
         Armador armador = (Armador) o;
-        return id.equals(armador.id);
+        return id != null ? id.equals(armador.id) : armador.id == null;
     }
 
 }

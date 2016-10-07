@@ -76,7 +76,7 @@ public class MunicipioDTO implements Serializable {
         if (this == o) return true;
         if (!(o instanceof MunicipioDTO)) return false;
         MunicipioDTO that = (MunicipioDTO) o;
-        return id.equals(that.id);
+        return id != null ? id.equals(that.id) : that.id == null;
     }
 
 }

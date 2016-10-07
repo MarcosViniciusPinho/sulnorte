@@ -61,7 +61,7 @@ public class PaisDTO implements Serializable {
         if (this == o) return true;
         if (!(o instanceof PaisDTO)) return false;
         PaisDTO paisDTO = (PaisDTO) o;
-        return id.equals(paisDTO.id);
+        return id != null ? id.equals(paisDTO.id) : paisDTO.id == null;
     }
 
 }

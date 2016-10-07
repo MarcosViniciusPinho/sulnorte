@@ -26,8 +26,8 @@ public class PaisDTOUnitTest {
 		Assert.assertEquals(paisEsperado, paisAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToEntityComFalha(){
+	@Test
+	public void testToEntity2(){
 		Assert.assertNotNull(new PaisDTO().toEntity());
 		Assert.assertEquals(new Pais(), new PaisDTO().toEntity());
 	}
@@ -43,8 +43,8 @@ public class PaisDTOUnitTest {
 		Assert.assertEquals(paisEsperado, paisAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToDtoComFalha(){
+	@Test
+	public void testToDto2(){
 		Assert.assertNotNull(PaisDTO.toDto(new Pais()));
 		Assert.assertEquals(new PaisDTO(), PaisDTO.toDto(new Pais()));
 	}
@@ -70,8 +70,8 @@ public class PaisDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testConvertListEntityToListDtoComFalha(){
+	@Test
+	public void testConvertListEntityToListDto2(){
 		List<Pais> listaEntidade = new ArrayList<Pais>();
 		listaEntidade.add(new Pais());
 		List<PaisDTO> listaDtoEsperado = new ArrayList<PaisDTO>();

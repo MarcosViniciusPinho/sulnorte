@@ -61,7 +61,7 @@ public class FilialDTO implements Serializable {
         if (this == o) return true;
         if (!(o instanceof FilialDTO)) return false;
         FilialDTO filialDTO = (FilialDTO) o;
-        return id.equals(filialDTO.id);
+        return id != null ? id.equals(filialDTO.id) : filialDTO.id == null;
     }
 
 }

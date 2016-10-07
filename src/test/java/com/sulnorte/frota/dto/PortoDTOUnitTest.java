@@ -26,8 +26,8 @@ public class PortoDTOUnitTest {
 		Assert.assertEquals(portoEsperado, portoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToEntityComFalha(){
+	@Test
+	public void testToEntity2(){
 		Assert.assertNotNull(new PortoDTO().toEntity());
 		Assert.assertEquals(new Porto(), new PortoDTO().toEntity());
 	}
@@ -43,8 +43,8 @@ public class PortoDTOUnitTest {
 		Assert.assertEquals(portoEsperado, portoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToDtoComFalha(){
+	@Test
+	public void testToDto2(){
 		Assert.assertNotNull(PortoDTO.toDto(new Porto()));
 		Assert.assertEquals(new PortoDTO(), PortoDTO.toDto(new Porto()));
 	}
@@ -70,8 +70,8 @@ public class PortoDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testConvertListEntityToListDtoComFalha(){
+	@Test
+	public void testConvertListEntityToListDto2(){
 		List<Porto> listaEntidade = new ArrayList<Porto>();
 		listaEntidade.add(new Porto());
 		List<PortoDTO> listaDtoEsperado = new ArrayList<PortoDTO>();

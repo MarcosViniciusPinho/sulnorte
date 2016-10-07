@@ -39,7 +39,7 @@ public class Pais implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Pais)) return false;
         Pais pais = (Pais) o;
-        return id.equals(pais.id);
+        return id != null ? id.equals(pais.id) : pais.id == null;
     }
 
 }

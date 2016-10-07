@@ -163,8 +163,8 @@ public class ArmadorFacadeUnitTest {
 		this.armadorFacade.save(armador);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testSaveComFalha(){
+	@Test
+	public void testSave2(){
 		Mockito.when(this.armadorService.save(new Armador())).thenReturn(new Armador());
 		this.armadorFacade.save(new Armador());
 	}

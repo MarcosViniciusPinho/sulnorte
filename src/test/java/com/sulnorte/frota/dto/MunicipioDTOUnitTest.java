@@ -26,8 +26,8 @@ public class MunicipioDTOUnitTest {
 		Assert.assertEquals(municipioEsperado, municipioAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToEntityComFalha(){
+	@Test
+	public void testToEntity2(){
 		Assert.assertNotNull(new MunicipioDTO().toEntity());
 		Assert.assertEquals(new Municipio(), new MunicipioDTO().toEntity());
 	}
@@ -43,8 +43,8 @@ public class MunicipioDTOUnitTest {
 		Assert.assertEquals(municipioEsperado, municipioAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToDtoComFalha(){
+	@Test
+	public void testToDto2(){
 		Assert.assertNotNull(MunicipioDTO.toDto(new Municipio()));
 		Assert.assertEquals(new MunicipioDTO(), MunicipioDTO.toDto(new Municipio()));
 	}
@@ -70,8 +70,8 @@ public class MunicipioDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testConvertListEntityToListDtoComFalha(){
+	@Test
+	public void testConvertListEntityToListDto2(){
 		List<Municipio> listaEntidade = new ArrayList<Municipio>();
 		listaEntidade.add(new Municipio());
 		List<MunicipioDTO> listaDtoEsperado = new ArrayList<MunicipioDTO>();

@@ -88,8 +88,8 @@ public class EnderecoFacadeUnitTest {
 		Assert.assertEquals(estadoDTOList, this.enderecoFacade.findByEstadoPerPais(idPais));
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testFindByEstadoPerPaisComFalha3(){
+	@Test
+	public void testFindByEstadoPerPais2(){
 		Long idPais = 1L;
 		List<Estado> estadoList = new ArrayList<Estado>();
 		estadoList.add(new EstadoDTO().toEntity());
@@ -150,8 +150,8 @@ public class EnderecoFacadeUnitTest {
 		Assert.assertEquals(municipioDTOList, this.enderecoFacade.findByMunicipioPerEstado(idEstado));
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testFindByMunicipioPerEstadoComFalha3(){
+	@Test
+	public void testFindByMunicipioPerEstado2(){
 		Long idEstado = 1L;
 		List<MunicipioDTO> municipioDTOList = new ArrayList<MunicipioDTO>();
 		municipioDTOList.add(new MunicipioDTO());

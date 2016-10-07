@@ -27,8 +27,8 @@ public class ArmadorDTOUnitTest {
 		Assert.assertEquals(armadorEsperado, armadorAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToEntityComFalha(){
+	@Test
+	public void testToEntity2(){
 		Assert.assertNotNull(new ArmadorDTO().toEntity());
 		Assert.assertEquals(new Armador(), new ArmadorDTO().toEntity());
 	}
@@ -44,8 +44,8 @@ public class ArmadorDTOUnitTest {
 		Assert.assertEquals(armadorEsperado, armadorAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testToDtoComFalha(){
+	@Test
+	public void testToDto2(){
 		Assert.assertNotNull(ArmadorDTO.toDto(new Armador()));
 		Assert.assertEquals(new ArmadorDTO(), ArmadorDTO.toDto(new Armador()));
 	}
@@ -71,8 +71,8 @@ public class ArmadorDTOUnitTest {
 		Assert.assertEquals(listaDtoEsperado, listaDtoAtual);
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testConvertListEntityToListDtoComFalha(){
+	@Test
+	public void testConvertListEntityToListDto2(){
 		List<Armador> listaEntidade = new ArrayList<Armador>();
 		listaEntidade.add(new Armador());
 		List<ArmadorDTO> listaDtoEsperado = new ArrayList<ArmadorDTO>();

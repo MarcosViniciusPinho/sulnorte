@@ -65,7 +65,7 @@ public class Estado implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Estado)) return false;
         Estado estado = (Estado) o;
-        return id.equals(estado.id);
+        return id != null ? id.equals(estado.id) : estado.id == null;
     }
 
 }

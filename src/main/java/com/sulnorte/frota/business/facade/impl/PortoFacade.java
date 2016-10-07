@@ -7,6 +7,7 @@ import com.sulnorte.frota.business.service.IRebocadorService;
 import com.sulnorte.frota.dto.FilialDTO;
 import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.entity.Rebocador;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,6 +66,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
     }
 
     private PortoDTO verificarDisponibilidadeParaExclusao(PortoDTO portoDTO){
+        ParameterExceptionUtil.validateObjectNull(portoDTO.getId());
         if(this.isPortoNaoUsado(portoDTO.getId())){
             portoDTO.setUsado(Boolean.FALSE);
         } else if(this.isPortoUsado(portoDTO.getId())){
@@ -102,6 +104,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
      */
     @Override
     public void delete(Long id) {
+        ParameterExceptionUtil.validateObjectNull(id);
         this.portoService.delete(id);
     }
 }

@@ -56,4 +56,12 @@ public class FilialDTO implements Serializable {
         this.nome = nome;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FilialDTO)) return false;
+        FilialDTO filialDTO = (FilialDTO) o;
+        return id.equals(filialDTO.id);
+    }
+
 }

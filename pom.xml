@@ -106,6 +106,23 @@
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
 				<version>1.1.10</version>
+				<configuration>
+					<targetClasses>
+						<param>com.sulnorte.frota.dto.**</param>
+						<param>com.sulnorte.frota.dto.util.**</param>
+						<param>com.sulnorte.frota.exception.util.**</param>
+						<param>com.sulnorte.frota.controller.**</param>
+						<param>com.sulnorte.frota.business.facade.impl.**</param>
+						<param>com.sulnorte.frota.entity.**</param>
+					</targetClasses>
+					<targetTests>
+						<param>com.sulnorte.frota.dto.**UnitTest</param>
+						<param>com.sulnorte.frota.dto.util.**UnitTest</param>
+						<param>com.sulnorte.frota.exception.util.**UnitTest</param>
+						<param>com.sulnorte.frota.controller.**UnitTest</param>
+						<param>com.sulnorte.frota.business.facade.impl.**UnitTest</param>
+					</targetTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -42,11 +42,11 @@ public class ArmadorFacadeUnitTest {
 		armadorList.add(armador);
 		Mockito.when(this.armadorService.findAllByOrderByNomeAsc()).thenReturn(armadorList);
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(armador.getId())).thenReturn(null);
-		Assert.assertNotNull(armadorFacade.findAll());
-		Assert.assertEquals(listaEsperada, armadorFacade.findAll());
+		Assert.assertNotNull(this.armadorFacade.findAll());
+		Assert.assertEquals(listaEsperada, this.armadorFacade.findAll());
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullParameterException.class)
 	public void testFindAllArmadorNaoUsadoComFalha(){
 		List<ArmadorDTO> listaEsperada = new ArrayList<ArmadorDTO>();
 		listaEsperada.add(ArmadorDTO.toDto(new Armador()));
@@ -54,8 +54,8 @@ public class ArmadorFacadeUnitTest {
 		armadorList.add(new Armador());
 		Mockito.when(this.armadorService.findAllByOrderByNomeAsc()).thenReturn(armadorList);
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(1L)).thenReturn(null);
-		Assert.assertNotNull(armadorFacade.findAll());
-		Assert.assertEquals(listaEsperada, armadorFacade.findAll());
+		Assert.assertNotNull(this.armadorFacade.findAll());
+		Assert.assertEquals(listaEsperada, this.armadorFacade.findAll());
 	}
 
 	@Test
@@ -73,11 +73,11 @@ public class ArmadorFacadeUnitTest {
 		rebocador.setArmador(armador);
 		Mockito.when(this.armadorService.findAllByOrderByNomeAsc()).thenReturn(armadorList);
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(armador.getId())).thenReturn(rebocador);
-		Assert.assertNotNull(armadorFacade.findAll());
-		Assert.assertEquals(listaEsperada, armadorFacade.findAll());
+		Assert.assertNotNull(this.armadorFacade.findAll());
+		Assert.assertEquals(listaEsperada, this.armadorFacade.findAll());
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullParameterException.class)
 	public void testFindAllArmadorUsadoComFalha(){
 		List<ArmadorDTO> listaEsperada = new ArrayList<ArmadorDTO>();
 		listaEsperada.add(new ArmadorDTO());
@@ -87,15 +87,15 @@ public class ArmadorFacadeUnitTest {
 		rebocador.setArmador(new Armador());
 		Mockito.when(this.armadorService.findAllByOrderByNomeAsc()).thenReturn(armadorList);
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(1L)).thenReturn(rebocador);
-		Assert.assertNotNull(armadorFacade.findAll());
-		Assert.assertEquals(listaEsperada, armadorFacade.findAll());
+		Assert.assertNotNull(this.armadorFacade.findAll());
+		Assert.assertEquals(listaEsperada, this.armadorFacade.findAll());
 	}
 
 	@Test
 	public void testFindAllEmpty(){
 		Mockito.when(this.armadorService.findAllByOrderByNomeAsc()).thenReturn(new ArrayList<Armador>());
-		Assert.assertNotNull(armadorFacade.findAll());
-		Assert.assertEquals(new ArrayList<ArmadorDTO>(), armadorFacade.findAll());
+		Assert.assertNotNull(this.armadorFacade.findAll());
+		Assert.assertEquals(new ArrayList<ArmadorDTO>(), this.armadorFacade.findAll());
 	}
 
 	@Test
@@ -105,17 +105,17 @@ public class ArmadorFacadeUnitTest {
 		armador.setId(idArmador);
 		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(armador);
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(idArmador)).thenReturn(null);
-		Assert.assertNotNull(armadorFacade.findById(idArmador));
-		Assert.assertEquals(ArmadorDTO.toDto(armador), armadorFacade.findById(idArmador));
+		Assert.assertNotNull(this.armadorFacade.findById(idArmador));
+		Assert.assertEquals(ArmadorDTO.toDto(armador), this.armadorFacade.findById(idArmador));
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullParameterException.class)
 	public void testFindByIdArmadorNaoUsadoComFalha(){
 		Long idArmador = 1L;
 		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(new Armador());
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(idArmador)).thenReturn(null);
-		Assert.assertNotNull(armadorFacade.findById(idArmador));
-		Assert.assertEquals(ArmadorDTO.toDto(new Armador()), armadorFacade.findById(idArmador));
+		Assert.assertNotNull(this.armadorFacade.findById(idArmador));
+		Assert.assertEquals(ArmadorDTO.toDto(new Armador()), this.armadorFacade.findById(idArmador));
 	}
 
 	@Test
@@ -128,31 +128,31 @@ public class ArmadorFacadeUnitTest {
 		rebocador.setArmador(armadorDTO.toEntity());
 		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(armadorDTO.toEntity());
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(idArmador)).thenReturn(rebocador);
-		Assert.assertNotNull(armadorFacade.findById(idArmador));
-		Assert.assertEquals(armadorDTO, armadorFacade.findById(idArmador));
+		Assert.assertNotNull(this.armadorFacade.findById(idArmador));
+		Assert.assertEquals(armadorDTO, this.armadorFacade.findById(idArmador));
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullParameterException.class)
 	public void testFindByIdArmadorUsadoComFalha(){
 		Long idArmador = 1L;
 		Rebocador rebocador = new Rebocador();
 		rebocador.setArmador(new ArmadorDTO().toEntity());
 		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(new ArmadorDTO().toEntity());
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(idArmador)).thenReturn(rebocador);
-		Assert.assertNotNull(armadorFacade.findById(idArmador));
-		Assert.assertEquals(new ArmadorDTO(), armadorFacade.findById(idArmador));
+		Assert.assertNotNull(this.armadorFacade.findById(idArmador));
+		Assert.assertEquals(new ArmadorDTO(), this.armadorFacade.findById(idArmador));
 	}
 
 	@Test(expected = NullParameterException.class)
 	public void testFindByIdNullComFalha(){
-		Assert.assertNull(armadorFacade.findById(null));
+		Assert.assertNull(this.armadorFacade.findById(null));
 	}
 
 	@Test(expected = NullParameterException.class)
 	public void testFindByIdComFalha(){
 		Long idArmador = 1L;
 		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(null);
-		Assert.assertNull(armadorFacade.findById(idArmador));
+		Assert.assertNotNull(this.armadorFacade.findById(idArmador));
 	}
 
 	@Test
@@ -160,29 +160,30 @@ public class ArmadorFacadeUnitTest {
 		Armador armador = new Armador();
 		armador.setId(1L);
 		Mockito.when(this.armadorService.save(armador)).thenReturn(new Armador());
-		armadorFacade.save(armador);
+		this.armadorFacade.save(armador);
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void testSaveComFalha(){
 		Mockito.when(this.armadorService.save(new Armador())).thenReturn(new Armador());
-		armadorFacade.save(new Armador());
+		this.armadorFacade.save(new Armador());
 	}
 
 	@Test(expected = NullParameterException.class)
 	public void testSaveNullComFalha(){
 		Mockito.when(this.armadorService.save(new Armador())).thenReturn(null);
-		armadorFacade.save(null);
+		this.armadorFacade.save(null);
 	}
 
 	@Test
 	public void testDelete(){
 		Long idArmador = 1L;
-		armadorFacade.delete(idArmador);
+		this.armadorFacade.delete(idArmador);
 	}
 
 	@Test(expected = NullParameterException.class)
 	public void testDeleteNullComFalha(){
-		armadorFacade.delete(null);
+		this.armadorFacade.delete(null);
 	}
+
 }

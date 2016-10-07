@@ -58,6 +58,7 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
     }
 
     private ArmadorDTO verificarDisponibilidadeParaExclusao(ArmadorDTO armadorDTO){
+        ParameterExceptionUtil.validateObjectNull(armadorDTO.getId());
         if(this.isArmadorNaoUsado(armadorDTO.getId())){
             armadorDTO.setUsado(Boolean.FALSE);
         } else if(this.isArmadorUsado(armadorDTO.getId())){
@@ -71,7 +72,6 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
      */
     @Override
     public ArmadorDTO findById(Long idArmador) {
-        ParameterExceptionUtil.validateObjectNull(idArmador);
         return this.verificarDisponibilidadeParaExclusao(ArmadorDTO.toDto(this.armadorService.getOne(idArmador)));
     }
 

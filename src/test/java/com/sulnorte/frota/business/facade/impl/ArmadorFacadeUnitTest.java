@@ -136,11 +136,12 @@ public class ArmadorFacadeUnitTest {
 	public void testFindByIdArmadorUsadoComFalha(){
 		Long idArmador = 1L;
 		Rebocador rebocador = new Rebocador();
-		rebocador.setArmador(new ArmadorDTO().toEntity());
-		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(new ArmadorDTO().toEntity());
+		ArmadorDTO armadorDTO = new ArmadorDTO();
+		rebocador.setArmador(armadorDTO.toEntity());
+		Mockito.when(this.armadorService.getOne(idArmador)).thenReturn(armadorDTO.toEntity());
 		Mockito.when(this.rebocadorService.findFirstByArmadorId(idArmador)).thenReturn(rebocador);
 		Assert.assertNotNull(this.armadorFacade.findById(idArmador));
-		Assert.assertEquals(new ArmadorDTO(), this.armadorFacade.findById(idArmador));
+		Assert.assertEquals(armadorDTO, this.armadorFacade.findById(idArmador));
 	}
 
 	@Test(expected = NullParameterException.class)

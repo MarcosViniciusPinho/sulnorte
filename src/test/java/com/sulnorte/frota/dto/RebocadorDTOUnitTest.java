@@ -28,8 +28,9 @@ public class RebocadorDTOUnitTest {
 
 	@Test
 	public void testToEntity2(){
-		Assert.assertNotNull(new RebocadorDTO().toEntity());
-		Assert.assertEquals(new Rebocador(), new RebocadorDTO().toEntity());
+		RebocadorDTO rebocadorDTO = new RebocadorDTO();
+		Assert.assertNotNull(rebocadorDTO.toEntity());
+		Assert.assertEquals(new Rebocador(), rebocadorDTO.toEntity());
 	}
 
 	@Test

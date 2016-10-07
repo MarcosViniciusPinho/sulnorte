@@ -29,8 +29,9 @@ public class ArmadorDTOUnitTest {
 
 	@Test
 	public void testToEntity2(){
-		Assert.assertNotNull(new ArmadorDTO().toEntity());
-		Assert.assertEquals(new Armador(), new ArmadorDTO().toEntity());
+		ArmadorDTO armadorDTO = new ArmadorDTO();
+		Assert.assertNotNull(armadorDTO.toEntity());
+		Assert.assertEquals(new Armador(), armadorDTO.toEntity());
 	}
 
 	@Test

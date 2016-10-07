@@ -168,7 +168,7 @@ public class RebocadorFacadeUnitTest {
 	public void testSave(){
 		Rebocador rebocador = new Rebocador();
 		rebocador.setId(1L);
-		Mockito.when(this.rebocadorService.save(rebocador)).thenReturn(new Rebocador());
+		Mockito.when(this.rebocadorService.save(rebocador)).thenReturn(rebocador);
 		this.rebocadorFacade.save(rebocador);
 	}
 

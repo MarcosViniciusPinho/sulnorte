@@ -28,8 +28,9 @@ public class MunicipioDTOUnitTest {
 
 	@Test
 	public void testToEntity2(){
-		Assert.assertNotNull(new MunicipioDTO().toEntity());
-		Assert.assertEquals(new Municipio(), new MunicipioDTO().toEntity());
+		MunicipioDTO municipioDTO = new MunicipioDTO();
+		Assert.assertNotNull(municipioDTO.toEntity());
+		Assert.assertEquals(new Municipio(), municipioDTO.toEntity());
 	}
 
 	@Test

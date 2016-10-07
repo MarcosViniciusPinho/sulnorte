@@ -28,8 +28,9 @@ public class PaisDTOUnitTest {
 
 	@Test
 	public void testToEntity2(){
-		Assert.assertNotNull(new PaisDTO().toEntity());
-		Assert.assertEquals(new Pais(), new PaisDTO().toEntity());
+		PaisDTO paisDTO = new PaisDTO();
+		Assert.assertNotNull(paisDTO.toEntity());
+		Assert.assertEquals(new Pais(), paisDTO.toEntity());
 	}
 
 	@Test

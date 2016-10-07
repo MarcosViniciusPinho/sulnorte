@@ -92,11 +92,13 @@ public class EnderecoFacadeUnitTest {
 	public void testFindByEstadoPerPais2(){
 		Long idPais = 1L;
 		List<Estado> estadoList = new ArrayList<Estado>();
-		estadoList.add(new EstadoDTO().toEntity());
+		EstadoDTO estadoDTO = new EstadoDTO();
+		estadoList.add(estadoDTO.toEntity());
 		List<EstadoDTO> estadoDTOList = new ArrayList<EstadoDTO>();
 		estadoDTOList.add(new EstadoDTO());
-		Mockito.when(this.paisService.getOne(idPais)).thenReturn(new PaisDTO().toEntity());
-		Mockito.when(this.estadoService.findByPais((new PaisDTO().toEntity()))).thenReturn(estadoList);
+		PaisDTO paisDTO = new PaisDTO();
+		Mockito.when(this.paisService.getOne(idPais)).thenReturn(paisDTO.toEntity());
+		Mockito.when(this.estadoService.findByPais((paisDTO.toEntity()))).thenReturn(estadoList);
 		Assert.assertNotNull(this.enderecoFacade.findByEstadoPerPais(idPais));
 		Assert.assertEquals(estadoDTOList, this.enderecoFacade.findByEstadoPerPais(idPais));
 	}
@@ -153,12 +155,14 @@ public class EnderecoFacadeUnitTest {
 	@Test
 	public void testFindByMunicipioPerEstado2(){
 		Long idEstado = 1L;
+		MunicipioDTO municipioDTO = new MunicipioDTO();
+		EstadoDTO estadoDTO = new EstadoDTO();
 		List<MunicipioDTO> municipioDTOList = new ArrayList<MunicipioDTO>();
 		municipioDTOList.add(new MunicipioDTO());
 		List<Municipio> municipioList = new ArrayList<Municipio>();
-		municipioList.add(new MunicipioDTO().toEntity());
-		Mockito.when(this.estadoService.getOne(idEstado)).thenReturn(new EstadoDTO().toEntity());
-		Mockito.when(this.municipioService.findByEstadoOrderByNomeAsc(new EstadoDTO().toEntity())).thenReturn(municipioList);
+		municipioList.add(municipioDTO.toEntity());
+		Mockito.when(this.estadoService.getOne(idEstado)).thenReturn(estadoDTO.toEntity());
+		Mockito.when(this.municipioService.findByEstadoOrderByNomeAsc(estadoDTO.toEntity())).thenReturn(municipioList);
 		Assert.assertNotNull(this.enderecoFacade.findByMunicipioPerEstado(idEstado));
 		Assert.assertEquals(municipioDTOList, this.enderecoFacade.findByMunicipioPerEstado(idEstado));
 	}

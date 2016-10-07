@@ -28,8 +28,9 @@ public class EstadoDTOUnitTest {
 
 	@Test
 	public void testToEntity2(){
-		Assert.assertNotNull(new EstadoDTO().toEntity());
-		Assert.assertEquals(new Estado(), new EstadoDTO().toEntity());
+		EstadoDTO estadoDTO = new EstadoDTO();
+		Assert.assertNotNull(estadoDTO.toEntity());
+		Assert.assertEquals(new Estado(), estadoDTO.toEntity());
 	}
 
 	@Test

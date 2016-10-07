@@ -28,8 +28,9 @@ public class PortoDTOUnitTest {
 
 	@Test
 	public void testToEntity2(){
-		Assert.assertNotNull(new PortoDTO().toEntity());
-		Assert.assertEquals(new Porto(), new PortoDTO().toEntity());
+		PortoDTO portoDTO = new PortoDTO();
+		Assert.assertNotNull(portoDTO.toEntity());
+		Assert.assertEquals(new Porto(), portoDTO.toEntity());
 	}
 
 	@Test

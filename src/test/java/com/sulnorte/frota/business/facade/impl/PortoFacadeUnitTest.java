@@ -55,7 +55,7 @@ public class PortoFacadeUnitTest {
 
 	@Test(expected = NullParameterException.class)
 	public void testFindAllPortoNaoUsadoComFalha(){
-		Long idPorto = 1l;
+		Long idPorto = 1L;
 		List<PortoDTO> listaEsperada = new ArrayList<PortoDTO>();
 		listaEsperada.add(PortoDTO.toDto(new Porto()));
 		List<Porto> portoList = new ArrayList<Porto>();
@@ -108,8 +108,9 @@ public class PortoFacadeUnitTest {
 
 	@Test
 	public void testFindAllPortoUsadoInRebocador(){
+		Long idPorto = 1L;
 		PortoDTO portoDTO = new PortoDTO();
-		portoDTO.setId(1L);
+		portoDTO.setId(idPorto);
 		portoDTO.setUsado(Boolean.TRUE);
 		List<PortoDTO> listaEsperada = new ArrayList<PortoDTO>();
 		listaEsperada.add(portoDTO);
@@ -118,8 +119,8 @@ public class PortoFacadeUnitTest {
 		Rebocador rebocador = new Rebocador();
 		rebocador.setPorto(portoDTO.toEntity());
 		Mockito.when(this.portoService.findAllByOrderByNomeAsc()).thenReturn(portoList);
-		Mockito.when(this.portoService.findByIdPortoOnArmador(portoDTO.toEntity().getId())).thenReturn(null);
-		Mockito.when(this.rebocadorService.findFirstByPortoId(portoDTO.toEntity().getId())).thenReturn(rebocador);
+		Mockito.when(this.portoService.findByIdPortoOnArmador(idPorto)).thenReturn(null);
+		Mockito.when(this.rebocadorService.findFirstByPortoId(idPorto)).thenReturn(rebocador);
 		Assert.assertNotNull(this.portoFacade.findAll());
 		Assert.assertEquals(listaEsperada, this.portoFacade.findAll());
 	}
@@ -145,16 +146,17 @@ public class PortoFacadeUnitTest {
 
 	@Test
 	public void testFindAllPortoUsadoInArmador(){
+		Long idPorto = 1L;
 		PortoDTO portoDTO = new PortoDTO();
-		portoDTO.setId(1L);
+		portoDTO.setId(idPorto);
 		portoDTO.setUsado(Boolean.TRUE);
 		List<PortoDTO> listaEsperada = new ArrayList<PortoDTO>();
 		listaEsperada.add(portoDTO);
 		List<Porto> portoList = new ArrayList<Porto>();
 		portoList.add(portoDTO.toEntity());
 		Mockito.when(this.portoService.findAllByOrderByNomeAsc()).thenReturn(portoList);
-		Mockito.when(this.portoService.findByIdPortoOnArmador(portoDTO.toEntity().getId())).thenReturn(1L);
-		Mockito.when(this.rebocadorService.findFirstByPortoId(portoDTO.toEntity().getId())).thenReturn(null);
+		Mockito.when(this.portoService.findByIdPortoOnArmador(idPorto)).thenReturn(idPorto);
+		Mockito.when(this.rebocadorService.findFirstByPortoId(idPorto)).thenReturn(null);
 		Assert.assertNotNull(this.portoFacade.findAll());
 		Assert.assertEquals(listaEsperada, this.portoFacade.findAll());
 	}
@@ -305,10 +307,11 @@ public class PortoFacadeUnitTest {
 
 	@Test
 	public void testFindAllFilial2(){
+		FilialDTO filialDTO = new FilialDTO();
 		List<FilialDTO> filialDTOList = new ArrayList<FilialDTO>();
-		filialDTOList.add(new FilialDTO());
+		filialDTOList.add(filialDTO);
 		List<Filial> filialList = new ArrayList<Filial>();
-		filialList.add(new FilialDTO().toEntity());
+		filialList.add(filialDTO.toEntity());
 		Mockito.when(this.filialService.findAllByOrderByNomeAsc()).thenReturn(filialList);
 		Assert.assertNotNull(this.portoFacade.findAllFilial());
 		Assert.assertEquals(filialDTOList, this.portoFacade.findAllFilial());

@@ -7,6 +7,7 @@ import com.sulnorte.frota.dto.RebocadorDTO;
 import com.sulnorte.frota.entity.Armador;
 import com.sulnorte.frota.entity.Porto;
 import com.sulnorte.frota.entity.Rebocador;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,6 +59,8 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
      */
     @Override
     protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
+        ParameterExceptionUtil.validateObjectNull(view);
+        ParameterExceptionUtil.validateObjectNull(id);
         ModelAndView mv = new ModelAndView(view);
         this.onLoadView(mv);
         mv.addObject(this.rebocadorFacade.findById(id));
@@ -96,6 +99,7 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
      */
     @Override
     protected Rebocador convertDtoToEntity(RebocadorDTO rebocadorDTO) {
+        ParameterExceptionUtil.validateObjectNull(rebocadorDTO);
         return rebocadorDTO.toEntity();
     }
 

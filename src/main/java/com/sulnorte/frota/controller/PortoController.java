@@ -3,6 +3,7 @@ package com.sulnorte.frota.controller;
 import com.sulnorte.frota.business.facade.IPortoFacade;
 import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.entity.Porto;
+import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +47,8 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
      */
     @Override
     protected ModelAndView onPrepareUpdateOrDetail(String view, Long id){
+        ParameterExceptionUtil.validateObjectNull(view);
+        ParameterExceptionUtil.validateObjectNull(id);
         ModelAndView mv = new ModelAndView(view);
         this.onLoadView(mv);
         mv.addObject(this.portoFacade.findById(id));
@@ -82,6 +85,7 @@ public class PortoController extends EnderecoController<PortoDTO, Porto>{
      */
     @Override
     protected Porto convertDtoToEntity(PortoDTO portoDTO) {
+        ParameterExceptionUtil.validateObjectNull(portoDTO);
         return portoDTO.toEntity();
     }
 

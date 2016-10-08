@@ -34,4 +34,12 @@ public class Propulsao implements Serializable {
         this.nome = nome;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Propulsao)) return false;
+        Propulsao propulsao = (Propulsao) o;
+        return id != null ? id.equals(propulsao.id) : propulsao.id == null;
+    }
+
 }

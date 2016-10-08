@@ -34,4 +34,12 @@ public class Filial implements Serializable {
         this.nome = nome;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Filial)) return false;
+        Filial filial = (Filial) o;
+        return id != null ? id.equals(filial.id) : filial.id == null;
+    }
+
 }

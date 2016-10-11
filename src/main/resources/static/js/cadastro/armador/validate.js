@@ -17,13 +17,13 @@ $(document).ready( function() {
                 required: true
             },
             'endereco.logradouro':{
-                required: true, maxlength: 150
+                required: true, maxlength: 50
             },
             'endereco.bairro':{
                 required: true, maxlength: 100
             },
-            'endereco.numero':{
-                required: true, maxlength: 10
+            'endereco.complemento':{
+                required: true, maxlength: 80
             }
         },
         messages:{
@@ -48,8 +48,8 @@ $(document).ready( function() {
             'endereco.bairro':{
                 required: "O campo Bairro é obrigatório"
             },
-            'endereco.numero':{
-                required: "O campo Número é obrigatório"
+            'endereco.complemento':{
+                required: "O campo Complemento é obrigatório"
             }
         }
     });
@@ -65,7 +65,7 @@ function validarCamposAoSalvar(){
 }
 
 function retiraEspacosEmBranco(){
-    var array = ["#nome", "#contato", "#logradouro", "#bairro", "#numero"];
+    var array = ["#nome", "#contato", "#logradouro", "#bairro", "#complemento"];
     for(var i = 0; i < array.length; i++){
         var valor = $(array[i]).val();
         if(valor.trim() == ""){

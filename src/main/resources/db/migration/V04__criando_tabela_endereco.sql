@@ -1,8 +1,8 @@
 CREATE TABLE endereco(
   id INTEGER NOT NULL,
-  logradouro VARCHAR(150) NOT NULL,
+  logradouro VARCHAR(50) NOT NULL,
   bairro VARCHAR(100) NOT NULL,
-  numero VARCHAR(10),
+  complemento VARCHAR(80),
   id_pais INTEGER NOT NULL,
   id_estado INTEGER NOT NULL,
   id_municipio INTEGER NOT NULL

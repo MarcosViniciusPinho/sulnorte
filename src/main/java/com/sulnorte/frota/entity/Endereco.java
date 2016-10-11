@@ -20,16 +20,16 @@ public class Endereco implements Serializable {
     private Long id;
 
     @NotBlank(message = "O Campo Logradouro é Obrigatório")
-    @Column(name = "logradouro", length = 150, nullable = false)
+    @Column(name = "logradouro", length = 50, nullable = false)
     private String logradouro;
 
     @NotBlank(message = "O Campo Bairro é Obrigatório")
     @Column(name = "bairro", length = 100, nullable = false)
     private String bairro;
 
-    @NotBlank(message = "O Campo Número é Obrigatório")
-    @Column(name = "numero", length = 10, nullable = false)
-    private String numero;
+    @NotBlank(message = "O Campo Complemento é Obrigatório")
+    @Column(name = "complemento", length = 80, nullable = false)
+    private String complemento;
 
     @NotNull(message = "O Campo País é Obrigatório")
     @JsonIgnore
@@ -72,12 +72,12 @@ public class Endereco implements Serializable {
         this.bairro = bairro;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public Pais getPais() {

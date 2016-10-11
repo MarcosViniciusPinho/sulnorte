@@ -1,7 +1,7 @@
 CREATE TABLE rebocador(
   id INTEGER NOT NULL,
   nome VARCHAR(100) NOT NULL,
-  ano INTEGER(4),
+  ano INTEGER,
   bp NUMERIC(10,2),
   bhp NUMERIC(10,2),
   observacao VARCHAR(255),

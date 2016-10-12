@@ -22,7 +22,7 @@ public class PatternUtil {
         if(valorFormatado.contains("R$")){
             return valorFormatado.replace("R$ ","");
         }
-        return valorFormatado.replace("$ ","");
+        return valorFormatado.replace("$","");
     }
 
 }

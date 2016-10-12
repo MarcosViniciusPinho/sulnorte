@@ -18,7 +18,11 @@ public class PatternUtil {
             return null;
         }
         NumberFormat nf = NumberFormat.getCurrencyInstance();
-        return nf.format(valor).replace("R$ ","");
+        String valorFormatado = nf.format(valor);
+        if(valorFormatado.contains("R$")){
+            return valorFormatado.replace("R$ ","");
+        }
+        return valorFormatado.replace("$ ","");
     }
 
 }

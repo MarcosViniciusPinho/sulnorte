@@ -2,6 +2,7 @@ package com.sulnorte.frota.dto.util;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class PatternUtil {
@@ -17,7 +18,7 @@ public class PatternUtil {
         if(valor == null){
             return null;
         }
-        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
         return nf.format(valor).replace("R$ ","");
     }
 

@@ -27,14 +27,6 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
      * {@inheritDoc}
      */
     @Override
-    public Long[] findAllIdsPortoOnArmador(Long idArmador) {
-        return this.armadorService.findAllIdsPortoOnArmador(idArmador);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public List<ArmadorDTO> findAll() {
         List<ArmadorDTO> lista = ArmadorDTO.convertListEntityToListDto(this.armadorService.findAllByOrderByNomeAsc());
         if(CollectionUtils.isEmpty(lista)){

@@ -19,11 +19,4 @@ public interface IArmadorFacade<T> extends ICrudFacade<T> {
      */
     ArmadorDTO findById(Long idArmador);
 
-    /**
-     * Método que busca os ids de portos associados a um armador de acordo com o id informado.
-     * @param idArmador idArmador
-     * @return Long[]
-     */
-    Long[] findAllIdsPortoOnArmador(Long idArmador);
-
 }

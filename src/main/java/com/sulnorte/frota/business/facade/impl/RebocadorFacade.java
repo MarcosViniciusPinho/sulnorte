@@ -1,9 +1,8 @@
 package com.sulnorte.frota.business.facade.impl;
 
 import com.sulnorte.frota.business.facade.IRebocadorFacade;
-import com.sulnorte.frota.business.service.IPropulsaoService;
-import com.sulnorte.frota.business.service.IRebocadorService;
-import com.sulnorte.frota.business.service.ISituacaoRebocadorService;
+import com.sulnorte.frota.business.service.*;
+import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.dto.PropulsaoDTO;
 import com.sulnorte.frota.dto.RebocadorDTO;
 import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
@@ -24,6 +23,19 @@ public class RebocadorFacade<T> implements IRebocadorFacade<T> {
 
     @Autowired
     private ISituacaoRebocadorService situacaoRebocadorService;
+
+    @Autowired
+    private IPortoService portoService;
+
+    @Autowired
+    private IArmadorService armadorService;
+
+
+    @Override
+    public List<PortoDTO> findAllPortoPerArmador(Long idArmador) {
+        Long[] idsPorto = this.armadorService.findAllIdsPortoOnArmador(idArmador);
+        return PortoDTO.convertListEntityToListDto(this.portoService.findByIdIn(idsPorto));
+    }
 
     /**
      * {@inheritDoc}

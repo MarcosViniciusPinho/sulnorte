@@ -1,5 +1,6 @@
 package com.sulnorte.frota.business.facade;
 
+import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.dto.PropulsaoDTO;
 import com.sulnorte.frota.dto.RebocadorDTO;
 import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
@@ -32,5 +33,12 @@ public interface IRebocadorFacade<T> extends ICrudFacade<T> {
      * @return RebocadorDTO
      */
     RebocadorDTO findById(Long idRebocador);
+
+    /**
+     * Método que faz a busca de todos os portos que são de um determinado armador.
+     * @param idArmador codigo do armador.
+     * @return List<PortoDTO>
+     */
+    List<PortoDTO> findAllPortoPerArmador(Long idArmador);
 
 }

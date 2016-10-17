@@ -4,7 +4,10 @@ import com.sulnorte.frota.business.facade.IArmadorFacade;
 import com.sulnorte.frota.business.facade.IEnderecoFacade;
 import com.sulnorte.frota.business.facade.IPortoFacade;
 import com.sulnorte.frota.business.facade.IRebocadorFacade;
-import com.sulnorte.frota.dto.*;
+import com.sulnorte.frota.dto.ArmadorDTO;
+import com.sulnorte.frota.dto.PropulsaoDTO;
+import com.sulnorte.frota.dto.RebocadorDTO;
+import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
 import com.sulnorte.frota.entity.Armador;
 import com.sulnorte.frota.entity.Porto;
 import com.sulnorte.frota.entity.Rebocador;
@@ -65,12 +68,9 @@ public class RebocadorControllerUnitTest {
 
 	@Test
 	public void testOnPrepareCreate(){
-		PortoDTO portoDTO = new PortoDTO();
 		ArmadorDTO armadorDTO = new ArmadorDTO();
 		PropulsaoDTO propulsaoDTO = new PropulsaoDTO();
 		SituacaoRebocadorDTO situacaoRebocadorDTO = new SituacaoRebocadorDTO();
-		List<PortoDTO> portoDTOList = new ArrayList<PortoDTO>();
-		portoDTOList.add(portoDTO);
 		List<ArmadorDTO> armadorDTOList = new ArrayList<ArmadorDTO>();
 		armadorDTOList.add(armadorDTO);
 		List<PropulsaoDTO> propulsaoDTOList = new ArrayList<PropulsaoDTO>();
@@ -78,12 +78,10 @@ public class RebocadorControllerUnitTest {
 		List<SituacaoRebocadorDTO> situacaoRebocadorDTOList = new ArrayList<SituacaoRebocadorDTO>();
 		situacaoRebocadorDTOList.add(situacaoRebocadorDTO);
 		ModelAndView mvEsperado = new ModelAndView("cadastro/rebocador/Form");
-		mvEsperado.addObject("listarPortos", portoDTOList);
 		mvEsperado.addObject("listarArmadores", armadorDTOList);
 		mvEsperado.addObject("listarPropulsoes", propulsaoDTOList);
 		mvEsperado.addObject("listarSituacoes", situacaoRebocadorDTOList);
 		mvEsperado.addObject(new RebocadorDTO());
-		Mockito.when(this.portoFacade.findAll()).thenReturn(portoDTOList);
 		Mockito.when(this.armadorFacade.findAll()).thenReturn(armadorDTOList);
 		Mockito.when(this.rebocadorFacade.findAllPropulsao()).thenReturn(propulsaoDTOList);
 		Mockito.when(this.rebocadorFacade.findAllSituacao()).thenReturn(situacaoRebocadorDTOList);
@@ -95,12 +93,10 @@ public class RebocadorControllerUnitTest {
 	@Test
 	public void testOnPrepareCreateEmpty(){
 		ModelAndView mvEsperado = new ModelAndView("cadastro/rebocador/Form");
-		mvEsperado.addObject("listarPortos", new ArrayList<PortoDTO>());
 		mvEsperado.addObject("listarArmadores", new ArrayList<ArmadorDTO>());
 		mvEsperado.addObject("listarPropulsoes", new ArrayList<PropulsaoDTO>());
 		mvEsperado.addObject("listarSituacoes", new ArrayList<SituacaoRebocadorDTO>());
 		mvEsperado.addObject(new RebocadorDTO());
-		Mockito.when(this.portoFacade.findAll()).thenReturn(new ArrayList<PortoDTO>());
 		Mockito.when(this.armadorFacade.findAll()).thenReturn(new ArrayList<ArmadorDTO>());
 		Mockito.when(this.rebocadorFacade.findAllPropulsao()).thenReturn(new ArrayList<PropulsaoDTO>());
 		Mockito.when(this.rebocadorFacade.findAllSituacao()).thenReturn(new ArrayList<SituacaoRebocadorDTO>());
@@ -116,12 +112,9 @@ public class RebocadorControllerUnitTest {
 		Long id = 1L;
 		RebocadorDTO rebocadorDTO = new RebocadorDTO();
 		rebocadorDTO.setId(1L);
-		PortoDTO portoDTO = new PortoDTO();
 		ArmadorDTO armadorDTO = new ArmadorDTO();
 		PropulsaoDTO propulsaoDTO = new PropulsaoDTO();
 		SituacaoRebocadorDTO situacaoRebocadorDTO = new SituacaoRebocadorDTO();
-		List<PortoDTO> portoDTOList = new ArrayList<PortoDTO>();
-		portoDTOList.add(portoDTO);
 		List<ArmadorDTO> armadorDTOList = new ArrayList<ArmadorDTO>();
 		armadorDTOList.add(armadorDTO);
 		List<PropulsaoDTO> propulsaoDTOList = new ArrayList<PropulsaoDTO>();
@@ -129,18 +122,15 @@ public class RebocadorControllerUnitTest {
 		List<SituacaoRebocadorDTO> situacaoRebocadorDTOList = new ArrayList<SituacaoRebocadorDTO>();
 		situacaoRebocadorDTOList.add(situacaoRebocadorDTO);
 		ModelAndView mvEsperadoDetail = new ModelAndView(viewDetail);
-		mvEsperadoDetail.addObject("listarPortos", portoDTOList);
 		mvEsperadoDetail.addObject("listarArmadores", armadorDTOList);
 		mvEsperadoDetail.addObject("listarPropulsoes", propulsaoDTOList);
 		mvEsperadoDetail.addObject("listarSituacoes", situacaoRebocadorDTOList);
 		mvEsperadoDetail.addObject(rebocadorDTO);
 		ModelAndView mvEsperadoForm = new ModelAndView(viewForm);
-		mvEsperadoForm.addObject("listarPortos", portoDTOList);
 		mvEsperadoForm.addObject("listarArmadores", armadorDTOList);
 		mvEsperadoForm.addObject("listarPropulsoes", propulsaoDTOList);
 		mvEsperadoForm.addObject("listarSituacoes", situacaoRebocadorDTOList);
 		mvEsperadoForm.addObject(rebocadorDTO);
-		Mockito.when(this.portoFacade.findAll()).thenReturn(portoDTOList);
 		Mockito.when(this.armadorFacade.findAll()).thenReturn(armadorDTOList);
 		Mockito.when(this.rebocadorFacade.findAllPropulsao()).thenReturn(propulsaoDTOList);
 		Mockito.when(this.rebocadorFacade.findAllSituacao()).thenReturn(situacaoRebocadorDTOList);
@@ -159,18 +149,15 @@ public class RebocadorControllerUnitTest {
 		String viewForm = "cadastro/rebocador/Form";
 		Long id = 1L;
 		ModelAndView mvEsperadoDetail = new ModelAndView(viewDetail);
-		mvEsperadoDetail.addObject("listarPortos", new ArrayList<PortoDTO>());
 		mvEsperadoDetail.addObject("listarArmadores", new ArrayList<ArmadorDTO>());
 		mvEsperadoDetail.addObject("listarPropulsoes", new ArrayList<PropulsaoDTO>());
 		mvEsperadoDetail.addObject("listarSituacoes", new ArrayList<SituacaoRebocadorDTO>());
 		mvEsperadoDetail.addObject(new RebocadorDTO());
 		ModelAndView mvEsperadoForm = new ModelAndView(viewForm);
-		mvEsperadoForm.addObject("listarPortos", new ArrayList<PortoDTO>());
 		mvEsperadoForm.addObject("listarArmadores", new ArrayList<ArmadorDTO>());
 		mvEsperadoForm.addObject("listarPropulsoes", new ArrayList<PropulsaoDTO>());
 		mvEsperadoForm.addObject("listarSituacoes", new ArrayList<SituacaoRebocadorDTO>());
 		mvEsperadoForm.addObject(new RebocadorDTO());
-		Mockito.when(this.portoFacade.findAll()).thenReturn(new ArrayList<PortoDTO>());
 		Mockito.when(this.armadorFacade.findAll()).thenReturn(new ArrayList<ArmadorDTO>());
 		Mockito.when(this.rebocadorFacade.findAllPropulsao()).thenReturn(new ArrayList<PropulsaoDTO>());
 		Mockito.when(this.rebocadorFacade.findAllSituacao()).thenReturn(new ArrayList<SituacaoRebocadorDTO>());

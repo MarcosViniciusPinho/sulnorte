@@ -22,6 +22,15 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
     @Autowired
     private IRebocadorService rebocadorService;
 
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Long[] findAllIdsPortoOnArmador(Long idArmador) {
+        return this.armadorService.findAllIdsPortoOnArmador(idArmador);
+    }
+
     /**
      * {@inheritDoc}
      */

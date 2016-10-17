@@ -22,4 +22,11 @@ public interface IPortoService extends ICrudService<Porto>{
      */
     @Query(value = QueryConstant.FIND_BY_ID_PORTO_ON_ARMADOR_PORTO, nativeQuery = true)
     Long findByIdPortoOnArmador(Long idPorto);
+
+    /**
+     * Método que busca uma lista de portos com seus determinados ids informados.
+     * @param idsPorto idsPorto
+     * @return List<Porto>
+     */
+    List<Porto> findByIdIn(Long[] idsPorto);
 }

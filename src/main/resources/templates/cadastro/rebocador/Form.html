@@ -88,20 +88,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <h3>Porto</h3>
-                                <div class="well col-sm-12">
-                                    <div class="col-sm-6">
-                                        <label for="porto"><span class="corPadraoVermelho">*</span> Porto:</label>
-                                        <select id="porto" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{porto}" name="porto">
-                                            <option value="">Selecione um porto</option>
-                                            <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <h3>Armador</h3>
                                 <div class="well col-sm-12">
@@ -110,6 +96,18 @@
                                         <select id="armador" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{armador}" name="armador">
                                             <option value="">Selecione um armador</option>
                                             <option th:each="armador : ${listarArmadores}" th:value="${armador.id}" th:text="${armador.nome}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h3>Porto</h3>
+                                <div class="well col-sm-12">
+                                    <div class="col-sm-6">
+                                        <label for="porto"><span class="corPadraoVermelho">*</span> Porto:</label>
+                                        <select id="porto" class="form-control manterCorDoTextoPosMensagemDeErro" th:field="*{porto}" name="porto">
+                                            <option value="">Selecione um porto</option>
+                                            <option th:each="porto : ${listarPortos}" th:value="${porto.id}" th:text="${porto.nome}"></option>
                                         </select>
                                     </div>
                                 </div>

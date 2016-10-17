@@ -6,6 +6,7 @@ import com.sulnorte.frota.business.service.IPortoService;
 import com.sulnorte.frota.business.service.IRebocadorService;
 import com.sulnorte.frota.dto.FilialDTO;
 import com.sulnorte.frota.dto.PortoDTO;
+import com.sulnorte.frota.entity.Porto;
 import com.sulnorte.frota.entity.Rebocador;
 import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.apache.commons.collections.CollectionUtils;
@@ -26,6 +27,14 @@ public class PortoFacade<T> implements IPortoFacade<T> {
 
     @Autowired
     private IRebocadorService rebocadorService;
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<Porto> findAllById(Long[] idsPorto) {
+        return portoService.findByIdIn(idsPorto);
+    }
 
     /**
      * {@inheritDoc}

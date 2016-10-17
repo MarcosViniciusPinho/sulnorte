@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/cadastro/rebocador")
 public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>{
@@ -72,7 +74,9 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
      * @param mv mv
      */
     private void onLoadView(ModelAndView mv){
-        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
+        Long[] idsPorto = this.armadorFacade.findAllIdsPortoOnArmador(34L);
+        List<Porto> portoList = this.portoFacade.findAllById(idsPorto);
+//        mv.addObject(LISTAR_PORTOS, this.portoFacade.findAll());
         mv.addObject(LISTAR_ARMADORES, this.armadorFacade.findAll());
         mv.addObject(LISTAR_PROPULSOES, this.rebocadorFacade.findAllPropulsao());
         mv.addObject(LISTAR_SITUACOES, this.rebocadorFacade.findAllSituacao());

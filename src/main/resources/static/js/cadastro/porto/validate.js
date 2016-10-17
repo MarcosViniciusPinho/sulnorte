@@ -47,9 +47,29 @@ $(document).ready( function() {
             }
         }
     });
+    $('#mensagemErroCnpj').hide();
     validarCamposAoSalvar();
     $('#cnpj').mask("99.999.999/9999-99");
+    validarQuantidadeDeCaracteresEmCnpj();
 });
+
+function validarQuantidadeDeCaracteresEmCnpj() {
+    $("#cnpj").blur(function(){
+        var cnpj = $("#cnpj").val();
+        if(cnpj === ""){
+            $('#mensagemErroCnpj').show();
+            $('#mensagemErroCnpj').html('É obrigatório informar 14 caracteres para o campo CNPJ');
+        } else{
+            $('#mensagemErroCnpj').hide();
+        }
+    });
+    $("#cnpj").keydown(function(){
+        var cnpj = $("#cnpj").val();
+        if(cnpj !== ""){
+            $('#mensagemErroCnpj').hide();
+        }
+    });
+}
 
 function validarCamposAoSalvar(){
     $("#salvar").click(function() {

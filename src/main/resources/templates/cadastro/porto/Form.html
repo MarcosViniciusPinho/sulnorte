@@ -58,7 +58,8 @@
 
                                     <div class="col-sm-3">
                                         <label for="cnpj">CNPJ:</label>
-                                        <input type="text" class="form-control" id="cnpj"  th:field="*{cnpj}" placeholder="Informe um cnpj válido"/>
+                                        <input type="text" class="form-control manterCorDoTextoPosMensagemDeErro" id="cnpj"  th:field="*{cnpj}" placeholder="Informe um cnpj válido"/>
+                                        <label id="mensagemErroCnpj" class="corPadraoVermelho"></label>
                                     </div>
                                 </div>
                             </div>

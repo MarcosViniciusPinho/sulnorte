@@ -64,44 +64,44 @@ public class ArmadorDTO implements Serializable {
         return lista;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Long getId() {
+        return id;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getContato() {
-        return contato;
+    public String getNome() {
+        return nome;
     }
 
     public void setContato(String contato) {
         this.contato = contato;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getContato() {
+        return contato;
     }
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
-    public List<Porto> getPortoList() {
-        return portoList;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
     public void setPortoList(List<Porto> portoList) {
         this.portoList = portoList;
+    }
+
+    public List<Porto> getPortoList() {
+        return portoList;
     }
 
     public boolean isUsado() {

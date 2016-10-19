@@ -47,28 +47,28 @@ public class MunicipioDTO implements Serializable {
         return lista;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Long getId() {
+        return id;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public String getNome() {
+        return nome;
     }
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public Estado getEstado() {
+        return estado;
     }
 
     @Override

@@ -51,36 +51,36 @@ public class EstadoDTO implements Serializable {
         return lista;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Long getId() {
+        return id;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getSigla() {
-        return sigla;
+    public String getNome() {
+        return nome;
     }
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
 
-    public Pais getPais() {
-        return pais;
+    public String getSigla() {
+        return sigla;
     }
 
     public void setPais(Pais pais) {
         this.pais = pais;
+    }
+
+    public Pais getPais() {
+        return pais;
     }
 
     @Override

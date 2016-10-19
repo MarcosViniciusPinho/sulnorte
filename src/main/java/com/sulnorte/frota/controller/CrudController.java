@@ -43,7 +43,7 @@ public abstract class CrudController<V, T> {
             this.getFacade().save(this.convertDtoToEntity(entity));
             redirectAttributes.addFlashAttribute(SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
-        } catch (ExecutionException ex) {
+        } catch (RuntimeException ex) {
             throw new ExecutionException(ex);
         }
     }
@@ -60,7 +60,7 @@ public abstract class CrudController<V, T> {
             this.getFacade().delete(id);
             redirectAttributes.addFlashAttribute(SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
-        } catch (ExecutionException ex) {
+        } catch (RuntimeException ex) {
             throw new ExecutionException(ex);
         }
     }
@@ -73,7 +73,7 @@ public abstract class CrudController<V, T> {
     public ModelAndView list(){
         try {
             return this.onList();
-        } catch (ExecutionException ex) {
+        } catch (RuntimeException ex) {
             throw new ExecutionException(ex);
         }
     }

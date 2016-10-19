@@ -42,4 +42,9 @@ public class Pais implements Serializable {
         return id != null ? id.equals(pais.id) : pais.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

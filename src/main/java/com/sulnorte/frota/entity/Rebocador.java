@@ -142,4 +142,9 @@ public class Rebocador implements Serializable {
         return id != null ? id.equals(rebocador.id) : rebocador.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

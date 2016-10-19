@@ -42,4 +42,9 @@ public class Propulsao implements Serializable {
         return id != null ? id.equals(propulsao.id) : propulsao.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

@@ -87,4 +87,9 @@ public class Porto implements Serializable {
         return id != null ? id.equals(porto.id) : porto.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

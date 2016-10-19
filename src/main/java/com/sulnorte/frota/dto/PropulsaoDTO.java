@@ -64,4 +64,9 @@ public class PropulsaoDTO implements Serializable {
         return id != null ? id.equals(that.id) : that.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

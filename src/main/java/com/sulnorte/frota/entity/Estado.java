@@ -68,4 +68,9 @@ public class Estado implements Serializable {
         return id != null ? id.equals(estado.id) : estado.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

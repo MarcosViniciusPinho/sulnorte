@@ -42,4 +42,9 @@ public class Filial implements Serializable {
         return id != null ? id.equals(filial.id) : filial.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

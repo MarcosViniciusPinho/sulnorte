@@ -64,4 +64,9 @@ public class PaisDTO implements Serializable {
         return id != null ? id.equals(paisDTO.id) : paisDTO.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

@@ -89,4 +89,9 @@ public class Armador implements Serializable {
         return id != null ? id.equals(armador.id) : armador.id == null;
     }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

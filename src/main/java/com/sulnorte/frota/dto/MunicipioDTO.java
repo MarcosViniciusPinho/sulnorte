@@ -22,11 +22,11 @@ public class MunicipioDTO implements Serializable {
     private Estado estado;
 
     public Municipio toEntity(){
-        Municipio estado = new Municipio();
-        estado.setId(this.getId());
-        estado.setNome(this.getNome());
-        estado.setEstado(this.getEstado());
-        return estado;
+        Municipio estadoOther = new Municipio();
+        estadoOther.setId(this.getId());
+        estadoOther.setNome(this.getNome());
+        estadoOther.setEstado(this.getEstado());
+        return estadoOther;
     }
 
     public static MunicipioDTO toDto(Municipio municipio){

@@ -12,6 +12,7 @@ public interface IMunicipioService extends ICrudService<Municipio> {
 
     /**
      * Método que faz a busca de todos os municipios e os ordena em ordem alfabética.
+     * @param estado estado
      * @return List<Municipio>
      */
     List<Municipio> findByEstadoOrderByNomeAsc(Estado estado);

@@ -10,6 +10,8 @@ import java.util.Collection;
  */
 public class ParameterExceptionUtil {
 
+    private ParameterExceptionUtil() {}
+
     public static void validateObjectNull(Object valor){
         if(valor == null){
             throw new NullParameterException("Parametro objeto nulo.");

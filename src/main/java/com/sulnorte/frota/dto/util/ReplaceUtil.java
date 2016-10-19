@@ -9,6 +9,8 @@ import java.util.Collection;
 
 public class ReplaceUtil {
 
+    private ReplaceUtil() {}
+
     public static Long retirarMascaraPadraoCnpj(String cnpj){
         if(StringUtils.isEmpty(cnpj)){
             return null;

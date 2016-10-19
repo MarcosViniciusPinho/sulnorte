@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 
 public class PatternUtil {
 
+    private PatternUtil() {}
+
     public static String mascaraPadraoCnpj(Long cnpj){
         if(cnpj == null){
             return null;

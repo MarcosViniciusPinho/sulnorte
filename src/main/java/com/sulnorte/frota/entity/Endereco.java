@@ -8,6 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+/**
+ * Classe que representa a tabela endereco no banco de dados.
+ */
 @Entity
 @Table(name = "endereco")
 public class Endereco implements Serializable {

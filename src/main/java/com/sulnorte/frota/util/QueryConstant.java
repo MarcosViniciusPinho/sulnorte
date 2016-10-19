@@ -1,5 +1,8 @@
 package com.sulnorte.frota.util;
 
+/**
+ * Classe responsável por ser o repositório de script SQL em alguns lugares da aplicação.
+ */
 public class QueryConstant {
 
     private QueryConstant() {}

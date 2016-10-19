@@ -8,6 +8,9 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+/**
+ * Classe que representa a tabela rebocador no banco de dados.
+ */
 @Entity
 @Table(name = "rebocador")
 public class Rebocador implements Serializable {

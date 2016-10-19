@@ -7,6 +7,9 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Classe que representa a tabela porto no banco de dados.
+ */
 @Entity
 @Table(name = "porto")
 public class Porto implements Serializable {

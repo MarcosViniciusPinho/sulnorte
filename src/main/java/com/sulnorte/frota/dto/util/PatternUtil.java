@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
- * Classe para definir o pattern de algumas informaçoes do sistema.
+ * Classe utilitária para definir o pattern de algumas informaçoes do sistema.
  */
 public class PatternUtil {
 

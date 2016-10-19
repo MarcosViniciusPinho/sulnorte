@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Classe que representa a tabela estado no banco de dados.
+ */
 @Entity
 @Table(name = "estado")
 public class Estado implements Serializable {

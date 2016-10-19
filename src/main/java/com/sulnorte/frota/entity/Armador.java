@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa a tabela armador no banco de dados.
+ */
 @Entity
 @Table(name = "armador")
 public class Armador implements Serializable {

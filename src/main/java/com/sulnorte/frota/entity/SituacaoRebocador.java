@@ -4,6 +4,9 @@ package com.sulnorte.frota.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Classe que representa a tabela situacao_rebocador no banco de dados.
+ */
 @Entity
 @Table(name = "situacao_rebocador")
 public class SituacaoRebocador implements Serializable {

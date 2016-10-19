@@ -4,6 +4,9 @@ package com.sulnorte.frota.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Classe que representa a tabela pais no banco de dados.
+ */
 @Entity
 @Table(name = "pais")
 public class Pais implements Serializable {

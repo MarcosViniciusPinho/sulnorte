@@ -73,7 +73,7 @@ public class RebocadorDTO implements Serializable {
     }
 
     public static List<RebocadorDTO> convertListEntityToListDto(List<Rebocador> entities){
-        List<RebocadorDTO> lista = new ArrayList<RebocadorDTO>();
+        List<RebocadorDTO> lista = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(entities)){
             for(Rebocador rebocador : entities){
                 lista.add(toDto(rebocador));

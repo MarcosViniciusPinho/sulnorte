@@ -56,7 +56,7 @@ public class PortoDTO implements Serializable {
     }
 
     public static List<PortoDTO> convertListEntityToListDto(List<Porto> entities){
-        List<PortoDTO> lista = new ArrayList<PortoDTO>();
+        List<PortoDTO> lista = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(entities)){
             for(Porto porto : entities){
                 lista.add(toDto(porto));

@@ -33,7 +33,7 @@ public class FilialDTO implements Serializable {
 
     public static List<FilialDTO> convertListEntityToListDto(List<Filial> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
-        List<FilialDTO> lista = new ArrayList<FilialDTO>();
+        List<FilialDTO> lista = new ArrayList<>();
         for(Filial filial : entities){
             lista.add(toDto(filial));
         }

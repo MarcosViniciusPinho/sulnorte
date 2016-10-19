@@ -118,7 +118,7 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
     public ResponseEntity<List<PortoDTO>> buscaPortosPorArmador(@RequestBody Long idArmador) {
         try {
             List<PortoDTO> listarPortos = rebocadorFacade.findAllPortoPerArmador(idArmador);
-            return new ResponseEntity<List<PortoDTO>>(listarPortos, HttpStatus.OK);
+            return new ResponseEntity<>(listarPortos, HttpStatus.OK);
         } catch (RuntimeException ex){
             throw new ExecutionException("Erro na busca de portos", ex);
         }

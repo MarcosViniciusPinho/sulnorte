@@ -40,7 +40,7 @@ public class MunicipioDTO implements Serializable {
 
     public static List<MunicipioDTO> convertListEntityToListDto(List<Municipio> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
-        List<MunicipioDTO> lista = new ArrayList<MunicipioDTO>();
+        List<MunicipioDTO> lista = new ArrayList<>();
         for(Municipio municipio : entities){
             lista.add(toDto(municipio));
         }

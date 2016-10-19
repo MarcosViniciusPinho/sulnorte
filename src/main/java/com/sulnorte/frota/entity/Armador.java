@@ -39,7 +39,7 @@ public class Armador implements Serializable {
             @JoinColumn(name = "id_porto", nullable = false)
     })
     @JsonIgnore
-    private List<Porto> portoList = new ArrayList<Porto>(0);
+    private List<Porto> portoList = new ArrayList<>(0);
 
     public Long getId() {
         return id;

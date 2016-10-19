@@ -30,7 +30,7 @@ public class ArmadorFacade<T> implements IArmadorFacade<T> {
     public List<ArmadorDTO> findAll() {
         List<ArmadorDTO> lista = ArmadorDTO.convertListEntityToListDto(this.armadorService.findAllByOrderByNomeAsc());
         if(CollectionUtils.isEmpty(lista)){
-            return new ArrayList<ArmadorDTO>();
+            return new ArrayList<>();
         }
         for(ArmadorDTO armadorDTO : lista){
             this.verificarDisponibilidadeParaExclusao(armadorDTO);

@@ -33,7 +33,7 @@ public class PaisDTO implements Serializable {
 
     public static List<PaisDTO> convertListEntityToListDto(List<Pais> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
-        List<PaisDTO> lista = new ArrayList<PaisDTO>();
+        List<PaisDTO> lista = new ArrayList<>();
         for(Pais pais : entities){
             lista.add(toDto(pais));
         }

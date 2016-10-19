@@ -33,7 +33,7 @@ public class SituacaoRebocadorDTO implements Serializable {
 
     public static List<SituacaoRebocadorDTO> convertListEntityToListDto(List<SituacaoRebocador> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
-        List<SituacaoRebocadorDTO> lista = new ArrayList<SituacaoRebocadorDTO>();
+        List<SituacaoRebocadorDTO> lista = new ArrayList<>();
         for(SituacaoRebocador situacaoRebocador : entities){
             lista.add(toDto(situacaoRebocador));
         }

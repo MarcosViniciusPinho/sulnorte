@@ -44,7 +44,7 @@ public class EstadoDTO implements Serializable {
 
     public static List<EstadoDTO> convertListEntityToListDto(List<Estado> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
-        List<EstadoDTO> lista = new ArrayList<EstadoDTO>();
+        List<EstadoDTO> lista = new ArrayList<>();
         for(Estado estado : entities){
             lista.add(toDto(estado));
         }

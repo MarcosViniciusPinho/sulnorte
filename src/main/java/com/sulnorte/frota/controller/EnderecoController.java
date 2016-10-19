@@ -33,7 +33,7 @@ public abstract class EnderecoController<V, T> extends CrudController<V, T>{
     public ResponseEntity<List<EstadoDTO>> buscaEstadosPorPais(@RequestBody Long idPais) {
         try {
             List<EstadoDTO> listarEstados = enderecoFacade.findByEstadoPerPais(idPais);
-            return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
+            return new ResponseEntity<>(listarEstados, HttpStatus.OK);
         } catch (RuntimeException ex){
             throw new ExecutionException("Erro na busca de estados", ex);
         }
@@ -50,7 +50,7 @@ public abstract class EnderecoController<V, T> extends CrudController<V, T>{
     public ResponseEntity<List<MunicipioDTO>> buscaMunicipiosPorEstado(@RequestBody Long idEstado) {
         try {
             List<MunicipioDTO> listarMunicipios = enderecoFacade.findByMunicipioPerEstado(idEstado);
-            return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
+            return new ResponseEntity<>(listarMunicipios, HttpStatus.OK);
         } catch (RuntimeException ex){
             throw new ExecutionException("Erro na busca de municipios", ex);
         }

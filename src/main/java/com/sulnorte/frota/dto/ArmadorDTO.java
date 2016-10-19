@@ -24,7 +24,7 @@ public class ArmadorDTO implements Serializable {
 
     private Endereco endereco;
 
-    private List<Porto> portoList = new ArrayList<Porto>(0);
+    private List<Porto> portoList = new ArrayList<>(0);
 
     private boolean usado;
 
@@ -55,7 +55,7 @@ public class ArmadorDTO implements Serializable {
     }
 
     public static List<ArmadorDTO> convertListEntityToListDto(List<Armador> entities){
-        List<ArmadorDTO> lista = new ArrayList<ArmadorDTO>();
+        List<ArmadorDTO> lista = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(entities)){
             for(Armador armador : entities){
                 lista.add(toDto(armador));

@@ -34,7 +34,7 @@ public class PortoFacade<T> implements IPortoFacade<T> {
     public List<PortoDTO> findAll() {
         List<PortoDTO> lista = PortoDTO.convertListEntityToListDto(this.portoService.findAllByOrderByNomeAsc());
         if(CollectionUtils.isEmpty(lista)){
-            return new ArrayList<PortoDTO>();
+            return new ArrayList<>();
         }
         for(PortoDTO portoDTO : lista){
             this.verificarDisponibilidadeParaExclusao(portoDTO);

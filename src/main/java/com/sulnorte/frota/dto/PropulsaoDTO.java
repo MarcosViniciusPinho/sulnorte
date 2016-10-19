@@ -33,7 +33,7 @@ public class PropulsaoDTO implements Serializable {
 
     public static List<PropulsaoDTO> convertListEntityToListDto(List<Propulsao> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
-        List<PropulsaoDTO> lista = new ArrayList<PropulsaoDTO>();
+        List<PropulsaoDTO> lista = new ArrayList<>();
         for(Propulsao propulsao : entities){
             lista.add(toDto(propulsao));
         }

@@ -3,6 +3,7 @@ package com.sulnorte.frota.controller;
 import com.sulnorte.frota.business.facade.IEnderecoFacade;
 import com.sulnorte.frota.dto.EstadoDTO;
 import com.sulnorte.frota.dto.MunicipioDTO;
+import com.sulnorte.frota.exception.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,8 +34,8 @@ public abstract class EnderecoController<V, T> extends CrudController<V, T>{
         try {
             List<EstadoDTO> listarEstados = enderecoFacade.findByEstadoPerPais(idPais);
             return new ResponseEntity<List<EstadoDTO>>(listarEstados, HttpStatus.OK);
-        } catch (RuntimeException ex){
-            throw new RuntimeException("Erro na busca de estados", ex);
+        } catch (ExecutionException ex){
+            throw new ExecutionException("Erro na busca de estados", ex);
         }
     }
 
@@ -50,8 +51,8 @@ public abstract class EnderecoController<V, T> extends CrudController<V, T>{
         try {
             List<MunicipioDTO> listarMunicipios = enderecoFacade.findByMunicipioPerEstado(idEstado);
             return new ResponseEntity<List<MunicipioDTO>>(listarMunicipios, HttpStatus.OK);
-        } catch (RuntimeException ex){
-            throw new RuntimeException("Erro na busca de municipios", ex);
+        } catch (ExecutionException ex){
+            throw new ExecutionException("Erro na busca de municipios", ex);
         }
     }
 

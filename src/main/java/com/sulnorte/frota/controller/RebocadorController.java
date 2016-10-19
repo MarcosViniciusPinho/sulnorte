@@ -6,6 +6,7 @@ import com.sulnorte.frota.dto.PortoDTO;
 import com.sulnorte.frota.dto.RebocadorDTO;
 import com.sulnorte.frota.entity.Armador;
 import com.sulnorte.frota.entity.Rebocador;
+import com.sulnorte.frota.exception.ExecutionException;
 import com.sulnorte.frota.exception.util.ParameterExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -118,8 +119,8 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
         try {
             List<PortoDTO> listarPortos = rebocadorFacade.findAllPortoPerArmador(idArmador);
             return new ResponseEntity<List<PortoDTO>>(listarPortos, HttpStatus.OK);
-        } catch (RuntimeException ex){
-            throw new RuntimeException("Erro na busca de portos", ex);
+        } catch (ExecutionException ex){
+            throw new ExecutionException("Erro na busca de portos", ex);
         }
     }
 

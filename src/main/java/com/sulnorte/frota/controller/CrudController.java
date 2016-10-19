@@ -1,6 +1,7 @@
 package com.sulnorte.frota.controller;
 
 import com.sulnorte.frota.business.facade.ICrudFacade;
+import com.sulnorte.frota.exception.ExecutionException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,8 +43,8 @@ public abstract class CrudController<V, T> {
             this.getFacade().save(this.convertDtoToEntity(entity));
             redirectAttributes.addFlashAttribute(SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
-        } catch (RuntimeException ex) {
-            throw new RuntimeException(ex);
+        } catch (ExecutionException ex) {
+            throw new ExecutionException(ex);
         }
     }
 
@@ -59,8 +60,8 @@ public abstract class CrudController<V, T> {
             this.getFacade().delete(id);
             redirectAttributes.addFlashAttribute(SUCESS, MENSAGEM_SUCESSO);
             return this.getRedirectViewList();
-        } catch (RuntimeException ex) {
-            throw new RuntimeException(ex);
+        } catch (ExecutionException ex) {
+            throw new ExecutionException(ex);
         }
     }
 
@@ -72,8 +73,8 @@ public abstract class CrudController<V, T> {
     public ModelAndView list(){
         try {
             return this.onList();
-        } catch (RuntimeException ex) {
-            throw new RuntimeException(ex);
+        } catch (ExecutionException ex) {
+            throw new ExecutionException(ex);
         }
     }
 

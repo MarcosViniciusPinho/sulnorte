@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FrotaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FrotaApplication.class, args);
+		SpringApplication.run(FrotaApplication.class, args);//NOSONAR veio na criação do projeto Spring Boot e não sei se o mesmo pode ser excluído.
 	}
 
 }

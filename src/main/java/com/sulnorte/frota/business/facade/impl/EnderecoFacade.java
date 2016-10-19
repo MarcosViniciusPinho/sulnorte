@@ -30,7 +30,7 @@ public class EnderecoFacade implements IEnderecoFacade {
     @Override
     public List<EstadoDTO> findByEstadoPerPais(Long idPais) {
         PaisDTO pais = PaisDTO.toDto(this.paisService.getOne(idPais));
-        return EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais((pais.toEntity())));
+        return EstadoDTO.convertListEntityToListDto(this.estadoService.findByPais(pais.toEntity()));
     }
 
     /**

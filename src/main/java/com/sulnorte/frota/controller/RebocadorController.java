@@ -26,7 +26,6 @@ public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>
 
     private static final String LISTAR_REBOCADORES = "listarRebocadores";
     private static final String LISTAR_ARMADORES = "listarArmadores";
-    private static final String LISTAR_PORTOS = "listarPortos";
     private static final String LISTAR_PROPULSOES = "listarPropulsoes";
     private static final String LISTAR_SITUACOES = "listarSituacoes";
     private static final String PATH_REBOCADOR = "rebocador";

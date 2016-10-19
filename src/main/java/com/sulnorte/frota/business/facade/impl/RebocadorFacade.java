@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Service
 public class RebocadorFacade<T> implements IRebocadorFacade<T> {
 

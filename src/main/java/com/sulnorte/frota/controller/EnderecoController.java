@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo gerenciamento entre a view e camada business.
+ * Esta classe somente é usada em dois momentos, uma é em Porto e a outra é em Armador.
+ * @param <V> dto
+ * @param <T> entidade
+ */
 public abstract class EnderecoController<V, T> extends CrudController<V, T>{
 
     @Autowired

@@ -7,6 +7,10 @@ import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
 
 import java.util.List;
 
+/**
+ * Classe responsável pela interação do Rebocador, além de fornecer informações de Propulsão e Situação.
+ * @param <T> parâmetro genérico que é passado o Rebocador.
+ */
 public interface IRebocadorFacade<T> extends ICrudFacade<T> {
 
     /**

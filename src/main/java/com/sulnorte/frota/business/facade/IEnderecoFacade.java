@@ -6,6 +6,9 @@ import com.sulnorte.frota.dto.PaisDTO;
 
 import java.util.List;
 
+/**
+ * Classe responsável por disponibilizar informações de Pais, Estado e Municipio.
+ */
 public interface IEnderecoFacade {
 
     /**

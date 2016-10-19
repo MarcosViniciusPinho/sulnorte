@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo repositório de Porto.
+ */
 public interface IPortoService extends ICrudService<Porto>{
 
     /**

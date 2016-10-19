@@ -4,6 +4,9 @@ import com.sulnorte.frota.entity.Filial;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo repositório de Filial.
+ */
 public interface IFilialService extends ICrudService<Filial> {
 
     /**

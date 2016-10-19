@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Classe responsável pelo gerenciamento entre a view e a camada business.
+ */
 @Controller
 @RequestMapping("/cadastro/armador")
 public class ArmadorController extends EnderecoController<ArmadorDTO, Armador>{

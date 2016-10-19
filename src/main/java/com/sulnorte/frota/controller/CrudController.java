@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+/**
+ * Classe responsável por executar o CRUD da aplicação, assim como todos os métodos comuns que todos utilizem em todoo o sistema.
+ * @param <V> dto
+ * @param <T> entidade
+ */
 public abstract class CrudController<V, T> {
 
     private static final String ACTION_LIST = "/list";

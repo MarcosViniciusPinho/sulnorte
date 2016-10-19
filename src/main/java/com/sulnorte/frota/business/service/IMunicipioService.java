@@ -5,6 +5,9 @@ import com.sulnorte.frota.entity.Municipio;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo repositório de Municipio.
+ */
 public interface IMunicipioService extends ICrudService<Municipio> {
 
     /**

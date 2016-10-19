@@ -4,6 +4,10 @@ import com.sulnorte.frota.dto.ArmadorDTO;
 
 import java.util.List;
 
+/**
+ * Classe responsável pela interação do Armador.
+ * @param <T> parâmetro genérico que é passado o Armador.
+ */
 public interface IArmadorFacade<T> extends ICrudFacade<T> {
 
     /**

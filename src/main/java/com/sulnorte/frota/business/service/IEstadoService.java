@@ -5,6 +5,9 @@ import com.sulnorte.frota.entity.Pais;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo repositório de Estado.
+ */
 public interface IEstadoService extends ICrudService<Estado> {
 
     /**

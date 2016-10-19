@@ -12,15 +12,27 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Service
 public class EnderecoFacade implements IEnderecoFacade {
 
+    /**
+     * Injeção de dependência para utilizar o serviço de pais
+     */
     @Autowired
     public IPaisService paisService;
 
+    /**
+     * Injeção de dependência para utilizar o serviço de estado
+     */
     @Autowired
     public IEstadoService estadoService;
 
+    /**
+     * Injeção de dependência para utilizar o serviço de municipio
+     */
     @Autowired
     public IMunicipioService municipioService;
 

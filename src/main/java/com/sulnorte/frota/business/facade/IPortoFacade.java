@@ -5,6 +5,10 @@ import com.sulnorte.frota.dto.PortoDTO;
 
 import java.util.List;
 
+/**
+ * Classe responsável pela interação do Porto, além de fornecer informações de Filial.
+ * @param <T> parâmetro genérico que é passado o Porto.
+ */
 public interface IPortoFacade<T> extends ICrudFacade<T> {
 
     /**

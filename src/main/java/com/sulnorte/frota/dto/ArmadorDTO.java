@@ -12,6 +12,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa a tela em Armador.
+ */
 public class ArmadorDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,6 +31,10 @@ public class ArmadorDTO implements Serializable {
 
     private boolean usado;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Armador
+     */
     public Armador toEntity(){
         Armador armador = new Armador();
         armador.setId(this.getId());
@@ -38,6 +45,11 @@ public class ArmadorDTO implements Serializable {
         return armador;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param armador armador
+     * @return ArmadorDTO
+     */
     public static ArmadorDTO toDto(Armador armador){
         ParameterExceptionUtil.validateObjectNull(armador);
         ArmadorDTO armadorDTO = new ArmadorDTO();
@@ -49,11 +61,22 @@ public class ArmadorDTO implements Serializable {
         return armadorDTO;
     }
 
+    /**
+     * Método que faz o cast de uma classe genérica para a classe Armador
+     * @param entity entity
+     * @param <T> classe generica
+     * @return Armador
+     */
     public static <T> Armador beforeFromSaveConvertToArmador(T entity){
         ParameterExceptionUtil.validateObjectNull(entity);
         return (Armador)entity;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<ArmadorDTO>
+     */
     public static List<ArmadorDTO> convertListEntityToListDto(List<Armador> entities){
         List<ArmadorDTO> lista = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(entities)){

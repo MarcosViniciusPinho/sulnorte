@@ -1,9 +1,13 @@
 package com.sulnorte.frota.business.facade;
 
+/**
+ * Classe genérica para fazer as ações comuns que são de salvar,alterar e deletar.
+ * @param <T> entidade.
+ */
 public interface ICrudFacade<T> {
 
     /**
-     * Método que salva a entidade no banco.
+     * Método que salva/altera a entidade no banco.
      * @param entity entity
      */
     void save(T entity);

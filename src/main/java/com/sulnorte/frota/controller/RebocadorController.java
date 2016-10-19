@@ -20,6 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo gerenciamento entre a view e a camada business.
+ */
 @Controller
 @RequestMapping("/cadastro/rebocador")
 public class RebocadorController extends CrudController<RebocadorDTO, Rebocador>{

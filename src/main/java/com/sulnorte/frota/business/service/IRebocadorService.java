@@ -4,6 +4,9 @@ import com.sulnorte.frota.entity.Rebocador;
 
 import java.util.List;
 
+/**
+ * Classe responsável pelo repositório de Rebocador.
+ */
 public interface IRebocadorService extends ICrudService<Rebocador>{
 
     /**

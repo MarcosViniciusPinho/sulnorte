@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que compõe a tela de Rebocador.
+ */
 public class SituacaoRebocadorDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +19,10 @@ public class SituacaoRebocadorDTO implements Serializable {
 
     private String nome;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return SituacaoRebocador
+     */
     public SituacaoRebocador toEntity(){
         SituacaoRebocador situacaoRebocador = new SituacaoRebocador();
         situacaoRebocador.setId(this.getId());
@@ -23,6 +30,11 @@ public class SituacaoRebocadorDTO implements Serializable {
         return situacaoRebocador;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param situacaoRebocador situacaoRebocador
+     * @return SituacaoRebocadorDTO
+     */
     public static SituacaoRebocadorDTO toDto(SituacaoRebocador situacaoRebocador){
         ParameterExceptionUtil.validateObjectNull(situacaoRebocador);
         SituacaoRebocadorDTO situacaoRebocadorDTO = new SituacaoRebocadorDTO();
@@ -31,6 +43,11 @@ public class SituacaoRebocadorDTO implements Serializable {
         return situacaoRebocadorDTO;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<SituacaoRebocadorDTO>
+     */
     public static List<SituacaoRebocadorDTO> convertListEntityToListDto(List<SituacaoRebocador> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
         List<SituacaoRebocadorDTO> lista = new ArrayList<>();

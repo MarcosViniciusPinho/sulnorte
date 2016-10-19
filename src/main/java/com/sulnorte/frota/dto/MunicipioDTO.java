@@ -10,6 +10,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que compõe as telas de Porto e Armador.
+ */
 public class MunicipioDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,6 +24,10 @@ public class MunicipioDTO implements Serializable {
     @JsonIgnore
     private Estado estado;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Municipio
+     */
     public Municipio toEntity(){
         Municipio estadoOther = new Municipio();
         estadoOther.setId(this.getId());
@@ -29,6 +36,11 @@ public class MunicipioDTO implements Serializable {
         return estadoOther;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param municipio municipio
+     * @return MunicipioDTO
+     */
     public static MunicipioDTO toDto(Municipio municipio){
         ParameterExceptionUtil.validateObjectNull(municipio);
         MunicipioDTO municipioDTO = new MunicipioDTO();
@@ -38,6 +50,11 @@ public class MunicipioDTO implements Serializable {
         return municipioDTO;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<MunicipioDTO>
+     */
     public static List<MunicipioDTO> convertListEntityToListDto(List<Municipio> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
         List<MunicipioDTO> lista = new ArrayList<>();

@@ -10,6 +10,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que compõe as telas de Porto e Armador.
+ */
 public class EstadoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,6 +26,10 @@ public class EstadoDTO implements Serializable {
     @JsonIgnore
     private Pais pais;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Estado
+     */
     public Estado toEntity(){
         Estado estado = new Estado();
         estado.setId(this.getId());
@@ -32,6 +39,11 @@ public class EstadoDTO implements Serializable {
         return estado;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param estado estado
+     * @return ArmadorDTO
+     */
     public static EstadoDTO toDto(Estado estado){
         ParameterExceptionUtil.validateObjectNull(estado);
         EstadoDTO estadoDTO = new EstadoDTO();
@@ -42,6 +54,11 @@ public class EstadoDTO implements Serializable {
         return estadoDTO;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<EstadoDTO>
+     */
     public static List<EstadoDTO> convertListEntityToListDto(List<Estado> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
         List<EstadoDTO> lista = new ArrayList<>();

@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que compõe a tela de Porto.
+ */
 public class FilialDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +19,10 @@ public class FilialDTO implements Serializable {
 
     private String nome;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Filial
+     */
     public Filial toEntity(){
         Filial filial = new Filial();
         filial.setId(this.getId());
@@ -23,6 +30,11 @@ public class FilialDTO implements Serializable {
         return filial;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param filial filial
+     * @return FilialDTO
+     */
     public static FilialDTO toDto(Filial filial){
         ParameterExceptionUtil.validateObjectNull(filial);
         FilialDTO filialDTO = new FilialDTO();
@@ -31,6 +43,11 @@ public class FilialDTO implements Serializable {
         return filialDTO;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<FilialDTO>
+     */
     public static List<FilialDTO> convertListEntityToListDto(List<Filial> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
         List<FilialDTO> lista = new ArrayList<>();

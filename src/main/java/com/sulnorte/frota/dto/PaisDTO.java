@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que compõe as telas de Porto e Armador.
+ */
 public class PaisDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +19,10 @@ public class PaisDTO implements Serializable {
 
     private String nome;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Pais
+     */
     public Pais toEntity(){
         Pais pais = new Pais();
         pais.setId(this.getId());
@@ -23,6 +30,11 @@ public class PaisDTO implements Serializable {
         return pais;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param pais pais
+     * @return PaisDTO
+     */
     public static PaisDTO toDto(Pais pais){
         ParameterExceptionUtil.validateObjectNull(pais);
         PaisDTO paisDTO = new PaisDTO();
@@ -31,6 +43,11 @@ public class PaisDTO implements Serializable {
         return paisDTO;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<PaisDTO>
+     */
     public static List<PaisDTO> convertListEntityToListDto(List<Pais> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
         List<PaisDTO> lista = new ArrayList<>();

@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que compõe a tela de Rebocador.
+ */
 public class PropulsaoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +19,10 @@ public class PropulsaoDTO implements Serializable {
 
     private String nome;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Propulsao
+     */
     public Propulsao toEntity(){
         Propulsao propulsao = new Propulsao();
         propulsao.setId(this.getId());
@@ -23,6 +30,11 @@ public class PropulsaoDTO implements Serializable {
         return propulsao;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param propulsao propulsao
+     * @return PropulsaoDTO
+     */
     public static PropulsaoDTO toDto(Propulsao propulsao){
         ParameterExceptionUtil.validateObjectNull(propulsao);
         PropulsaoDTO propulsaoDTO = new PropulsaoDTO();
@@ -31,6 +43,11 @@ public class PropulsaoDTO implements Serializable {
         return propulsaoDTO;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<PropulsaoDTO>
+     */
     public static List<PropulsaoDTO> convertListEntityToListDto(List<Propulsao> entities){
         ParameterExceptionUtil.validateCollectionNull(entities);
         List<PropulsaoDTO> lista = new ArrayList<>();

@@ -13,6 +13,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa a tela em Porto.
+ */
 public class PortoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,6 +32,10 @@ public class PortoDTO implements Serializable {
 
     private boolean usado;
 
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Porto
+     */
     public Porto toEntity(){
         Porto porto = new Porto();
         porto.setId(this.getId());
@@ -39,6 +46,11 @@ public class PortoDTO implements Serializable {
         return porto;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param porto porto
+     * @return PortoDTO
+     */
     public static PortoDTO toDto(Porto porto){
         ParameterExceptionUtil.validateObjectNull(porto);
         PortoDTO portoDTO = new PortoDTO();
@@ -50,11 +62,22 @@ public class PortoDTO implements Serializable {
         return portoDTO;
     }
 
+    /**
+     * Método que faz o cast de uma classe genérica para a classe Porto
+     * @param entity entity
+     * @param <T> classe generica
+     * @return Porto
+     */
     public static <T> Porto beforeFromSaveConvertToPorto(T entity){
         ParameterExceptionUtil.validateObjectNull(entity);
         return (Porto)entity;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<PortoDTO>
+     */
     public static List<PortoDTO> convertListEntityToListDto(List<Porto> entities){
         List<PortoDTO> lista = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(entities)){

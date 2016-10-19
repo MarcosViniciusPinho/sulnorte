@@ -11,6 +11,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa a tela em Rebocador.
+ */
 public class RebocadorDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,7 +38,10 @@ public class RebocadorDTO implements Serializable {
 
     private Porto porto;
 
-
+    /**
+     * Método que converte um dto para uma entidade.
+     * @return Rebocador
+     */
     public Rebocador toEntity(){
         Rebocador rebocador = new Rebocador();
         rebocador.setId(this.getId());
@@ -51,6 +57,11 @@ public class RebocadorDTO implements Serializable {
         return rebocador;
     }
 
+    /**
+     * Método que converte uma entidade para um dto.
+     * @param rebocador rebocador
+     * @return RebocadorDTO
+     */
     public static RebocadorDTO toDto(Rebocador rebocador){
         ParameterExceptionUtil.validateObjectNull(rebocador);
         RebocadorDTO rebocadorDTO = new RebocadorDTO();
@@ -67,11 +78,22 @@ public class RebocadorDTO implements Serializable {
         return rebocadorDTO;
     }
 
+    /**
+     * Método que faz o cast de uma classe genérica para a classe Rebocador
+     * @param entity entity
+     * @param <T> classe generica
+     * @return Rebocador
+     */
     public static <T> Rebocador beforeFromSaveConvertToRebocador(T entity){
         ParameterExceptionUtil.validateObjectNull(entity);
         return (Rebocador)entity;
     }
 
+    /**
+     * Método que converte uma lista de entidade para uma lista de dto.
+     * @param entities entities
+     * @return List<RebocadorDTO>
+     */
     public static List<RebocadorDTO> convertListEntityToListDto(List<Rebocador> entities){
         List<RebocadorDTO> lista = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(entities)){

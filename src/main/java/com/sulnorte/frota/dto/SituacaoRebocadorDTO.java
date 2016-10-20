@@ -75,8 +75,12 @@ public class SituacaoRebocadorDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof SituacaoRebocadorDTO)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof SituacaoRebocadorDTO)) {
+            return false;
+        }
         SituacaoRebocadorDTO that = (SituacaoRebocadorDTO) o;
         return id != null ? id.equals(that.id) : that.id == null;
     }

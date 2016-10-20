@@ -75,8 +75,12 @@ public class PropulsaoDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PropulsaoDTO)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof PropulsaoDTO)) {
+            return false;
+        }
         PropulsaoDTO that = (PropulsaoDTO) o;
         return id != null ? id.equals(that.id) : that.id == null;
     }

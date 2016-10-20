@@ -143,8 +143,12 @@ public class PortoDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PortoDTO)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof PortoDTO)) {
+            return false;
+        }
         PortoDTO portoDTO = (PortoDTO) o;
         return id != null ? id.equals(portoDTO.id) : portoDTO.id == null;
     }

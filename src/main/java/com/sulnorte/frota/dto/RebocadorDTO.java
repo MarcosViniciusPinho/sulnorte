@@ -187,8 +187,12 @@ public class RebocadorDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof RebocadorDTO)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof RebocadorDTO)) {
+            return false;
+        }
         RebocadorDTO that = (RebocadorDTO) o;
         return id != null ? id.equals(that.id) : that.id == null;
     }

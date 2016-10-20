@@ -39,8 +39,12 @@ public class Pais implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pais)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Pais)) {
+            return false;
+        }
         Pais pais = (Pais) o;
         return id != null ? id.equals(pais.id) : pais.id == null;
     }

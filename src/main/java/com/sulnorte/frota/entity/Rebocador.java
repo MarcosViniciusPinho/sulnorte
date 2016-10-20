@@ -139,8 +139,12 @@ public class Rebocador implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Rebocador)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Rebocador)) {
+            return false;
+        }
         Rebocador rebocador = (Rebocador) o;
         return id != null ? id.equals(rebocador.id) : rebocador.id == null;
     }

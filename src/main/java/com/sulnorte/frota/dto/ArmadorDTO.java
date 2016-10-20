@@ -145,8 +145,12 @@ public class ArmadorDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ArmadorDTO)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ArmadorDTO)) {
+            return false;
+        }
         ArmadorDTO that = (ArmadorDTO) o;
         return id != null ? id.equals(that.id) : that.id == null;
     }

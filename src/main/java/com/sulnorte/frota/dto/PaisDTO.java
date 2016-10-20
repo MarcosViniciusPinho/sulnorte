@@ -75,8 +75,12 @@ public class PaisDTO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PaisDTO)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof PaisDTO)) {
+            return false;
+        }
         PaisDTO paisDTO = (PaisDTO) o;
         return id != null ? id.equals(paisDTO.id) : paisDTO.id == null;
     }

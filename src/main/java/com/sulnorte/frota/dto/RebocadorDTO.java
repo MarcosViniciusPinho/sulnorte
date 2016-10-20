@@ -104,85 +104,84 @@ public class RebocadorDTO implements Serializable {
         return lista;
     }
 
-
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Long getId() {
+        return id;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Integer getAno() {
-        return ano;
+    public String getNome() {
+        return nome;
     }
 
     public void setAno(Integer ano) {
         this.ano = ano;
     }
 
-    public String getBp() {
-        return bp;
+    public Integer getAno() {
+        return ano;
     }
 
     public void setBp(String bp) {
         this.bp = bp;
     }
 
-    public String getBhp() {
-        return bhp;
+    public String getBp() {
+        return bp;
     }
 
     public void setBhp(String bhp) {
         this.bhp = bhp;
     }
 
-    public String getObservacao() {
-        return observacao;
+    public String getBhp() {
+        return bhp;
     }
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
 
-    public SituacaoRebocador getSituacaoRebocador() {
-        return situacaoRebocador;
+    public String getObservacao() {
+        return observacao;
     }
 
     public void setSituacaoRebocador(SituacaoRebocador situacaoRebocador) {
         this.situacaoRebocador = situacaoRebocador;
     }
 
-    public Propulsao getPropulsao() {
-        return propulsao;
+    public SituacaoRebocador getSituacaoRebocador() {
+        return situacaoRebocador;
     }
 
     public void setPropulsao(Propulsao propulsao) {
         this.propulsao = propulsao;
     }
 
-    public Armador getArmador() {
-        return armador;
+    public Propulsao getPropulsao() {
+        return propulsao;
     }
 
     public void setArmador(Armador armador) {
         this.armador = armador;
     }
 
-    public Porto getPorto() {
-        return porto;
+    public Armador getArmador() {
+        return armador;
     }
 
     public void setPorto(Porto porto) {
         this.porto = porto;
+    }
+
+    public Porto getPorto() {
+        return porto;
     }
 
     @Override

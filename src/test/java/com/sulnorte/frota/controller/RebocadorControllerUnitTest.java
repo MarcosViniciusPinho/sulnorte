@@ -4,10 +4,7 @@ import com.sulnorte.frota.business.facade.IArmadorFacade;
 import com.sulnorte.frota.business.facade.IEnderecoFacade;
 import com.sulnorte.frota.business.facade.IPortoFacade;
 import com.sulnorte.frota.business.facade.IRebocadorFacade;
-import com.sulnorte.frota.dto.ArmadorDTO;
-import com.sulnorte.frota.dto.PropulsaoDTO;
-import com.sulnorte.frota.dto.RebocadorDTO;
-import com.sulnorte.frota.dto.SituacaoRebocadorDTO;
+import com.sulnorte.frota.dto.*;
 import com.sulnorte.frota.entity.Armador;
 import com.sulnorte.frota.entity.Porto;
 import com.sulnorte.frota.entity.Rebocador;
@@ -19,6 +16,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -201,6 +200,28 @@ public class RebocadorControllerUnitTest {
 	@Test(expected = NullParameterException.class)
 	public void testConvertDtoToEntityNull(){
 		Assert.assertNull(this.rebocadorController.convertDtoToEntity(null));
+	}
+
+	@Test
+	public void testBuscaPortosPorArmador(){
+		Long idArmador = 2L;
+		PortoDTO portoDTO = new PortoDTO();
+		portoDTO.setId(1L);
+		List<PortoDTO> portoDTOList = new ArrayList<>();
+		portoDTOList.add(portoDTO);
+		ResponseEntity<List<PortoDTO>> resultadoEsperado = new ResponseEntity<>(portoDTOList, HttpStatus.OK);
+		Mockito.when(rebocadorFacade.findAllPortoPerArmador(idArmador)).thenReturn(portoDTOList);
+		Assert.assertNotNull(this.rebocadorController.buscaPortosPorArmador(idArmador));
+		Assert.assertEquals(resultadoEsperado, this.rebocadorController.buscaPortosPorArmador(idArmador));
+	}
+
+	@Test
+	public void testBuscaPortosPorArmadorEmpty(){
+		Long idArmador = 2L;
+		ResponseEntity<List<PortoDTO>> resultadoEsperado = new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
+		Mockito.when(rebocadorFacade.findAllPortoPerArmador(idArmador)).thenReturn(new ArrayList<>());
+		Assert.assertNotNull(this.rebocadorController.buscaPortosPorArmador(idArmador));
+		Assert.assertEquals(resultadoEsperado, this.rebocadorController.buscaPortosPorArmador(idArmador));
 	}
 
 }

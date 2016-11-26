@@ -1,5 +1,5 @@
 CREATE TABLE rebocador(
-  id INTEGER NOT NULL,
+  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
   ano INTEGER,
   bp NUMERIC(10,2),
@@ -10,8 +10,6 @@ CREATE TABLE rebocador(
   id_armador INTEGER NOT NULL,
   id_porto INTEGER NOT NULL
 );
-
-ALTER TABLE rebocador ADD CONSTRAINT pk_id_rebocador PRIMARY KEY (id);
 
 ALTER TABLE rebocador ADD CONSTRAINT fk_sire_id FOREIGN KEY (id_situacao_rebocador) REFERENCES situacao_rebocador (id);
 

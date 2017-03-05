@@ -10,5 +10,4 @@ public class FrotaApplication {//NOSONAR veio na criação do projeto Spring Boo
 		SpringApplication.run(FrotaApplication.class, args);//NOSONAR veio na criação do projeto Spring Boot e não sei se o mesmo pode ser excluído.
 	}
 
-
 }
